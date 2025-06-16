@@ -15,13 +15,6 @@ const SkillsScroll = () => {
     'Graphic Design'
   ];
 
-  const skillIcons = [
-    { type: 'icon', delay: 0 },
-    { type: 'icon', delay: 0.8 },
-    { type: 'icon', delay: 1.6 },
-    { type: 'icon', delay: 2.4 }
-  ];
-
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -46,7 +39,7 @@ const SkillsScroll = () => {
   const renderSkillItem = (skill: string, index: number) => (
     <div
       key={`skill-${index}`}
-      className="px-6 py-3 border border-gray-700 rounded-lg text-2xl font-medium text-gray-800 uppercase flex-shrink-0"
+      className="px-6 py-3 border border-gray-700 rounded-lg text-2xl font-medium text-gray-800 uppercase flex-shrink-0 transition-colors duration-500"
     >
       {skill}
     </div>
@@ -55,9 +48,9 @@ const SkillsScroll = () => {
   const renderSkillIcon = (iconIndex: number, delay: number) => (
     <div
       key={`icon-${iconIndex}`}
-      className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-xl flex-shrink-0 opacity-80"
+      className="w-16 h-16 bg-gradient-to-br from-indigo-300 to-purple-400 rounded-xl flex-shrink-0 opacity-60"
       style={{
-        animation: `float 6s ease-in-out infinite`,
+        animation: `float 8s ease-in-out infinite`,
         animationDelay: `${delay}s`,
       }}
     />
@@ -69,7 +62,7 @@ const SkillsScroll = () => {
         ref={trackRef}
         className="flex items-center gap-[45px] whitespace-nowrap"
         style={{
-          animation: 'scroll-skills 20s linear infinite',
+          animation: 'scroll-skills 25s linear infinite',
         }}
       >
         {/* First set */}
