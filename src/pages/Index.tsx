@@ -229,9 +229,15 @@ const Index = () => {
               <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <div className="w-full h-[887px] bg-gradient-to-br from-slate-50 to-gray-200 relative">
                   {/* HOPE project floating elements */}
-                  <FloatingElement className="absolute top-[316px] right-[120px] w-[51px] h-[59px] bg-gradient-to-br from-orange-300 to-orange-500 rounded-[26px]" delay={0} />
-                  <FloatingElement className="absolute top-[131px] right-[122px] w-[105px] h-[133px] bg-gradient-to-br from-purple-400 to-purple-600 rounded-[26px]" delay={1.5} />
-                  <FloatingElement className="absolute bottom-[96px] left-[44px] w-[107px] h-[136px] bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[26px]" delay={3} />
+                  <FloatingElement className="absolute top-[316px] right-[120px] w-[51px] h-[59px]" delay={0}>
+                    <div className="w-full h-full bg-gradient-to-br from-orange-300 to-orange-500 rounded-[26px]" />
+                  </FloatingElement>
+                  <FloatingElement className="absolute top-[131px] right-[122px] w-[105px] h-[133px]" delay={1.5}>
+                    <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-[26px]" />
+                  </FloatingElement>
+                  <FloatingElement className="absolute bottom-[96px] left-[44px] w-[107px] h-[136px]" delay={3}>
+                    <div className="w-full h-full bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[26px]" />
+                  </FloatingElement>
                 </div>
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
