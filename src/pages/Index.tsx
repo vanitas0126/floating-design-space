@@ -140,7 +140,7 @@ const Index = () => {
         <div className="absolute top-[60px] left-0 w-full z-10 opacity-100">
           <button
             onClick={scrollToTop}
-            className="absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-500 hover:scale-105"
+            className="absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           >
             UX.Song
           </button>
@@ -148,19 +148,19 @@ const Index = () => {
           <nav className="absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
             <button
               onClick={() => scrollToSection('work')}
-              className="cursor-pointer transition-all duration-500 hover:scale-105 hover:text-indigo-600"
+              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             >
               Work
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="cursor-pointer transition-all duration-500 hover:scale-105 hover:text-indigo-600"
+              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="cursor-pointer transition-all duration-500 hover:scale-105 hover:text-indigo-600"
+              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             >
               Contact
             </button>
@@ -169,7 +169,7 @@ const Index = () => {
 
         {/* Hero Section */}
         <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
-          {/* Floating Elements with slower, more natural motion */}
+          {/* Floating Elements with children */}
           <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px]" delay={0.8}>
             <div className="w-full h-full bg-gradient-to-br from-purple-400 to-indigo-500 rounded-3xl opacity-70" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
