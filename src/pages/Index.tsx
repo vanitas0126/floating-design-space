@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
 import FloatingElement from '@/components/FloatingElement';
@@ -43,7 +42,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 relative overflow-x-hidden">
       <LiquidCursor />
-      <ScrollHeader activeSection={activeSection} onNavigate={scrollToSection} />
+      <ScrollHeader />
       
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-40 p-6 md:p-8">
@@ -75,7 +74,7 @@ const Index = () => {
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-background.jpg" 
+            src="/images/heroimg.png" 
             alt="Hero Background" 
             className="w-full h-full object-cover opacity-20"
           />
@@ -83,19 +82,19 @@ const Index = () => {
 
         {/* Floating Images */}
         <FloatingElement className="absolute top-1/4 left-1/4 w-20 h-20 z-10" delay={0}>
-          <img src="/images/floating-cheese.png" alt="Floating element" className="w-full h-full object-contain" />
+          <img src="/images/cheese.png" alt="Floating element" className="w-full h-full object-contain" />
         </FloatingElement>
         
         <FloatingElement className="absolute top-1/3 right-1/4 w-16 h-16 z-10" delay={1.5}>
-          <img src="/images/floating-ellipse.png" alt="Floating element" className="w-full h-full object-contain" />
+          <img src="/images/elipse.png" alt="Floating element" className="w-full h-full object-contain" />
         </FloatingElement>
         
         <FloatingElement className="absolute bottom-1/3 left-1/3 w-24 h-24 z-10" delay={3}>
-          <img src="/images/floating-ball.png" alt="Floating element" className="w-full h-full object-contain" />
+          <img src="/images/ball.png" alt="Floating element" className="w-full h-full object-contain" />
         </FloatingElement>
         
         <FloatingElement className="absolute bottom-1/4 right-1/3 w-18 h-18 z-10" delay={4.5}>
-          <img src="/images/floating-glass.png" alt="Floating element" className="w-full h-full object-contain" />
+          <img src="/images/glass.png" alt="Floating element" className="w-full h-full object-contain" />
         </FloatingElement>
 
         {/* Hero Text */}
@@ -149,7 +148,7 @@ const Index = () => {
             <div className="group cursor-pointer">
               <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
                 <img 
-                  src="/images/hope-project.jpg" 
+                  src="/images/hopeposter.png" 
                   alt="HOPE Project" 
                   className="w-full h-full object-cover"
                 />
@@ -172,7 +171,7 @@ const Index = () => {
             <div className="group cursor-pointer">
               <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
                 <img 
-                  src="/images/madmax-project.jpg" 
+                  src="/images/madmax.png" 
                   alt="MAD MAX Project" 
                   className="w-full h-full object-cover"
                 />
@@ -188,7 +187,7 @@ const Index = () => {
             <div className="group cursor-pointer">
               <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
                 <img 
-                  src="/images/music-player-project.jpg" 
+                  src="/images/musicplayer.png" 
                   alt="PIXEL MUSIC PLAYER Project" 
                   className="w-full h-full object-cover"
                 />
@@ -201,7 +200,7 @@ const Index = () => {
             <div className="group cursor-pointer">
               <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
                 <img 
-                  src="/images/nigeria-railway-project.jpg" 
+                  src="/images/nigeria.png" 
                   alt="NIGERIA RAILWAY Project" 
                   className="w-full h-full object-cover"
                 />
@@ -222,7 +221,7 @@ const Index = () => {
           <AnimatedSection delay={100}>
             <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden">
               <img 
-                src="/images/profile-photo.jpg" 
+                src="/images/face.png" 
                 alt="Songhee's Profile" 
                 className="w-full h-full object-cover"
               />
@@ -311,7 +310,7 @@ const Index = () => {
           <AnimatedSection delay={100}>
             <div className="w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
               <img 
-                src="/images/contact-background.jpg" 
+                src="/images/emailme.png" 
                 alt="Contact Background" 
                 className="w-full h-full object-cover"
               />
