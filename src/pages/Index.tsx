@@ -196,7 +196,7 @@ const Index = () => {
         {/* Hero Section */}
         <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
           {/* Hero Background */}
-          <div className="absolute inset-0 w-full h-full">
+          <div className="absolute inset-0 w-full h-full z-50">
             <img src="/images/heroimg.png" alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
           </div>
 
@@ -233,7 +233,7 @@ const Index = () => {
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
             </AnimatedSection>
             <AnimatedSection delay={200} className="flex-1 w-[520px]">
-              <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
+              <p><span className="text-white">just decoration. That's why I value</span> purposeful layout, readable <span className="text-white">hierarchy, and design systems</span> that scale. Design isn't about <span className="text-white">finishing fast. It's about</span> reducing friction through decisions that make sense and visuals that speak clearly.</p>
             </AnimatedSection>
             <AnimatedSection delay={300} className="flex-1 w-[520px]">
               <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
