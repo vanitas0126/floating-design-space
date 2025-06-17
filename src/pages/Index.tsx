@@ -196,30 +196,30 @@ const Index = () => {
 
         {/* Hero Section */}
         <section className="absolute top-[300px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
-          {/* Hero Background - moved to front with highest z-index */}
-          <div className="absolute inset-0 w-full h-full z-30">
+          {/* Hero Background */}
+          <div className="absolute inset-0 w-full h-full">
             <img src="/images/heroimg.png" alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
           </div>
 
-          {/* Floating Elements with children - moved behind hero image */}
-          <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] z-20" delay={0.8}>
+          {/* Floating Elements with children */}
+          <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px]" delay={0.8}>
             <img src="/images/cheese.png" alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
           
-          <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px] z-20" delay={1.6}>
+          <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px]" delay={1.6}>
             <img src="/images/elipse.png" alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
           </FloatingElement>
           
-          <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px] z-20" delay={2.4}>
+          <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px]" delay={2.4}>
             <img src="/images/ball.png" alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
           </FloatingElement>
           
-          <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px] z-20" delay={0.4}>
+          <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px]" delay={0.4}>
             <img src="/images/glass.png" alt="Floating glass" className="w-full h-full object-contain" />
           </FloatingElement>
 
-          {/* Hero Text - moved to highest z-index to be visible above hero image */}
-          <AnimatedSection delay={300} className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed z-40">
+          {/* Hero Text */}
+          <AnimatedSection delay={300} className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed">
             <p className="text-lg text-gray-900 mb-2">Design is more than just a few tricks to the eye.</p>
             <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
               It's a few tricks to the brain
@@ -242,23 +242,23 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section - returned to original position */}
+        {/* Skills Section */}
         <AnimatedSection className="absolute top-[1225px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
           <SkillsScroll />
         </AnimatedSection>
 
-        {/* Work Section - moved further down to create more spacing */}
-        <section id="work" className="absolute top-[1500px] left-0 w-full">
+        {/* Work Section */}
+        <section id="work" className="absolute top-[1400px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
+              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[80px]">Work</h2>
             </AnimatedSection>
           </div>
 
-          {/* Project Row 1 - reduced top spacing */}
-          <div className="absolute top-[140px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          {/* Project Row 1 */}
+          <div className="absolute top-[180px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[20px] relative">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
                 <img 
                   src="/images/hopeposter.png" 
                   alt="HOPE Project" 
@@ -269,7 +269,7 @@ const Index = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[20px] relative">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
                 <img 
                   src="/images/madmax.png" 
                   alt="MAD MAX Project" 
@@ -280,10 +280,10 @@ const Index = () => {
             </AnimatedSection>
           </div>
 
-          {/* Project Row 2 - adjusted spacing */}
-          <div className="absolute top-[1081px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          {/* Project Row 2 */}
+          <div className="absolute top-[1301px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[20px] relative">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
                 <img 
                   src="/images/musicplayer.png" 
                   alt="PIXEL MUSIC PLAYER Project" 
@@ -294,7 +294,7 @@ const Index = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[20px] relative">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
                 <img 
                   src="/images/nigeria.png" 
                   alt="NIGERIA RAILWAY Project" 
@@ -332,23 +332,23 @@ const Index = () => {
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section - adjusted spacing */}
+              {/* Experience Section */}
               <div className="w-[805px] h-[400px] flex flex-col justify-center">
-                <AnimatedSection delay={400} className="py-[20px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={400} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={500} className="py-[20px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={500} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600} className="py-[20px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={600} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
