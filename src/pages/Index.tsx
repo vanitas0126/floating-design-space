@@ -302,7 +302,7 @@ const Index = () => {
         {/* About Section */}
         <section id="about" className="absolute top-[3800px] left-0 w-full about-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection animationType="rotate" duration={1.5}>
+            <EnhancedAnimatedSection animationType="scale" duration={1.5}>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
             </EnhancedAnimatedSection>
           </div>
@@ -357,7 +357,7 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact" className="relative top-[5100px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection delay={0.1} animationType="rotate">
+            <EnhancedAnimatedSection delay={0.1} animationType="scale">
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
             </EnhancedAnimatedSection>
           </div>
@@ -400,7 +400,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Background Image - 투명도 제거 */}
+          {/* Background Image - 기울어짐 제거 */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <EnhancedAnimatedSection delay={0.1} animationType="scale">
               <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
