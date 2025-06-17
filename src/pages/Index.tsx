@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -229,7 +228,7 @@ const Index = () => {
 
         {/* Philosophy Section */}
         <section className="absolute top-[889px] left-[120px] w-[1680px]">
-          <div className="flex gap-[50px] text-2xl leading-[1.75] text-gray-900 text-justify">
+          <div className="flex gap-[50px] text-2xl leading-[1.3] text-gray-900 text-justify">
             <AnimatedSection delay={100} className="flex-1 w-[520px]">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
             </AnimatedSection>
