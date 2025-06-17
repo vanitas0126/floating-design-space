@@ -48,7 +48,7 @@ const SkillsScroll = () => {
   const renderSkillIcon = (src: string, alt: string, iconIndex: number, delay: number) => (
     <div
       key={`icon-${iconIndex}`}
-      className="flex-shrink-0 opacity-60"
+      className="flex-shrink-0"
       style={{
         animation: `float 8s ease-in-out infinite`,
         animationDelay: `${delay}s`,

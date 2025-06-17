@@ -219,7 +219,7 @@ const Index = () => {
 
           {/* Hero Text */}
           <AnimatedSection delay={300} className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed">
-            <p className="text-lg text-gray-900 mb-2">Design is more than just a few tricks to the eye.</p>
+            <p className="text-lg text-gray-900 mb-1">Design is more than just a few tricks to the eye.</p>
             <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
               It's a few tricks to the brain
             </h1>
