@@ -242,7 +242,7 @@ const Index = () => {
         </section>
 
         {/* Skills Section */}
-        <AnimatedSection className="absolute top-[1110px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
+        <AnimatedSection className="absolute top-[1050px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
           <SkillsScroll />
         </AnimatedSection>
 
