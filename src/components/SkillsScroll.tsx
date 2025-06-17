@@ -1,8 +1,9 @@
 
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const SkillsScroll = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+
   const skills = [
     'Brand Identity',
     'UI/UX Design', 
@@ -14,50 +15,57 @@ const SkillsScroll = () => {
     'Graphic Design'
   ];
 
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const handleMouseEnter = () => {
+      track.style.animationPlayState = 'paused';
+    };
+
+    const handleMouseLeave = () => {
+      track.style.animationPlayState = 'running';
+    };
+
+    track.addEventListener('mouseenter', handleMouseEnter);
+    track.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      track.removeEventListener('mouseenter', handleMouseEnter);
+      track.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   const renderSkillItem = (skill: string, index: number) => (
-    <motion.div
+    <div
       key={`skill-${index}`}
       className="px-6 py-3 border border-gray-700 rounded-lg text-2xl font-medium text-gray-800 uppercase flex-shrink-0 transition-colors duration-500"
-      whileHover={{
-        scale: 1.05,
-        backgroundColor: "rgba(99, 102, 241, 0.1)",
-        borderColor: "rgba(99, 102, 241, 0.3)",
-        transition: { duration: 0.2 }
-      }}
-      whileTap={{ scale: 0.95 }}
     >
       {skill}
-    </motion.div>
+    </div>
   );
 
   const renderSkillIcon = (src: string, alt: string, iconIndex: number, delay: number) => (
-    <motion.div
+    <div
       key={`icon-${iconIndex}`}
       className="flex-shrink-0"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: delay / 2, duration: 0.6, ease: "back.out(1.7)" }}
-      whileHover={{
-        scale: 1.2,
-        rotate: 10,
-        transition: { duration: 0.3 }
+      style={{
+        animation: `float 8s ease-in-out infinite`,
+        animationDelay: `${delay}s`,
       }}
     >
       <img src={src} alt={alt} className="object-contain" />
-    </motion.div>
+    </div>
   );
 
   return (
-    <div className="h-full flex items-center overflow-hidden">
-      <motion.div
+    <div className="h-full flex items-center">
+      <div
+        ref={trackRef}
         className="flex items-center gap-[45px] whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          duration: 25,
-          ease: "linear",
-          repeat: Infinity
+        style={{
+          animation: 'scroll-skills 25s linear infinite',
         }}
-        whileHover={{ animationPlayState: "paused" }}
       >
         {/* First set */}
         {renderSkillItem('Brand Identity', 0)}
@@ -86,7 +94,7 @@ const SkillsScroll = () => {
         {renderSkillItem('UX Research', 13)}
         {renderSkillItem('Web Publishing', 14)}
         {renderSkillItem('Graphic Design', 15)}
-      </motion.div>
+      </div>
     </div>
   );
 };
