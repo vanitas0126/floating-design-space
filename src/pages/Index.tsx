@@ -302,7 +302,7 @@ const Index = () => {
               <img src="/images/face.png" alt="Songhee's Profile" className="w-full h-full object-cover" />
             </AnimatedSection>
 
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col max-w-[821px]">
               <AnimatedSection delay={200} className="mb-[40px]">
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
@@ -310,13 +310,13 @@ const Index = () => {
               </AnimatedSection>
 
               <AnimatedSection delay={300} className="mb-[80px]">
-                <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px]">
+                <p className="text-2xl leading-[200%] text-gray-900 text-justify">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
               </AnimatedSection>
 
               {/* Experience Section - 간격을 더 늘림 */}
-              <div className="w-[805px]">
+              <div className="w-full">
                 <AnimatedSection delay={400} className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
