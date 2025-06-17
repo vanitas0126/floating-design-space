@@ -219,7 +219,7 @@ const Index = () => {
 
           {/* Hero Text */}
           <AnimatedSection delay={300} className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed">
-            <p className="text-lg text-gray-900 mb-1">Design is more than just a few tricks to the eye.</p>
+            <p className="text-lg text-gray-900 mb-0">Design is more than just a few tricks to the eye.</p>
             <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
               It's a few tricks to the brain
             </h1>
@@ -257,15 +257,15 @@ const Index = () => {
           {/* Project Row 1 */}
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
+              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover" />
+              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </AnimatedSection>
@@ -274,15 +274,15 @@ const Index = () => {
           {/* Project Row 2 */}
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
+              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover" />
+              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </AnimatedSection>
