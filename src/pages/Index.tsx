@@ -259,23 +259,23 @@ const Index = () => {
         {/* Work Section - 200px gap from skills */}
         <section id="work" className="absolute top-[1416px] left-0 w-full work-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection animationType="scale" duration={1.5}>
+            <EnhancedAnimatedSection animationType="fadeUp" duration={1.5}>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
             </EnhancedAnimatedSection>
           </div>
 
           {/* Project Row 1 */}
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="scale">
+            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </EnhancedAnimatedSection>
 
-            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="scale">
+            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </EnhancedAnimatedSection>
@@ -283,16 +283,16 @@ const Index = () => {
 
           {/* Project Row 2 */}
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="scale">
+            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </EnhancedAnimatedSection>
 
-            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="scale">
+            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </EnhancedAnimatedSection>
@@ -302,7 +302,7 @@ const Index = () => {
         {/* About Section */}
         <section id="about" className="absolute top-[3800px] left-0 w-full about-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection animationType="scale" duration={1.5}>
+            <EnhancedAnimatedSection animationType="fadeUp" duration={1.5}>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
             </EnhancedAnimatedSection>
           </div>
@@ -357,13 +357,13 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact" className="relative top-[5100px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection delay={0.1} animationType="scale">
+            <EnhancedAnimatedSection delay={0.1} animationType="fadeUp">
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
             </EnhancedAnimatedSection>
           </div>
 
           <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
-            <EnhancedAnimatedSection delay={0.2} animationType="scale" duration={1.5}>
+            <EnhancedAnimatedSection delay={0.2} animationType="fadeUp" duration={1.5}>
               <h3 
                 className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
                 onClick={openEmail}
@@ -402,7 +402,7 @@ const Index = () => {
 
           {/* Background Image - 기울어짐 제거 */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
-            <EnhancedAnimatedSection delay={0.1} animationType="scale">
+            <EnhancedAnimatedSection delay={0.1} animationType="fadeUp">
               <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
             </EnhancedAnimatedSection>
           </div>

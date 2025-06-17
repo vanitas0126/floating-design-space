@@ -68,7 +68,7 @@ const LiquidCursor = () => {
       {/* Trail effect with enhanced glassmorphism */}
       <div
         ref={trailRef}
-        className="fixed w-12 h-12 pointer-events-none z-40 opacity-0 transition-opacity duration-500"
+        className="fixed w-12 h-12 pointer-events-none z-[10000] opacity-0 transition-opacity duration-500"
         style={{
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
           backdropFilter: 'blur(60px) saturate(200%) brightness(120%)',
@@ -92,7 +92,7 @@ const LiquidCursor = () => {
       {/* Main cursor with liquid glass effect */}
       <div
         ref={cursorRef}
-        className="fixed w-6 h-6 pointer-events-none z-50 opacity-0 transition-opacity duration-500"
+        className="fixed w-6 h-6 pointer-events-none z-[10001] opacity-0 transition-opacity duration-500"
         style={{
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
           backdropFilter: 'blur(80px) saturate(250%) brightness(130%)',
