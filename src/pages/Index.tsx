@@ -309,29 +309,29 @@ const Index = () => {
                 </h3>
               </AnimatedSection>
 
-              <AnimatedSection delay={300} className="mb-[60px]">
+              <AnimatedSection delay={300} className="mb-[80px]">
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px]">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section - 간격 일정하게 수정 */}
+              {/* Experience Section - 간격을 더 늘림 */}
               <div className="w-[805px]">
-                <AnimatedSection delay={400} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={400} className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={500} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={500} className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={600} className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
