@@ -22,8 +22,8 @@ const LiquidCursor = () => {
     };
 
     const animateCursor = () => {
-      const speed = 0.2;
-      const trailSpeed = 0.08;
+      const speed = 0.15;
+      const trailSpeed = 0.06;
       
       cursorX.current += (mouseX.current - cursorX.current) * speed;
       cursorY.current += (mouseY.current - cursorY.current) * speed;
@@ -65,41 +65,51 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Trail effect */}
+      {/* Trail effect with enhanced glassmorphism */}
       <div
         ref={trailRef}
-        className="fixed w-8 h-8 pointer-events-none z-40 opacity-0 transition-opacity duration-300"
+        className="fixed w-12 h-12 pointer-events-none z-40 opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
+          backdropFilter: 'blur(60px) saturate(200%) brightness(120%)',
+          WebkitBackdropFilter: 'blur(60px) saturate(200%) brightness(120%)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.6)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.6)',
           borderRadius: '50%',
           boxShadow: `
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.2)
+            0 20px 60px rgba(0, 0, 0, 0.15),
+            0 8px 25px rgba(0, 0, 0, 0.08),
+            inset 0 2px 4px rgba(255, 255, 255, 0.8),
+            inset 0 -2px 4px rgba(255, 255, 255, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.1)
           `,
           transform: 'translate(-50%, -50%)',
+          filter: 'drop-shadow(0 8px 32px rgba(99, 102, 241, 0.15))',
         }}
       />
       
-      {/* Main cursor */}
+      {/* Main cursor with liquid glass effect */}
       <div
         ref={cursorRef}
-        className="fixed w-4 h-4 pointer-events-none z-50 opacity-0 transition-opacity duration-300"
+        className="fixed w-6 h-6 pointer-events-none z-50 opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(25px) saturate(200%)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
+          backdropFilter: 'blur(80px) saturate(250%) brightness(130%)',
+          WebkitBackdropFilter: 'blur(80px) saturate(250%) brightness(130%)',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          borderTop: '2px solid rgba(255, 255, 255, 0.8)',
+          borderLeft: '2px solid rgba(255, 255, 255, 0.8)',
           borderRadius: '50%',
           boxShadow: `
-            0 4px 20px rgba(0, 0, 0, 0.15),
-            0 1px 3px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.3)
+            0 15px 45px rgba(0, 0, 0, 0.2),
+            0 5px 15px rgba(0, 0, 0, 0.1),
+            inset 0 3px 6px rgba(255, 255, 255, 0.9),
+            inset 0 -1px 2px rgba(255, 255, 255, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.2)
           `,
           transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 2px 8px rgba(99, 102, 241, 0.2))',
+          filter: 'drop-shadow(0 4px 20px rgba(99, 102, 241, 0.25))',
         }}
       />
     </>
