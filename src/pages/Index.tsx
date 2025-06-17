@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -194,7 +195,7 @@ const Index = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
+        <section className="absolute top-[300px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full">
             <img src="/images/heroimg.png" alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
@@ -233,7 +234,7 @@ const Index = () => {
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
             </AnimatedSection>
             <AnimatedSection delay={200} className="flex-1 w-[520px]">
-              <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
+              <p>clarity not <span className="bg-white px-1">just decoration. That's why I value</span> purposeful layout, readable <span className="bg-white px-1">hierarchy, and design systems</span> that scale. Design isn't about <span className="bg-white px-1">finishing fast. It's about</span> reducing friction through decisions that make sense and visuals that speak clearly.</p>
             </AnimatedSection>
             <AnimatedSection delay={300} className="flex-1 w-[520px]">
               <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
@@ -242,30 +243,38 @@ const Index = () => {
         </section>
 
         {/* Skills Section */}
-        <AnimatedSection className="absolute top-[1145px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
+        <AnimatedSection className="absolute top-[1225px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
           <SkillsScroll />
         </AnimatedSection>
 
         {/* Work Section */}
-        <section id="work" className="absolute top-[1300px] left-0 w-full">
+        <section id="work" className="absolute top-[1400px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
+              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[80px]">Work</h2>
             </AnimatedSection>
           </div>
 
           {/* Project Row 1 */}
-          <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          <div className="absolute top-[180px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
+                <img 
+                  src="/images/hopeposter.png" 
+                  alt="HOPE Project" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
+                <img 
+                  src="/images/madmax.png" 
+                  alt="MAD MAX Project" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </AnimatedSection>
@@ -274,15 +283,23 @@ const Index = () => {
           {/* Project Row 2 */}
           <div className="absolute top-[1301px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
+                <img 
+                  src="/images/musicplayer.png" 
+                  alt="PIXEL MUSIC PLAYER Project" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[40px] relative">
+                <img 
+                  src="/images/nigeria.png" 
+                  alt="NIGERIA RAILWAY Project" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </AnimatedSection>
@@ -315,23 +332,23 @@ const Index = () => {
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section - 간격 일정하게 수정 */}
-              <div className="w-[805px]">
-                <AnimatedSection delay={400} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+              {/* Experience Section */}
+              <div className="w-[805px] h-[400px] flex flex-col justify-center">
+                <AnimatedSection delay={400} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={500} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={500} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600} className="py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={600} className="py-[40px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
@@ -390,7 +407,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Background Image - 투명도 제거 */}
+          {/* Background Image */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <AnimatedSection delay={100}>
               <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
