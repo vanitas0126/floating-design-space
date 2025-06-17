@@ -247,7 +247,7 @@ const Index = () => {
         </AnimatedSection>
 
         {/* Work Section */}
-        <section id="work" className="absolute top-[1350px] left-0 w-full">
+        <section id="work" className="absolute top-[1400px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
@@ -255,7 +255,7 @@ const Index = () => {
           </div>
 
           {/* Project Row 1 */}
-          <div className="absolute top-[220px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
@@ -272,7 +272,7 @@ const Index = () => {
           </div>
 
           {/* Project Row 2 */}
-          <div className="absolute top-[1301px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
@@ -290,7 +290,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="absolute top-[3900px] left-0 w-full">
+        <section id="about" className="absolute top-[3800px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
@@ -345,7 +345,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="relative top-[5200px] left-0 w-full">
+        <section id="contact" className="relative top-[5100px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection delay={100}>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
