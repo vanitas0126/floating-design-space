@@ -1,5 +1,3 @@
-
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -249,7 +247,7 @@ const Index = () => {
         </AnimatedSection>
 
         {/* Work Section */}
-        <section id="work" className="absolute top-[1300px] left-0 w-full">
+        <section id="work" className="absolute top-[1350px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
@@ -415,4 +413,3 @@ const Index = () => {
 };
 
 export default Index;
-
