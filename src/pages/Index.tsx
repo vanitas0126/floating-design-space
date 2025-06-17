@@ -14,7 +14,7 @@ const Index = () => {
 
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 80px;
+        scroll-padding-top: 100px;
         overflow-x: hidden;
       }
 
@@ -52,6 +52,15 @@ const Index = () => {
       @keyframes scroll-skills {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
+      }
+
+      @keyframes smoothScroll {
+        from { opacity: 0.8; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .smooth-scroll-target {
+        animation: smoothScroll 0.8s ease-out;
       }
 
       .portfolio-container {
@@ -124,7 +133,19 @@ const Index = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // 부드러운 스크롤 효과 추가
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+      
+      // 스크롤 완료 후 애니메이션 효과
+      setTimeout(() => {
+        element.classList.add('smooth-scroll-target');
+        setTimeout(() => {
+          element.classList.remove('smooth-scroll-target');
+        }, 800);
+      }, 500);
     }
   };
 
@@ -237,32 +258,32 @@ const Index = () => {
           {/* Project Row 1 */}
           <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-[887px] object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-[887px] object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </AnimatedSection>
           </div>
 
           {/* Project Row 2 */}
-          <div className="absolute top-[1386px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          <div className="absolute top-[1286px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-[887px] object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-[887px] object-cover" />
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </AnimatedSection>
@@ -270,7 +291,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="absolute top-[4000px] left-0 w-full">
+        <section id="about" className="absolute top-[3900px] left-0 w-full">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <AnimatedSection>
               <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
@@ -289,41 +310,36 @@ const Index = () => {
                 </h3>
               </AnimatedSection>
 
-              <AnimatedSection delay={300} className="mb-[80px]">
+              <AnimatedSection delay={300} className="mb-[60px]">
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px]">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section - Fixed positioning */}
+              {/* Experience Section - 간격 문제 해결 */}
               <div className="w-[805px]">
-                <AnimatedSection delay={400} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
+                <AnimatedSection delay={400} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={500} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
+                <AnimatedSection delay={500} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
+                <AnimatedSection delay={600} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={700} className="relative py-0 flex justify-between items-center">
-                  <div className="absolute top-[37px] left-0 w-full h-px bg-gray-700" />
-                </AnimatedSection>
+                <div className="border-t border-gray-700 mt-[25px]" />
               </div>
             </div>
           </div>

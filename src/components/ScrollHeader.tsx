@@ -16,7 +16,17 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+      
+      // 스크롤 완료 후 부드러운 애니메이션 효과
+      setTimeout(() => {
+        element.style.transform = 'translateY(0)';
+        element.style.opacity = '1';
+        element.style.transition = 'all 0.8s ease-out';
+      }, 300);
     }
   };
 
@@ -45,19 +55,19 @@ const ScrollHeader = () => {
         <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
             onClick={() => scrollToSection('work')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105"
+            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
           >
             Work
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105"
+            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
           >
             About
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105"
+            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
           >
             Contact
           </button>
