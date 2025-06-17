@@ -40,19 +40,17 @@ const ScrollHeader = () => {
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(60px) saturate(200%) brightness(105%)',
-        WebkitBackdropFilter: 'blur(60px) saturate(200%) brightness(105%)',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
+        backdropFilter: 'blur(40px) saturate(180%)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
         borderTop: 'none',
         borderLeft: 'none',
         borderRight: 'none',
         boxShadow: `
-          0 8px 32px rgba(31, 38, 135, 0.37),
-          0 4px 16px rgba(31, 38, 135, 0.2),
-          0 2px 8px rgba(255, 255, 255, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.4),
-          inset 0 -1px 0 rgba(255, 255, 255, 0.2)
+          0 1px 30px rgba(0, 0, 0, 0.08),
+          0 8px 25px rgba(0, 0, 0, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.1)
         `,
       }}
     >
