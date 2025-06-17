@@ -65,51 +65,54 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Trail effect with enhanced glassmorphism */}
+      {/* Trail effect with stronger glassmorphism */}
       <div
         ref={trailRef}
         className="fixed w-12 h-12 pointer-events-none z-[10000] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
-          backdropFilter: 'blur(60px) saturate(200%) brightness(120%)',
-          WebkitBackdropFilter: 'blur(60px) saturate(200%) brightness(120%)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.6)',
-          borderLeft: '1px solid rgba(255, 255, 255, 0.6)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.1) 100%)',
+          backdropFilter: 'blur(100px) saturate(300%) brightness(140%) contrast(120%)',
+          WebkitBackdropFilter: 'blur(100px) saturate(300%) brightness(140%) contrast(120%)',
+          border: '2px solid rgba(255, 255, 255, 0.5)',
+          borderTop: '3px solid rgba(255, 255, 255, 0.8)',
+          borderLeft: '3px solid rgba(255, 255, 255, 0.8)',
           borderRadius: '50%',
           boxShadow: `
-            0 20px 60px rgba(0, 0, 0, 0.15),
-            0 8px 25px rgba(0, 0, 0, 0.08),
-            inset 0 2px 4px rgba(255, 255, 255, 0.8),
-            inset 0 -2px 4px rgba(255, 255, 255, 0.3),
-            0 0 0 1px rgba(255, 255, 255, 0.1)
+            0 30px 80px rgba(0, 0, 0, 0.25),
+            0 15px 40px rgba(0, 0, 0, 0.15),
+            inset 0 4px 8px rgba(255, 255, 255, 0.9),
+            inset 0 -4px 8px rgba(255, 255, 255, 0.5),
+            0 0 0 2px rgba(255, 255, 255, 0.2),
+            0 0 40px rgba(99, 102, 241, 0.3)
           `,
           transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 8px 32px rgba(99, 102, 241, 0.15))',
+          filter: 'drop-shadow(0 12px 40px rgba(99, 102, 241, 0.25)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))',
         }}
       />
       
-      {/* Main cursor with liquid glass effect */}
+      {/* Main cursor with enhanced liquid glass effect */}
       <div
         ref={cursorRef}
         className="fixed w-6 h-6 pointer-events-none z-[10001] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(80px) saturate(250%) brightness(130%)',
-          WebkitBackdropFilter: 'blur(80px) saturate(250%) brightness(130%)',
-          border: '1px solid rgba(255, 255, 255, 0.4)',
-          borderTop: '2px solid rgba(255, 255, 255, 0.8)',
-          borderLeft: '2px solid rgba(255, 255, 255, 0.8)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 100%)',
+          backdropFilter: 'blur(120px) saturate(400%) brightness(150%) contrast(130%)',
+          WebkitBackdropFilter: 'blur(120px) saturate(400%) brightness(150%) contrast(130%)',
+          border: '2px solid rgba(255, 255, 255, 0.6)',
+          borderTop: '3px solid rgba(255, 255, 255, 0.9)',
+          borderLeft: '3px solid rgba(255, 255, 255, 0.9)',
           borderRadius: '50%',
           boxShadow: `
-            0 15px 45px rgba(0, 0, 0, 0.2),
-            0 5px 15px rgba(0, 0, 0, 0.1),
-            inset 0 3px 6px rgba(255, 255, 255, 0.9),
-            inset 0 -1px 2px rgba(255, 255, 255, 0.4),
-            0 0 0 1px rgba(255, 255, 255, 0.2)
+            0 20px 60px rgba(0, 0, 0, 0.3),
+            0 8px 25px rgba(0, 0, 0, 0.15),
+            inset 0 4px 8px rgba(255, 255, 255, 0.95),
+            inset 0 -2px 4px rgba(255, 255, 255, 0.6),
+            0 0 0 2px rgba(255, 255, 255, 0.3),
+            0 0 30px rgba(99, 102, 241, 0.4),
+            0 0 15px rgba(255, 255, 255, 0.9)
           `,
           transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 4px 20px rgba(99, 102, 241, 0.25))',
+          filter: 'drop-shadow(0 6px 25px rgba(99, 102, 241, 0.35)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.9))',
         }}
       />
     </>
