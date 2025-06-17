@@ -15,6 +15,9 @@ const SkillsScroll = () => {
     'Graphic Design'
   ];
 
+  // Base path for images
+  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -54,7 +57,7 @@ const SkillsScroll = () => {
         animationDelay: `${delay}s`,
       }}
     >
-      <img src={src} alt={alt} className="object-contain" />
+      <img src={`${basePath}${src}`} alt={alt} className="object-contain" />
     </div>
   );
 
