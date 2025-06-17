@@ -36,18 +36,34 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 h-20 backdrop-blur-xl bg-white/80 border-b border-white/20 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
-        boxShadow: '0 1px 20px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04)',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
+        backdropFilter: 'blur(40px) saturate(180%)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        borderTop: 'none',
+        borderLeft: 'none',
+        borderRight: 'none',
+        boxShadow: `
+          0 1px 30px rgba(0, 0, 0, 0.08),
+          0 8px 25px rgba(0, 0, 0, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.1)
+        `,
       }}
     >
       <div className="w-full max-w-[1920px] mx-auto h-full relative flex items-center px-4">
         <button
           onClick={scrollToTop}
-          className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-300 hover:scale-105"
-          style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}
+          className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-105"
+          style={{ 
+            fontFamily: 'Arial Narrow, Arial, sans-serif', 
+            fontStretch: 'condensed',
+            textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+            filter: 'drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8))'
+          }}
         >
           UX.Song
         </button>
@@ -55,19 +71,31 @@ const ScrollHeader = () => {
         <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
             onClick={() => scrollToSection('work')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-105 transform"
+            style={{
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+              filter: 'drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8))'
+            }}
           >
             Work
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-105 transform"
+            style={{
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+              filter: 'drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8))'
+            }}
           >
             About
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform"
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-105 transform"
+            style={{
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+              filter: 'drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8))'
+            }}
           >
             Contact
           </button>
