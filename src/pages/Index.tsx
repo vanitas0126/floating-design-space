@@ -1,398 +1,336 @@
 
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import AnimatedSection from '@/components/AnimatedSection';
+import FloatingElement from '@/components/FloatingElement';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
-import FloatingElement from '@/components/FloatingElement';
 import SkillsScroll from '@/components/SkillsScroll';
-import AnimatedSection from '@/components/AnimatedSection';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
+    setIsLoaded(true);
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-        overflow-x: hidden;
-      }
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
 
-      body {
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial Narrow', Arial, sans-serif;
-        cursor: auto !important;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-        font-stretch: condensed;
-        font-weight: 400;
-        letter-spacing: -0.02em;
-        line-height: 1.6;
-        background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
-        color: #1a1a1a;
-      }
-
-      .font-garamond {
-        font-family: 'EB Garamond', 'Garamond', 'Times New Roman', serif !important;
-        font-feature-settings: "liga", "kern" !important;
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        33% { transform: translateY(-8px) rotate(2deg); }
-        66% { transform: translateY(-4px) rotate(-1deg); }
-      }
-      
-      @keyframes scroll-skills {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-
-      .portfolio-container {
-        width: 1920px;
-        height: 6500px;
-        position: relative;
-        margin: 0 auto;
-        background: transparent;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      @media (max-width: 1919px) and (min-width: 1600px) {
-        .portfolio-container {
-          transform: scale(0.85);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1599px) and (min-width: 1400px) {
-        .portfolio-container {
-          transform: scale(0.75);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1399px) and (min-width: 1200px) {
-        .portfolio-container {
-          transform: scale(0.65);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1199px) and (min-width: 1024px) {
-        .portfolio-container {
-          transform: scale(0.55);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .portfolio-container {
-          transform: scale(0.45);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 767px) and (min-width: 480px) {
-        .portfolio-container {
-          transform: scale(0.35);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 479px) {
-        .portfolio-container {
-          transform: scale(0.25);
-          transform-origin: top center;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const openEmail = () => {
-    window.location.href = 'mailto:allivanitas@gmail.com';
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 relative overflow-x-hidden">
       <LiquidCursor />
-      <ScrollHeader />
+      <ScrollHeader activeSection={activeSection} onNavigate={scrollToSection} />
       
-      <div className="portfolio-container">
-        {/* Fixed Header */}
-        <div className="absolute top-[60px] left-0 w-full z-10 opacity-100">
-          <button
-            onClick={scrollToTop}
-            className="absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+      {/* Fixed Header */}
+      <header className="fixed top-0 left-0 right-0 z-40 p-6 md:p-8">
+        <div className="flex justify-between items-center">
+          <div 
+            className="text-2xl md:text-3xl font-light cursor-pointer transition-all duration-300 hover:scale-105"
+            onClick={() => scrollToSection('hero')}
           >
             UX.Song
-          </button>
-          
-          <nav className="absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
-            <button
-              onClick={() => scrollToSection('work')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              Work
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              Contact
-            </button>
+          </div>
+          <nav className="hidden md:flex space-x-8">
+            {['work', 'about', 'contact'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className={`text-lg font-light transition-all duration-300 hover:scale-105 ${
+                  activeSection === item ? 'text-gray-600' : 'text-gray-900'
+                }`}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </button>
+            ))}
           </nav>
         </div>
+      </header>
 
-        {/* Hero Section */}
-        <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
-          {/* Floating Elements with children */}
-          <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px]" delay={0.8}>
-            <div className="w-full h-full bg-gradient-to-br from-purple-400 to-indigo-500 rounded-3xl opacity-70" style={{ transform: 'rotate(30deg)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px]" delay={1.6}>
-            <div className="w-full h-full bg-gradient-to-br from-orange-300 to-red-400 rounded-3xl opacity-70" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px]" delay={2.4}>
-            <div className="w-full h-full bg-gradient-to-br from-blue-300 to-cyan-400 rounded-3xl opacity-70" style={{ transform: 'rotate(339deg)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px]" delay={0.4}>
-            <div className="w-full h-full bg-gradient-to-br from-emerald-300 to-teal-400 rounded-3xl opacity-70" />
-          </FloatingElement>
+      {/* Hero Section */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/hero-background.jpg" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
 
-          {/* Hero Text */}
-          <AnimatedSection delay={300} className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed">
-            <p className="text-lg text-gray-900 mb-2">Design is more than just a few tricks to the eye.</p>
-            <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
+        {/* Floating Images */}
+        <FloatingElement className="absolute top-1/4 left-1/4 w-20 h-20 z-10" delay={0}>
+          <img src="/images/floating-cheese.png" alt="Floating element" className="w-full h-full object-contain" />
+        </FloatingElement>
+        
+        <FloatingElement className="absolute top-1/3 right-1/4 w-16 h-16 z-10" delay={1.5}>
+          <img src="/images/floating-ellipse.png" alt="Floating element" className="w-full h-full object-contain" />
+        </FloatingElement>
+        
+        <FloatingElement className="absolute bottom-1/3 left-1/3 w-24 h-24 z-10" delay={3}>
+          <img src="/images/floating-ball.png" alt="Floating element" className="w-full h-full object-contain" />
+        </FloatingElement>
+        
+        <FloatingElement className="absolute bottom-1/4 right-1/3 w-18 h-18 z-10" delay={4.5}>
+          <img src="/images/floating-glass.png" alt="Floating element" className="w-full h-full object-contain" />
+        </FloatingElement>
+
+        {/* Hero Text */}
+        <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
+          <AnimatedSection delay={500}>
+            <p className="text-xl md:text-2xl font-light text-gray-600 mb-4">
+              Design is more than just a few tricks to the eye.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={800}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light leading-tight">
               It's a few tricks to the brain
             </h1>
           </AnimatedSection>
-        </section>
+        </div>
+      </section>
 
-        {/* Philosophy Section */}
-        <section className="absolute top-[889px] left-[120px] w-[1680px]">
-          <div className="flex gap-[50px] text-2xl leading-[1.75] text-gray-900 text-justify">
-            <AnimatedSection delay={100} className="flex-1 w-[520px]">
-              <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
-            </AnimatedSection>
-            <AnimatedSection delay={200} className="flex-1 w-[520px]">
-              <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
-            </AnimatedSection>
-            <AnimatedSection delay={300} className="flex-1 w-[520px]">
-              <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
-            </AnimatedSection>
-          </div>
-        </section>
+      {/* Philosophy Section */}
+      <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <AnimatedSection delay={0}>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-gray-700">
+              I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={150}>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-gray-700">
+              clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-gray-700">
+              I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
 
-        {/* Skills Section */}
-        <AnimatedSection className="absolute top-[1145px] -left-[72px] w-[2064px] h-[70px] overflow-hidden">
-          <SkillsScroll />
+      {/* Skills Section */}
+      <SkillsScroll />
+
+      {/* Work Section */}
+      <section id="work" className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <AnimatedSection delay={0}>
+          <h2 className="text-4xl md:text-6xl font-light mb-16 md:mb-24">Work</h2>
         </AnimatedSection>
 
-        {/* Work Section */}
-        <section id="work" className="absolute top-[1300px] left-0 w-full">
-          <div className="absolute left-[calc(4.16667%+40px)]">
-            <AnimatedSection>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
-            </AnimatedSection>
-          </div>
-
-          {/* Project Row 1 */}
-          <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
-            <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-slate-50 to-gray-200 relative">
-                  {/* HOPE project floating elements */}
-                  <FloatingElement className="absolute top-[316px] right-[120px] w-[51px] h-[59px]" delay={0}>
-                    <div className="w-full h-full bg-gradient-to-br from-orange-300 to-orange-500 rounded-[26px]" />
-                  </FloatingElement>
-                  <FloatingElement className="absolute top-[131px] right-[122px] w-[105px] h-[133px]" delay={1.5}>
-                    <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-[26px]" />
-                  </FloatingElement>
-                  <FloatingElement className="absolute bottom-[96px] left-[44px] w-[107px] h-[136px]" delay={3}>
-                    <div className="w-full h-full bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[26px]" />
-                  </FloatingElement>
-                </div>
+        {/* Project Row 1 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-24">
+          <AnimatedSection delay={0}>
+            <div className="group cursor-pointer">
+              <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
+                <img 
+                  src="/images/hope-project.jpg" 
+                  alt="HOPE Project" 
+                  className="w-full h-full object-cover"
+                />
+                {/* HOPE project floating elements */}
+                <FloatingElement className="absolute top-[316px] right-[120px] w-[51px] h-[59px]" delay={0}>
+                  <div className="w-full h-full bg-gradient-to-br from-orange-300 to-orange-500 rounded-[26px]" />
+                </FloatingElement>
+                <FloatingElement className="absolute top-[131px] right-[122px] w-[105px] h-[133px]" delay={1.5}>
+                  <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-[26px]" />
+                </FloatingElement>
+                <FloatingElement className="absolute bottom-[96px] left-[44px] w-[107px] h-[136px]" delay={3}>
+                  <div className="w-full h-full bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[26px]" />
+                </FloatingElement>
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
-            </AnimatedSection>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-purple-50 to-purple-200" />
+          <AnimatedSection delay={300}>
+            <div className="group cursor-pointer">
+              <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
+                <img 
+                  src="/images/madmax-project.jpg" 
+                  alt="MAD MAX Project" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
-            </AnimatedSection>
-          </div>
+            </div>
+          </AnimatedSection>
+        </div>
 
-          {/* Project Row 2 */}
-          <div className="absolute top-[1386px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
-            <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-blue-50 to-blue-200" />
+        {/* Project Row 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <AnimatedSection delay={0}>
+            <div className="group cursor-pointer">
+              <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
+                <img 
+                  src="/images/music-player-project.jpg" 
+                  alt="PIXEL MUSIC PLAYER Project" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
-            </AnimatedSection>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-gray-50 to-gray-200" />
+          <AnimatedSection delay={300}>
+            <div className="group cursor-pointer">
+              <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden mb-6 relative transition-transform duration-700 hover:scale-[1.02]">
+                <img 
+                  src="/images/nigeria-railway-project.jpg" 
+                  alt="NIGERIA RAILWAY Project" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <AnimatedSection delay={0}>
+          <h2 className="text-4xl md:text-6xl font-light mb-16 md:mb-24">About</h2>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          <AnimatedSection delay={100}>
+            <div className="w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden">
+              <img 
+                src="/images/profile-photo.jpg" 
+                alt="Songhee's Profile" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </AnimatedSection>
+
+          <div className="space-y-8">
+            <AnimatedSection delay={250}>
+              <h3 className="text-3xl md:text-4xl font-light mb-6">Hi, I'm Songhee</h3>
             </AnimatedSection>
-          </div>
-        </section>
 
-        {/* About Section */}
-        <section id="about" className="absolute top-[4000px] left-0 w-full">
-          <div className="absolute left-[calc(4.16667%+40px)]">
-            <AnimatedSection>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
-            </AnimatedSection>
-          </div>
-
-          <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <AnimatedSection delay={100} className="w-[821px] h-[887px] overflow-hidden flex-shrink-0">
-              <div className="w-full h-full bg-gradient-to-br from-indigo-50 to-indigo-200" />
+            <AnimatedSection delay={400}>
+              <p className="text-lg md:text-xl font-light leading-relaxed text-gray-700">
+                I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
+              </p>
             </AnimatedSection>
 
-            <div className="flex-1 flex flex-col justify-between">
-              <AnimatedSection delay={200}>
-                <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 mb-[40px] whitespace-nowrap">
-                  Hi, I'm Songhee
-                </h3>
-              </AnimatedSection>
-
-              <AnimatedSection delay={300}>
-                <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px] mb-[40px]">
-                  I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
-                </p>
-              </AnimatedSection>
-
-              {/* Experience Section */}
-              <div className="absolute top-[655px] left-[calc(50%+35px)] w-[805px]">
-                <AnimatedSection delay={400} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
+            {/* Experience Timeline */}
+            <div className="space-y-6 mt-12">
+              {[
+                { title: "Visual Communication Design", company: "Korean Polytechnic", date: "24-26", delay: 500 },
+                { title: "UX/UI Designer", company: "RoopreKorea", date: "21.4-22.1", delay: 600 },
+                { title: "Product Design Certification", company: "Blossom UX School", date: "22.7-23.2", delay: 700 }
+              ].map((item, index) => (
+                <AnimatedSection key={index} delay={item.delay}>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-px h-12 bg-gray-300 mt-2"></div>
+                    <div>
+                      <h4 className="text-lg font-medium text-gray-900">{item.title}</h4>
+                      <div className="flex justify-between items-center text-gray-600">
+                        <span>{item.company}</span>
+                        <span>{item.date}</span>
+                      </div>
+                    </div>
                   </div>
                 </AnimatedSection>
-
-                <AnimatedSection delay={500} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
-                  </div>
-                </AnimatedSection>
-
-                <AnimatedSection delay={600} className="relative py-[37px] flex justify-between items-center">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
-                  </div>
-                </AnimatedSection>
-
-                <AnimatedSection delay={700} className="relative py-0 flex justify-between items-center">
-                  <div className="absolute top-[37px] left-0 w-full h-px bg-gray-700" />
-                </AnimatedSection>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="relative top-[5200px] left-0 w-full">
-          <div className="absolute left-[calc(4.16667%+40px)]">
-            <AnimatedSection delay={100}>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-            </AnimatedSection>
-          </div>
+      {/* Contact Section */}
+      <section id="contact" className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative">
+        <AnimatedSection delay={100}>
+          <h2 className="text-4xl md:text-6xl font-light mb-16 md:mb-24">Contact</h2>
+        </AnimatedSection>
 
-          <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="space-y-8">
             <AnimatedSection delay={200}>
               <h3 
-                className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105"
-                onClick={openEmail}
-                style={{
-                  textShadow: '0 2px 4px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(255, 255, 255, 0.6)'
-                }}
+                className="text-3xl md:text-4xl font-light cursor-pointer hover:text-gray-600 transition-colors duration-300"
+                onClick={() => window.open('mailto:allivanitas@gmail.com')}
               >
                 EMAIL... ME!
               </h3>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={300}>
-              <p className="text-4xl leading-[1.75] text-gray-900" style={{
-                textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-              }}>
+              <p className="text-lg md:text-xl font-light leading-relaxed text-gray-700">
                 For project inquiries or portfolio access,<br />
                 contact me directly at{' '}
                 <span 
-                  className="font-garamond font-medium italic text-indigo-600 cursor-pointer transition-colors duration-500 hover:text-purple-600 underline decoration-2 underline-offset-4"
-                  onClick={openEmail}
-                  style={{
-                    textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-                  }}
+                  className="cursor-pointer hover:text-gray-900 transition-colors duration-300 underline"
+                  onClick={() => window.open('mailto:allivanitas@gmail.com')}
                 >
                   allivanitas@gmail.com
                 </span>
               </p>
             </AnimatedSection>
 
-            <div className="flex justify-between items-center gap-20 mt-[280px] w-full">
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
+            <div className="flex space-x-6 mt-8">
+              {['Dribbble', 'Behance', 'Portfolio'].map((link, index) => (
+                <a 
+                  key={link}
+                  href="#" 
+                  className="text-lg font-light hover:text-gray-600 transition-colors duration-300"
+                >
+                  {link}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Background Image */}
-          <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
-            <AnimatedSection delay={100}>
-              <div className="w-full h-full bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 rounded-[20px] opacity-30" />
-            </AnimatedSection>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 static mt-auto flex flex-col items-center bottom-0">
-          <div className="w-full flex flex-col items-center justify-center pt-[60px] pb-0">
-            <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
-              <p className="text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+          <AnimatedSection delay={100}>
+            <div className="w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+              <img 
+                src="/images/contact-background.jpg" 
+                alt="Contact Background" 
+                className="w-full h-full object-cover"
+              />
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 md:px-12 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center">
+            <p className="text-gray-600 font-light">Songhee Park © 2025</p>
+            <a href="#" className="text-gray-600 font-light hover:text-gray-900 transition-colors duration-300">
+              Instagram
+            </a>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 };
