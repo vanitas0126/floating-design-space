@@ -45,15 +45,17 @@ const SkillsScroll = () => {
     </div>
   );
 
-  const renderSkillIcon = (iconIndex: number, delay: number) => (
+  const renderSkillIcon = (src: string, alt: string, iconIndex: number, delay: number) => (
     <div
       key={`icon-${iconIndex}`}
-      className="w-16 h-16 bg-gradient-to-br from-indigo-300 to-purple-400 rounded-xl flex-shrink-0 opacity-60"
+      className="w-16 h-16 flex-shrink-0 opacity-60"
       style={{
         animation: `float 8s ease-in-out infinite`,
         animationDelay: `${delay}s`,
       }}
-    />
+    >
+      <img src={src} alt={alt} className="w-full h-full object-contain" />
+    </div>
   );
 
   return (
@@ -67,28 +69,28 @@ const SkillsScroll = () => {
       >
         {/* First set */}
         {renderSkillItem('Brand Identity', 0)}
-        {renderSkillIcon(0, 0)}
+        {renderSkillIcon('/images/eclipse2.png', 'Brand Identity Icon', 0, 0)}
         {renderSkillItem('UI/UX Design', 1)}
-        {renderSkillIcon(1, 0.8)}
+        {renderSkillIcon('/images/stars.png', 'UI/UX Design Icon', 1, 0.8)}
         {renderSkillItem('Digital Strategy', 2)}
         {renderSkillItem('Web Design', 3)}
-        {renderSkillIcon(2, 1.6)}
+        {renderSkillIcon('/images/songhee.png', 'Web Design Icon', 2, 1.6)}
         {renderSkillItem('Product Management', 4)}
-        {renderSkillIcon(3, 2.4)}
+        {renderSkillIcon('/images/glass2.png', 'Product Management Icon', 3, 2.4)}
         {renderSkillItem('UX Research', 5)}
         {renderSkillItem('Web Publishing', 6)}
         {renderSkillItem('Graphic Design', 7)}
 
         {/* Duplicate for infinite scroll */}
         {renderSkillItem('Brand Identity', 8)}
-        {renderSkillIcon(4, 0)}
+        {renderSkillIcon('/images/eclipse2.png', 'Brand Identity Icon', 4, 0)}
         {renderSkillItem('UI/UX Design', 9)}
-        {renderSkillIcon(5, 0.8)}
+        {renderSkillIcon('/images/stars.png', 'UI/UX Design Icon', 5, 0.8)}
         {renderSkillItem('Digital Strategy', 10)}
         {renderSkillItem('Web Design', 11)}
-        {renderSkillIcon(6, 1.6)}
+        {renderSkillIcon('/images/songhee.png', 'Web Design Icon', 6, 1.6)}
         {renderSkillItem('Product Management', 12)}
-        {renderSkillIcon(7, 2.4)}
+        {renderSkillIcon('/images/glass2.png', 'Product Management Icon', 7, 2.4)}
         {renderSkillItem('UX Research', 13)}
         {renderSkillItem('Web Publishing', 14)}
         {renderSkillItem('Graphic Design', 15)}

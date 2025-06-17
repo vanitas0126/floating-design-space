@@ -36,12 +36,13 @@ const ScrollHeader = () => {
       <div className="w-full max-w-[1920px] mx-auto h-full relative flex items-center px-4">
         <button
           onClick={scrollToTop}
-          className="absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-300 hover:scale-105"
+          className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-300 hover:scale-105"
+          style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}
         >
           UX.Song
         </button>
         
-        <nav className="absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
+        <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
             onClick={() => scrollToSection('work')}
             className="hover:text-indigo-600 transition-all duration-300 hover:scale-105"

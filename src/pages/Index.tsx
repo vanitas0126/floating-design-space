@@ -19,7 +19,7 @@ const Index = () => {
       }
 
       body {
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial Narrow', Arial, sans-serif;
+        font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
         cursor: auto !important;
         overflow-x: hidden;
         margin: 0;
@@ -35,6 +35,12 @@ const Index = () => {
       .font-garamond {
         font-family: 'EB Garamond', 'Garamond', 'Times New Roman', serif !important;
         font-feature-settings: "liga", "kern" !important;
+      }
+
+      /* Header font styling */
+      .header-font {
+        font-family: 'Arial Narrow', Arial, sans-serif !important;
+        font-stretch: condensed;
       }
 
       @keyframes float {
@@ -140,12 +146,12 @@ const Index = () => {
         <div className="absolute top-[60px] left-0 w-full z-10 opacity-100">
           <button
             onClick={scrollToTop}
-            className="absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+            className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           >
             UX.Song
           </button>
           
-          <nav className="absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
+          <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
             <button
               onClick={() => scrollToSection('work')}
               className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
@@ -169,21 +175,26 @@ const Index = () => {
 
         {/* Hero Section */}
         <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px]">
+          {/* Hero Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <img src="/images/heroimg.png" alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
+          </div>
+
           {/* Floating Elements with children */}
           <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px]" delay={0.8}>
-            <div className="w-full h-full bg-gradient-to-br from-purple-400 to-indigo-500 rounded-3xl opacity-70" style={{ transform: 'rotate(30deg)' }} />
+            <img src="/images/cheese.png" alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px]" delay={1.6}>
-            <div className="w-full h-full bg-gradient-to-br from-orange-300 to-red-400 rounded-3xl opacity-70" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
+            <img src="/images/elipse.png" alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px]" delay={2.4}>
-            <div className="w-full h-full bg-gradient-to-br from-blue-300 to-cyan-400 rounded-3xl opacity-70" style={{ transform: 'rotate(339deg)' }} />
+            <img src="/images/ball.png" alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px]" delay={0.4}>
-            <div className="w-full h-full bg-gradient-to-br from-emerald-300 to-teal-400 rounded-3xl opacity-70" />
+            <img src="/images/glass.png" alt="Floating glass" className="w-full h-full object-contain" />
           </FloatingElement>
 
           {/* Hero Text */}
@@ -227,25 +238,14 @@ const Index = () => {
           <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-slate-50 to-gray-200 relative">
-                  {/* HOPE project floating elements */}
-                  <FloatingElement className="absolute top-[316px] right-[120px] w-[51px] h-[59px]" delay={0}>
-                    <div className="w-full h-full bg-gradient-to-br from-orange-300 to-orange-500 rounded-[26px]" />
-                  </FloatingElement>
-                  <FloatingElement className="absolute top-[131px] right-[122px] w-[105px] h-[133px]" delay={1.5}>
-                    <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-[26px]" />
-                  </FloatingElement>
-                  <FloatingElement className="absolute bottom-[96px] left-[44px] w-[107px] h-[136px]" delay={3}>
-                    <div className="w-full h-full bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[26px]" />
-                  </FloatingElement>
-                </div>
+                <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-[887px] object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
               <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-purple-50 to-purple-200" />
+                <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-[887px] object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </AnimatedSection>
@@ -255,14 +255,14 @@ const Index = () => {
           <div className="absolute top-[1386px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-blue-50 to-blue-200" />
+                <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-[887px] object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
               <div className="w-full h-[988px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
-                <div className="w-full h-[887px] bg-gradient-to-br from-gray-50 to-gray-200" />
+                <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-[887px] object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </AnimatedSection>
@@ -279,24 +279,24 @@ const Index = () => {
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px] h-[887px] overflow-hidden flex-shrink-0">
-              <div className="w-full h-full bg-gradient-to-br from-indigo-50 to-indigo-200" />
+              <img src="/images/face.png" alt="Songhee's Profile" className="w-full h-full object-cover" />
             </AnimatedSection>
 
-            <div className="flex-1 flex flex-col justify-between">
-              <AnimatedSection delay={200}>
-                <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 mb-[40px] whitespace-nowrap">
+            <div className="flex-1 flex flex-col">
+              <AnimatedSection delay={200} className="mb-[40px]">
+                <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
                 </h3>
               </AnimatedSection>
 
-              <AnimatedSection delay={300}>
-                <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px] mb-[40px]">
+              <AnimatedSection delay={300} className="mb-[80px]">
+                <p className="text-2xl leading-[200%] text-gray-900 text-justify max-w-[805px]">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section */}
-              <div className="absolute top-[655px] left-[calc(50%+35px)] w-[805px]">
+              {/* Experience Section - Fixed positioning */}
+              <div className="w-[805px]">
                 <AnimatedSection delay={400} className="relative py-[37px] flex justify-between items-center">
                   <div className="absolute top-0 left-0 w-full h-px bg-gray-700" />
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
@@ -378,7 +378,7 @@ const Index = () => {
           {/* Background Image */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <AnimatedSection delay={100}>
-              <div className="w-full h-full bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 rounded-[20px] opacity-30" />
+              <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px] opacity-30" />
             </AnimatedSection>
           </div>
         </section>
