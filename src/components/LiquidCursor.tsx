@@ -65,54 +65,43 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Trail effect with stronger glassmorphism */}
+      {/* Trail effect with subtle glassmorphism */}
       <div
         ref={trailRef}
         className="fixed w-12 h-12 pointer-events-none z-[10000] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(100px) saturate(300%) brightness(140%) contrast(120%)',
-          WebkitBackdropFilter: 'blur(100px) saturate(300%) brightness(140%) contrast(120%)',
-          border: '2px solid rgba(255, 255, 255, 0.5)',
-          borderTop: '3px solid rgba(255, 255, 255, 0.8)',
-          borderLeft: '3px solid rgba(255, 255, 255, 0.8)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
+          backdropFilter: 'blur(20px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(150%)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.3)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.3)',
           borderRadius: '50%',
           boxShadow: `
-            0 30px 80px rgba(0, 0, 0, 0.25),
-            0 15px 40px rgba(0, 0, 0, 0.15),
-            inset 0 4px 8px rgba(255, 255, 255, 0.9),
-            inset 0 -4px 8px rgba(255, 255, 255, 0.5),
-            0 0 0 2px rgba(255, 255, 255, 0.2),
-            0 0 40px rgba(99, 102, 241, 0.3)
+            0 8px 20px rgba(0, 0, 0, 0.1),
+            inset 0 1px 2px rgba(255, 255, 255, 0.4)
           `,
           transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 12px 40px rgba(99, 102, 241, 0.25)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))',
         }}
       />
       
-      {/* Main cursor with enhanced liquid glass effect */}
+      {/* Main cursor with subtle liquid glass effect */}
       <div
         ref={cursorRef}
         className="fixed w-6 h-6 pointer-events-none z-[10001] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 100%)',
-          backdropFilter: 'blur(120px) saturate(400%) brightness(150%) contrast(130%)',
-          WebkitBackdropFilter: 'blur(120px) saturate(400%) brightness(150%) contrast(130%)',
-          border: '2px solid rgba(255, 255, 255, 0.6)',
-          borderTop: '3px solid rgba(255, 255, 255, 0.9)',
-          borderLeft: '3px solid rgba(255, 255, 255, 0.9)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)',
+          backdropFilter: 'blur(25px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(25px) saturate(160%)',
+          border: '1px solid rgba(255, 255, 255, 0.25)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.4)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.4)',
           borderRadius: '50%',
           boxShadow: `
-            0 20px 60px rgba(0, 0, 0, 0.3),
-            0 8px 25px rgba(0, 0, 0, 0.15),
-            inset 0 4px 8px rgba(255, 255, 255, 0.95),
-            inset 0 -2px 4px rgba(255, 255, 255, 0.6),
-            0 0 0 2px rgba(255, 255, 255, 0.3),
-            0 0 30px rgba(99, 102, 241, 0.4),
-            0 0 15px rgba(255, 255, 255, 0.9)
+            0 6px 15px rgba(0, 0, 0, 0.12),
+            inset 0 1px 3px rgba(255, 255, 255, 0.5)
           `,
           transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 6px 25px rgba(99, 102, 241, 0.35)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.9))',
         }}
       />
     </>
