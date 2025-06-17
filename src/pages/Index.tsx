@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -258,14 +257,14 @@ const Index = () => {
           {/* Project Row 1 */}
           <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
@@ -273,16 +272,16 @@ const Index = () => {
           </div>
 
           {/* Project Row 2 */}
-          <div className="absolute top-[1286px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          <div className="absolute top-[1301px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </AnimatedSection>
 
             <AnimatedSection delay={200} className="w-[821px]">
-              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[15px] relative transition-transform duration-700 hover:scale-[1.02]">
+              <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
@@ -316,30 +315,30 @@ const Index = () => {
                 </p>
               </AnimatedSection>
 
-              {/* Experience Section - 간격 문제 해결 */}
+              {/* Experience Section - 간격 일정하게 수정 */}
               <div className="w-[805px]">
-                <AnimatedSection delay={400} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={400} className="py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={500} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={500} className="py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600} className="relative py-[25px] flex justify-between items-center border-t border-gray-700">
+                <AnimatedSection delay={600} className="py-[25px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
                   </div>
                 </AnimatedSection>
 
-                <div className="border-t border-gray-700 mt-[25px]" />
+                <div className="border-t border-gray-700" />
               </div>
             </div>
           </div>
@@ -391,10 +390,10 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Background Image */}
+          {/* Background Image - 투명도 제거 */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <AnimatedSection delay={100}>
-              <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px] opacity-30" />
+              <img src="/images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
             </AnimatedSection>
           </div>
         </section>
