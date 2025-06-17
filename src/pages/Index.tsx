@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -159,6 +158,9 @@ const Index = () => {
     window.location.href = 'mailto:allivanitas@gmail.com';
   };
 
+  // Base path for images
+  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
       <LiquidCursor />
@@ -201,24 +203,24 @@ const Index = () => {
         <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
-            <img src="./images/heroimg.png" alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
+            <img src={`${basePath}/images/heroimg.png`} alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
           </div>
 
           {/* Floating Elements with children */}
           <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] floating-element" delay={0.8}>
-            <img src="./images/cheese.png" alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
+            <img src={`${basePath}/images/cheese.png`} alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px] floating-element" delay={1.6}>
-            <img src="./images/elipse.png" alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
+            <img src={`${basePath}/images/elipse.png`} alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px] floating-element" delay={2.4}>
-            <img src="./images/ball.png" alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
+            <img src={`${basePath}/images/ball.png`} alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
           </FloatingElement>
           
           <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px] floating-element" delay={0.4}>
-            <img src="./images/glass.png" alt="Floating glass" className="w-full h-full object-contain" />
+            <img src={`${basePath}/images/glass.png`} alt="Floating glass" className="w-full h-full object-contain" />
           </FloatingElement>
 
           {/* Hero Text */}
@@ -269,14 +271,14 @@ const Index = () => {
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="./images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
             </EnhancedAnimatedSection>
 
             <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="./images/madmax.png" alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
             </EnhancedAnimatedSection>
@@ -286,14 +288,14 @@ const Index = () => {
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="./images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
             </EnhancedAnimatedSection>
 
             <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src="./images/nigeria.png" alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
             </EnhancedAnimatedSection>
@@ -310,7 +312,7 @@ const Index = () => {
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection delay={0.1} className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image">
-              <img src="./images/face.png" alt="Songhee's Profile" className="w-full h-full object-cover" />
+              <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
             </EnhancedAnimatedSection>
 
             <div className="flex-1 flex flex-col max-w-[821px]">
@@ -404,7 +406,7 @@ const Index = () => {
           {/* Background Image - 기울어짐 제거 */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <EnhancedAnimatedSection delay={0.1} animationType="fadeUp">
-              <img src="./images/emailme.png" alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
+              <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
             </EnhancedAnimatedSection>
           </div>
         </section>
