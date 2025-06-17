@@ -9,7 +9,7 @@ interface EnhancedAnimatedSectionProps {
   children: ReactNode;
   delay?: number;
   className?: string;
-  animationType?: 'fadeUp' | 'fadeDown' | 'fadeLeft' | 'fadeRight' | 'scale' | 'rotate';
+  animationType?: 'fadeUp' | 'fadeDown' | 'fadeLeft' | 'fadeRight' | 'scale';
   duration?: number;
 }
 
@@ -18,7 +18,7 @@ const EnhancedAnimatedSection = ({
   delay = 0, 
   className = '', 
   animationType = 'fadeUp',
-  duration = 1
+  duration = 0.8
 }: EnhancedAnimatedSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,19 +30,17 @@ const EnhancedAnimatedSection = ({
     const getInitialState = () => {
       switch (animationType) {
         case 'fadeUp':
-          return { opacity: 0, y: 30 };
+          return { opacity: 0, y: 20 };
         case 'fadeDown':
-          return { opacity: 0, y: -30 };
+          return { opacity: 0, y: -20 };
         case 'fadeLeft':
-          return { opacity: 0, x: -30 };
+          return { opacity: 0, x: -20 };
         case 'fadeRight':
-          return { opacity: 0, x: 30 };
+          return { opacity: 0, x: 20 };
         case 'scale':
-          return { opacity: 0, scale: 0.9 };
-        case 'rotate':
-          return { opacity: 0, rotation: 5, scale: 0.95 };
+          return { opacity: 0, scale: 0.95 };
         default:
-          return { opacity: 0, y: 30 };
+          return { opacity: 0, y: 20 };
       }
     };
 
@@ -56,8 +54,6 @@ const EnhancedAnimatedSection = ({
           return { opacity: 1, x: 0 };
         case 'scale':
           return { opacity: 1, scale: 1 };
-        case 'rotate':
-          return { opacity: 1, rotation: 0, scale: 1 };
         default:
           return { opacity: 1, y: 0 };
       }
@@ -69,10 +65,10 @@ const EnhancedAnimatedSection = ({
       ...getFinalState(),
       duration,
       delay,
-      ease: 'power2.out',
+      ease: 'power1.out',
       scrollTrigger: {
         trigger: element,
-        start: 'top 85%',
+        start: 'top 90%',
         toggleActions: 'play none none reverse',
       },
     });
