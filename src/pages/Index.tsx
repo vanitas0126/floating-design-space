@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -255,7 +256,7 @@ const Index = () => {
           </div>
 
           {/* Project Row 1 */}
-          <div className="absolute top-[220px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          <div className="absolute top-[220px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/hopeposter.png" alt="HOPE Project" className="w-full h-full object-cover" />
@@ -272,7 +273,7 @@ const Index = () => {
           </div>
 
           {/* Project Row 2 */}
-          <div className="absolute top-[1301px] left-[120px] flex gap-[50px] w-[calc(100%-240px)]">
+          <div className="absolute top-[1301px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <AnimatedSection delay={100} className="w-[821px]">
               <div className="w-full h-[887px] rounded-none overflow-hidden mb-[30px] relative transition-transform duration-700 hover:scale-[1.02]">
                 <img src="/images/musicplayer.png" alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover" />
