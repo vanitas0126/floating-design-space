@@ -12,22 +12,9 @@ const ScrollMagic = () => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Hero section parallax effect
+      // Hero section subtle parallax effect
       gsap.to('.hero-background', {
-        yPercent: -50,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero-section',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
-      // Floating elements enhanced movement
-      gsap.to('.floating-element', {
-        y: -100,
-        rotation: 360,
+        yPercent: -20,
         ease: 'none',
         scrollTrigger: {
           trigger: '.hero-section',
@@ -37,14 +24,27 @@ const ScrollMagic = () => {
         },
       });
 
-      // Philosophy text reveal
+      // Floating elements gentle movement
+      gsap.to('.floating-element', {
+        y: -30,
+        rotation: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero-section',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.5,
+        },
+      });
+
+      // Philosophy text subtle reveal
       gsap.fromTo('.philosophy-text', 
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          stagger: 0.2,
+          duration: 0.8,
+          stagger: 0.1,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: '.philosophy-section',
@@ -55,27 +55,27 @@ const ScrollMagic = () => {
         }
       );
 
-      // Skills scroll speed variation
+      // Skills scroll smooth movement
       gsap.to('.skills-scroll', {
-        x: '-200%',
+        x: '-100%',
         ease: 'none',
         scrollTrigger: {
           trigger: '.skills-section',
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 2,
+          scrub: 1,
         },
       });
 
-      // Work projects scale and fade
+      // Work projects gentle scale
       gsap.fromTo('.work-project',
-        { scale: 0.8, opacity: 0.3 },
+        { scale: 0.95, opacity: 0.7 },
         {
           scale: 1,
           opacity: 1,
-          duration: 1.5,
+          duration: 1,
           ease: 'power2.out',
-          stagger: 0.3,
+          stagger: 0.2,
           scrollTrigger: {
             trigger: '.work-section',
             start: 'top 70%',
@@ -85,27 +85,26 @@ const ScrollMagic = () => {
         }
       );
 
-      // About section image parallax
+      // About section image subtle parallax
       gsap.to('.about-image', {
-        yPercent: -30,
+        yPercent: -15,
         ease: 'none',
         scrollTrigger: {
           trigger: '.about-section',
           start: 'top bottom',
           end: 'bottom top',
-          scrub: true,
+          scrub: 1,
         },
       });
 
-      // Contact section dramatic entrance
+      // Contact section gentle entrance
       gsap.fromTo('.contact-title',
-        { scale: 0.5, opacity: 0, rotation: -10 },
+        { scale: 0.9, opacity: 0 },
         {
           scale: 1,
           opacity: 1,
-          rotation: 0,
-          duration: 1.5,
-          ease: 'back.out(1.7)',
+          duration: 1,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.contact-section',
             start: 'top 80%',
@@ -114,15 +113,15 @@ const ScrollMagic = () => {
         }
       );
 
-      // Header blur effect on scroll
+      // Header subtle blur effect
       gsap.to('.scroll-header', {
-        backdropFilter: 'blur(20px)',
-        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(10px)',
+        background: 'rgba(255, 255, 255, 0.08)',
         scrollTrigger: {
           trigger: 'body',
-          start: 'top -100',
+          start: 'top -50',
           end: 'bottom bottom',
-          scrub: true,
+          scrub: 0.5,
         },
       });
 

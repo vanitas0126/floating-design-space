@@ -30,19 +30,19 @@ const EnhancedAnimatedSection = ({
     const getInitialState = () => {
       switch (animationType) {
         case 'fadeUp':
-          return { opacity: 0, y: 50 };
+          return { opacity: 0, y: 30 };
         case 'fadeDown':
-          return { opacity: 0, y: -50 };
+          return { opacity: 0, y: -30 };
         case 'fadeLeft':
-          return { opacity: 0, x: -50 };
+          return { opacity: 0, x: -30 };
         case 'fadeRight':
-          return { opacity: 0, x: 50 };
+          return { opacity: 0, x: 30 };
         case 'scale':
-          return { opacity: 0, scale: 0.5 };
+          return { opacity: 0, scale: 0.9 };
         case 'rotate':
-          return { opacity: 0, rotation: 45, scale: 0.8 };
+          return { opacity: 0, rotation: 5, scale: 0.95 };
         default:
-          return { opacity: 0, y: 50 };
+          return { opacity: 0, y: 30 };
       }
     };
 
@@ -77,7 +77,9 @@ const EnhancedAnimatedSection = ({
       },
     });
 
-    return () => animation.kill();
+    return () => {
+      animation.kill();
+    };
   }, [delay, animationType, duration]);
 
   return (

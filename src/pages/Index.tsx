@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -166,8 +165,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header */}
-        <div className="absolute top-[60px] left-0 w-full z-10 opacity-100 scroll-header">
+        {/* Fixed Header - 높은 z-index로 최우선 */}
+        <div className="absolute top-[60px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -250,9 +249,9 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section - 96px gap from philosophy text */}
-        <section className="absolute top-[1146px] -left-[72px] w-[2064px] h-[70px] overflow-hidden skills-section">
-          <div className="skills-scroll">
+        {/* Skills Section - 높이와 오버플로우 수정 */}
+        <section className="absolute top-[1146px] left-0 w-full h-[120px] overflow-hidden skills-section">
+          <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
         </section>
