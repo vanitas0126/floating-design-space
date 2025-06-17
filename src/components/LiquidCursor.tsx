@@ -65,41 +65,41 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Trail effect with subtle glassmorphism */}
+      {/* Trail effect with strong glassmorphism but soft shadow */}
       <div
         ref={trailRef}
         className="fixed w-12 h-12 pointer-events-none z-[10000] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
-          backdropFilter: 'blur(20px) saturate(150%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(150%)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.3)',
-          borderLeft: '1px solid rgba(255, 255, 255, 0.3)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
+          backdropFilter: 'blur(40px) saturate(200%) brightness(120%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(120%)',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.6)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.6)',
           borderRadius: '50%',
           boxShadow: `
-            0 8px 20px rgba(0, 0, 0, 0.1),
-            inset 0 1px 2px rgba(255, 255, 255, 0.4)
+            0 4px 12px rgba(0, 0, 0, 0.08),
+            inset 0 1px 4px rgba(255, 255, 255, 0.6)
           `,
           transform: 'translate(-50%, -50%)',
         }}
       />
       
-      {/* Main cursor with subtle liquid glass effect */}
+      {/* Main cursor with strong glassmorphism but soft shadow */}
       <div
         ref={cursorRef}
         className="fixed w-6 h-6 pointer-events-none z-[10001] opacity-0 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(25px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(25px) saturate(160%)',
-          border: '1px solid rgba(255, 255, 255, 0.25)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.4)',
-          borderLeft: '1px solid rgba(255, 255, 255, 0.4)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%)',
+          backdropFilter: 'blur(50px) saturate(250%) brightness(130%)',
+          WebkitBackdropFilter: 'blur(50px) saturate(250%) brightness(130%)',
+          border: '1px solid rgba(255, 255, 255, 0.5)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.7)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.7)',
           borderRadius: '50%',
           boxShadow: `
-            0 6px 15px rgba(0, 0, 0, 0.12),
-            inset 0 1px 3px rgba(255, 255, 255, 0.5)
+            0 3px 8px rgba(0, 0, 0, 0.06),
+            inset 0 1px 4px rgba(255, 255, 255, 0.7)
           `,
           transform: 'translate(-50%, -50%)',
         }}
