@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -216,12 +217,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 flex flex-col">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="portfolio-container relative">
+      <div className="portfolio-container relative flex-1">
         <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
         <HeroSection />
         <PhilosophySection />
