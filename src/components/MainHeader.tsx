@@ -1,4 +1,5 @@
 
+
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('MainHeader scrolling to section:', sectionId);
@@ -36,11 +37,11 @@ const MainHeader = () => {
   };
 
   return (
-    <div className="absolute top-[10px] left-0 w-full z-[9999] opacity-100">
+    <div className="absolute top-[10px] left-0 w-full z-[10001] opacity-100 pointer-events-auto">
       <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
         <button 
           onClick={handleScrollToTop} 
-          className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+          className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105 pointer-events-auto"
         >
           UX.Song
         </button>
@@ -48,19 +49,19 @@ const MainHeader = () => {
         <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
           <button 
             onClick={() => handleScrollToSection('work')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
           >
             Work
           </button>
           <button 
             onClick={() => handleScrollToSection('about')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
           >
             About
           </button>
           <button 
             onClick={() => handleScrollToSection('contact')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
           >
             Contact
           </button>
@@ -71,3 +72,4 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
