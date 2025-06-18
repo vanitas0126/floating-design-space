@@ -18,7 +18,7 @@ const ScrollHeader = () => {
     if (element) {
       const elementTop = element.offsetTop;
       // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
+      const offset = sectionId === 'work' ? 0 : sectionId === 'about' ? 0 : sectionId === 'contact' ? 0 : 0;
       
       window.scrollTo({
         top: elementTop + offset,

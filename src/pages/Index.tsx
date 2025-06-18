@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -92,7 +91,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5800px;
+        height: 5700px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -195,7 +194,7 @@ const Index = () => {
     if (element) {
       const elementTop = element.offsetTop;
       // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
+      const offset = sectionId === 'work' ? 0 : sectionId === 'about' ? 0 : sectionId === 'contact' ? 0 : 0;
       
       window.scrollTo({
         top: elementTop + offset,
@@ -461,8 +460,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section - 컨텐츠를 20px 위로 이동 */}
+        <section id="contact" className="absolute top-[4980px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -471,7 +470,7 @@ const Index = () => {
           </AnimatedSection>
 
           <AnimatedSection 
-            className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
+            className="absolute top-[395px] left-1/2 transform -translate-x-1/2 text-center z-10"
             delay={200}
           >
             <h3 
@@ -512,16 +511,16 @@ const Index = () => {
 
           {/* Background Image */}
           <AnimatedSection 
-            className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
+            className="absolute top-[112px] left-[182px] w-[1557px] h-[796px] z-0"
             delay={150}
           >
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
 
-        {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
-        <div className="absolute top-[6200px] left-0 w-full">
-          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
+        {/* Footer - 푸터 컬러 제거 */}
+        <div className="absolute top-[5500px] left-0 w-full">
+          <footer className="w-full p-0 border-t-2 border-gray-700 flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
               <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
                 <p className="text-gray-900">Songhee Park © 2025</p>
