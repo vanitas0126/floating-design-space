@@ -17,7 +17,6 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // 헤더 높이(60px) + 추가 여백을 고려하여 정확히 제목이 보이도록 조정
       const headerHeight = 60;
       const additionalOffset = 20;
       
@@ -52,8 +51,7 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      {/* 1680px 컨테이너 적용 */}
-      <div className="max-w-[1680px] mx-auto h-full flex items-center justify-between px-[20px]">
+      <div className="w-[1680px] mx-auto h-full flex items-center justify-between px-[20px]">
         <button
           onClick={scrollToTop}
           className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
