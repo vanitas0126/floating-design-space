@@ -16,19 +16,21 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const elementTop = element.offsetTop;
-      // Scroll directly to the section title without any offset
-      
-      window.scrollTo({
-        top: elementTop,
-        behavior: 'smooth'
-      });
-      
-      setTimeout(() => {
-        element.style.transform = 'translateY(0)';
-        element.style.opacity = '1';
-        element.style.transition = 'all 0.8s ease-out';
-      }, 300);
+      // 컨테이너의 스케일링을 고려한 정확한 위치 계산
+      const container = document.querySelector('.portfolio-container') as HTMLElement;
+      if (container) {
+        const containerRect = container.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        const scrollY = window.scrollY;
+        
+        // 실제 element의 절대 위치에서 헤더 높이만큼 빼기
+        const targetY = scrollY + elementRect.top - 100; // 헤더 높이 100px 고려
+        
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
