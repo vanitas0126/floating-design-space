@@ -1,8 +1,6 @@
-
 const Footer = () => {
-  return (
-    <div className="w-full bg-white border-t border-gray-200">
-      <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px] px-[125px]">
+  return <div className="w-full bg-white border-t border-gray-200">
+      <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px] px-0">
         <p className="header-font text-[44px] font-medium text-gray-900">
           Songhee Park © 2025
         </p>
@@ -11,8 +9,6 @@ const Footer = () => {
           Instagram
         </a>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Footer;
