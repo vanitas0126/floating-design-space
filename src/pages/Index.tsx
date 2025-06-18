@@ -34,6 +34,7 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
+        height: 5000px;
       }
 
       .font-garamond {
@@ -193,11 +194,9 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
-        top: elementTop + offset,
+        top: elementTop - 100,
         behavior: 'smooth'
       });
       
@@ -223,7 +222,7 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden relative">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
@@ -502,10 +501,10 @@ const Index = () => {
             </p>
 
             <AnimatedSection 
-              className="flex justify-between items-center gap-20 mt-[280px] w-full"
+              className="flex justify-center items-center gap-20 mt-[280px] w-full"
               delay={300}
             >
-              <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+              <div className="flex justify-center items-center gap-20">
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -522,15 +521,13 @@ const Index = () => {
           </AnimatedSection>
         </section>
 
-        {/* Footer */}
-        <div className="absolute top-[6200px] left-0 w-full">
-          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
-            <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[20px]">
-              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-            </div>
-          </footer>
-        </div>
+        {/* Footer - 맨 아래 고정 */}
+        <footer className="fixed bottom-0 left-0 w-full bg-gray-50 border-t-2 border-gray-700 z-[9998]">
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[15px]">
+            <p className="text-[20px] text-gray-900">Songhee Park © 2025</p>
+            <a href="#" className="text-[20px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+          </div>
+        </footer>
       </div>
     </div>
   );
