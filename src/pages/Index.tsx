@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -19,16 +18,14 @@ const Index = () => {
 
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 70px;
+        scroll-padding-top: 100px;
         overflow-x: hidden;
-        height: 100%;
       }
 
       body {
         font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
         cursor: auto !important;
         overflow-x: hidden;
-        overflow-y: auto;
         margin: 0;
         padding: 0;
         font-stretch: condensed;
@@ -37,13 +34,6 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
-        height: 5000px;
-        min-height: 100vh;
-      }
-
-      #root {
-        height: 100%;
-        overflow: visible;
       }
 
       .font-garamond {
@@ -101,14 +91,13 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5000px;
+        height: 5800px;
         position: relative;
         margin: 0 auto;
         background: transparent;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        overflow: visible;
       }
 
       @media (min-width: 1920px) {
@@ -204,7 +193,8 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const offset = -100; // 섹션 제목이 잘 보이도록 조정
+      // Add small offset to show content instead of title
+      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
         top: elementTop + offset,
@@ -233,23 +223,23 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50" style={{ overflow: 'visible' }}>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 텍스트 크기 더 줄임 */}
+        {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-          <div className="w-[1680px] mx-auto flex justify-between items-center">
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
             <button
               onClick={scrollToTop}
-              className="header-font text-[24px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+              className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
             >
               UX.Song
             </button>
             
-            <nav className="header-font flex gap-[80px] text-lg font-medium text-gray-900">
+            <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
               <button
                 onClick={() => scrollToSection('work')}
                 className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
@@ -274,7 +264,7 @@ const Index = () => {
 
         {/* Hero Section */}
         <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
-          {/* Hero Background */}
+          {/* Hero Background - z-index를 높여 텍스트보다 우선순위 높임 */}
           <div className="absolute inset-0 w-full h-full z-[100] hero-background">
             <img 
               src={`${basePath}/images/heroimg.png`} 
@@ -285,7 +275,7 @@ const Index = () => {
             />
           </div>
 
-          {/* Floating Elements */}
+          {/* Floating Elements with children */}
           <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] floating-element" delay={0.8}>
             <img src={`${basePath}/images/cheese.png`} alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
@@ -336,7 +326,7 @@ const Index = () => {
           </div>
         </EnhancedAnimatedSection>
 
-        {/* Skills Section */}
+        {/* Skills Section - 애니메이션 제거하고 바로 보이게 */}
         <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
@@ -472,8 +462,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="absolute top-[4700px] left-0 w-full contact-section">
+        {/* Contact Section - 위치를 5000px로 조정 */}
+        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -512,10 +502,10 @@ const Index = () => {
             </p>
 
             <AnimatedSection 
-              className="mt-[280px] w-full"
+              className="flex justify-between items-center gap-20 mt-[280px] w-full"
               delay={300}
             >
-              <div className="flex justify-center items-center gap-20">
+              <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -531,15 +521,17 @@ const Index = () => {
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
-      </div>
 
-      {/* Footer - 푸터 텍스트 크기 더 줄임 */}
-      <footer className="w-full border-t-2 border-gray-700 mt-[200px]">
-        <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
-          <p className="text-sm text-gray-900">Songhee Park © 2025</p>
-          <a href="#" className="text-sm text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+        {/* Footer */}
+        <div className="absolute top-[6200px] left-0 w-full">
+          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
+            <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[20px]">
+              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
+              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+            </div>
+          </footer>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
