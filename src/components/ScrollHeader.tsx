@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 const ScrollHeader = () => {
@@ -18,46 +19,23 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     console.log('Scrolling to section:', sectionId);
     
-    // 섹션의 실제 위치값을 더 정확하게 조정
-    let targetPosition = 0;
-    switch(sectionId) {
-      case 'work':
-        targetPosition = 1150; // WorkSection 타이틀 위치에 맞춰 조정
-        break;
-      case 'about':
-        targetPosition = 3350; // AboutSection 타이틀 위치에 맞춰 조정
-        break;
-      case 'contact':
-        targetPosition = 4880; // ContactSection 타이틀 위치에 맞춰 조정
-        break;
-      default:
-        targetPosition = 0;
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const elementTop = element.offsetTop;
+      const headerHeight = 60;
+      
+      window.scrollTo({
+        top: elementTop - headerHeight,
+        behavior: 'smooth'
+      });
+      
+      setTimeout(() => {
+        element.classList.add('smooth-scroll-target');
+        setTimeout(() => {
+          element.classList.remove('smooth-scroll-target');
+        }, 800);
+      }, 500);
     }
-    
-    console.log('Target position:', targetPosition, 'for section:', sectionId);
-    const headerHeight = 60; // 헤더 높이
-    const scrollTarget = targetPosition - headerHeight;
-    
-    console.log('Final scroll target:', scrollTarget);
-    
-    window.scrollTo({
-      top: scrollTarget,
-      behavior: 'smooth'
-    });
-
-    // 스크롤 후 해당 섹션의 애니메이션 트리거
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const animatedElements = section.querySelectorAll('[class*="opacity-0"], [class*="translate-y"]');
-        console.log('Found animated elements:', animatedElements.length);
-        animatedElements.forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('animate-fade-in');
-          }, index * 100);
-        });
-      }
-    }, 500);
   };
 
   const scrollToTop = () => {
