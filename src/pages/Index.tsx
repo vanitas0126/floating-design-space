@@ -235,7 +235,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 flex flex-col">
       <LiquidCursor />
-      <ScrollHeader />
+      <ScrollHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
       <ScrollMagic />
       
       <div className="main-content-wrapper">
