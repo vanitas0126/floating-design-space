@@ -24,8 +24,8 @@ const ScrollHeader = () => {
       const elementTop = element.offsetTop;
       const headerHeight = 60; // 헤더 높이
       
-      // 모든 섹션에 동일한 오프셋 적용하여 제목이 잘 보이도록
-      const additionalOffset = 100;
+      // 오프셋을 0px로 설정
+      const additionalOffset = 0;
       
       const scrollTarget = elementTop - headerHeight - additionalOffset;
       console.log('Scroll target:', scrollTarget, 'for section:', sectionId);
