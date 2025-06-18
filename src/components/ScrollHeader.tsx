@@ -16,21 +16,17 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // 컨테이너의 스케일링을 고려한 정확한 위치 계산
-      const container = document.querySelector('.portfolio-container') as HTMLElement;
-      if (container) {
-        const containerRect = container.getBoundingClientRect();
-        const elementRect = element.getBoundingClientRect();
-        const scrollY = window.scrollY;
-        
-        // 실제 element의 절대 위치에서 헤더 높이만큼 빼기
-        const targetY = scrollY + elementRect.top - 100; // 헤더 높이 100px 고려
-        
-        window.scrollTo({
-          top: targetY,
-          behavior: 'smooth'
-        });
-      }
+      const elementRect = element.getBoundingClientRect();
+      const scrollY = window.scrollY;
+      
+      // 제목 높이만큼 오프셋 적용 (약 60px)
+      const titleOffset = 60;
+      const targetY = scrollY + elementRect.top - titleOffset;
+      
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
     }
   };
 
