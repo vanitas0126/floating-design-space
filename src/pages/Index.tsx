@@ -34,7 +34,6 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
-        height: auto;
       }
 
       .font-garamond {
@@ -92,7 +91,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5200px;
+        height: 5800px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -101,7 +100,6 @@ const Index = () => {
         flex-direction: column;
       }
 
-      /* Responsive scaling */
       @media (min-width: 1920px) {
         .portfolio-container {
           transform: scale(0.9);
@@ -157,6 +155,12 @@ const Index = () => {
           transform-origin: top center;
         }
       }
+
+      /* Header scroll scaling - 90% 일관적으로 적용 */
+      .scroll-header {
+        transform: scale(0.9);
+        transform-origin: top center;
+      }
     `;
     document.head.appendChild(style);
 
@@ -189,9 +193,11 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
+      // Add small offset to show content instead of title
+      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
-        top: elementTop - 100,
+        top: elementTop + offset,
         behavior: 'smooth'
       });
       
@@ -217,15 +223,15 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 via-white to-slate-50 relative" style={{ overflowX: 'hidden', minHeight: '100vh', paddingBottom: '100px' }}>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="portfolio-container">
+      <div className="portfolio-container relative">
         {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-          <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+          <div className="w-[1680px] mx-auto flex justify-between items-center">
             <button
               onClick={scrollToTop}
               className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -456,8 +462,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="absolute top-[4800px] left-0 w-full contact-section">
+        {/* Contact Section - 위치를 5000px로 조정 */}
+        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -496,10 +502,10 @@ const Index = () => {
             </p>
 
             <AnimatedSection 
-              className="flex justify-center items-center gap-20 mt-[280px] w-full"
+              className="mt-[280px] w-full"
               delay={300}
             >
-              <div className="flex justify-center items-center gap-20">
+              <div className="w-[1680px] mx-auto flex justify-center items-center gap-20">
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -515,16 +521,17 @@ const Index = () => {
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
-      </div>
 
-      {/* Footer - 맨 아래 고정 */}
-      <footer className="fixed bottom-0 left-0 right-0 z-[9998] bg-transparent">
-        <div className="w-full border-t border-gray-700"></div>
-        <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[15px]">
-          <p className="text-[20px] text-gray-900">Songhee Park © 2025</p>
-          <a href="#" className="text-[20px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-        </div>
-      </footer>
+        {/* Footer - body 하단에 위치하도록 변경 */}
+        <footer className="w-full">
+          <div className="w-full border-t-2 border-gray-700">
+            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
+              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
+              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };

@@ -17,11 +17,18 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
+      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
-        top: elementTop - 80,
+        top: elementTop + offset,
         behavior: 'smooth'
       });
+      
+      setTimeout(() => {
+        element.style.transform = 'translateY(0)';
+        element.style.opacity = '1';
+        element.style.transition = 'all 0.8s ease-out';
+      }, 300);
     }
   };
 
@@ -31,7 +38,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-12 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-24 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -49,54 +56,52 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      <div className="w-full h-full">
-        <div className="w-[1680px] mx-auto h-full flex items-center justify-between px-0">
+      <div className="w-[1680px] mx-auto h-full flex items-center justify-between">
+        <button
+          onClick={scrollToTop}
+          className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+          style={{ 
+            fontFamily: 'Arial Narrow, Arial, sans-serif', 
+            fontStretch: 'condensed',
+            textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+            filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+          }}
+        >
+          UX.Song
+        </button>
+        
+        <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
-            onClick={scrollToTop}
-            className="header-font text-[20px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
-            style={{ 
-              fontFamily: 'Arial Narrow, Arial, sans-serif', 
-              fontStretch: 'condensed',
+            onClick={() => scrollToSection('work')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
               textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
               filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
             }}
           >
-            UX.Song
+            Work
           </button>
-          
-          <nav className="header-font flex gap-[40px] text-[16px] font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
-            <button
-              onClick={() => scrollToSection('work')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              Work
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              Contact
-            </button>
-          </nav>
-        </div>
+          <button
+            onClick={() => scrollToSection('about')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
+              textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+              filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+            }}
+          >
+            About
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
+              textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+              filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+            }}
+          >
+            Contact
+          </button>
+        </nav>
       </div>
     </header>
   );
