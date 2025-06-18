@@ -220,20 +220,42 @@ const Index = () => {
       
       <div className="main-content-wrapper">
         <div className="portfolio-container relative flex-1">
-          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-          <HeroSection />
-          <PhilosophySection />
+          {/* Header - fixed positioning */}
+          <div className="relative w-full pt-4 pb-8">
+            <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+          </div>
           
-          {/* Skills Section - 반응형으로 수정 */}
-          <div className="w-full overflow-hidden skills-section mt-[200px] mb-[100px] h-[120px]">
+          {/* Hero Section */}
+          <div className="relative w-full mb-16">
+            <HeroSection />
+          </div>
+          
+          {/* Philosophy Section */}
+          <div className="relative w-full mb-32">
+            <PhilosophySection />
+          </div>
+          
+          {/* Skills Section */}
+          <div className="w-full overflow-hidden skills-section mb-32 h-[120px]">
             <div className="w-full h-full skills-scroll">
               <SkillsScroll />
             </div>
           </div>
 
-          <WorkSection />
-          <AboutSection />
-          <ContactSection />
+          {/* Work Section */}
+          <div id="work" className="relative w-full mb-32">
+            <WorkSection />
+          </div>
+
+          {/* About Section */}
+          <div id="about" className="relative w-full mb-32">
+            <AboutSection />
+          </div>
+
+          {/* Contact Section */}
+          <div id="contact" className="relative w-full mb-32">
+            <ContactSection />
+          </div>
         </div>
         
         <div className="footer-container">
