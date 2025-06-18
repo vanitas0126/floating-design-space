@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -226,8 +225,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 상단 간격을 40px로 조정 */}
-        <div className="absolute top-[40px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 헤더 상단 간격을 30px로 조정 */}
+        <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -321,17 +320,12 @@ const Index = () => {
           </div>
         </EnhancedAnimatedSection>
 
-        {/* Skills Section */}
-        <EnhancedAnimatedSection 
-          className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section"
-          animationType="scale"
-          delay={0.2}
-          duration={0.6}
-        >
+        {/* Skills Section - 애니메이션 제거하고 바로 보이게 */}
+        <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
-        </EnhancedAnimatedSection>
+        </div>
 
         {/* Work Section */}
         <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
@@ -443,43 +437,28 @@ const Index = () => {
                 </p>
               </EnhancedAnimatedSection>
 
-              {/* Experience Section - 비슷한 타이밍으로 조정 */}
+              {/* Experience Section */}
               <div className="w-full">
-                <EnhancedAnimatedSection 
-                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeUp"
-                  delay={0.5}
-                  duration={0.5}
-                >
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
-                <EnhancedAnimatedSection 
-                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeUp"
-                  delay={0.6}
-                  duration={0.5}
-                >
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
-                <EnhancedAnimatedSection 
-                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeUp"
-                  delay={0.7}
-                  duration={0.5}
-                >
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
                 <div className="border-t border-gray-700" />
               </div>
@@ -487,16 +466,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 인터렉션 최소화 */}
-        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
-          <EnhancedAnimatedSection 
-            className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeUp"
-            delay={0.1}
-            duration={0.6}
-          >
+        {/* Contact Section - 위치를 4400px로 올림 */}
+        <section id="contact" className="relative top-[4400px] left-0 w-full contact-section">
+          <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-          </EnhancedAnimatedSection>
+          </div>
 
           <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
             <h3 
