@@ -18,7 +18,7 @@ const Index = () => {
 
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 100px;
+        scroll-padding-top: 70px;
         overflow-x: hidden;
       }
 
@@ -34,6 +34,7 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
+        height: 5800px;
       }
 
       .font-garamond {
@@ -523,8 +524,8 @@ const Index = () => {
         </section>
       </div>
 
-      {/* Footer - Contact 섹션 바로 아래로 이동, full width */}
-      <footer className="w-full border-t-2 border-gray-700 mt-[6200px]">
+      {/* Footer - Contact 섹션 바로 아래로 이동, 1680px 컨테이너 적용 */}
+      <footer className="w-full border-t-2 border-gray-700 mt-[200px]">
         <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
           <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
           <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
