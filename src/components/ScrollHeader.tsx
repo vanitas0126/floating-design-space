@@ -20,12 +20,23 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerHeight = 60;
-      const additionalOffset = 20;
+      const headerHeight = 80; // 헤더 높이 고려
+      const additionalOffset = 0; // 섹션 제목이 잘 보이도록 추가 오프셋
+      
       window.scrollTo({
         top: elementTop - headerHeight - additionalOffset,
         behavior: 'smooth'
       });
+
+      // 스크롤 후 해당 섹션의 애니메이션 트리거
+      setTimeout(() => {
+        const animatedElements = element.querySelectorAll('[class*="opacity-0"], [class*="translate-y"]');
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate-fade-in');
+          }, index * 100);
+        });
+      }, 500);
     }
   };
 
@@ -65,7 +76,7 @@ const ScrollHeader = () => {
             {/* 메뉴 텍스트들 */}
             <button 
               onClick={scrollToTop} 
-              className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+              className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110 cursor-pointer"
               style={{
                 fontFamily: 'Arial Narrow, Arial, sans-serif',
                 fontStretch: 'condensed',
@@ -85,7 +96,7 @@ const ScrollHeader = () => {
             >
               <button 
                 onClick={() => scrollToSection('work')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer active:scale-95"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
@@ -95,7 +106,7 @@ const ScrollHeader = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('about')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer active:scale-95"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
@@ -105,7 +116,7 @@ const ScrollHeader = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer active:scale-95"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
