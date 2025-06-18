@@ -250,8 +250,8 @@ const Index = () => {
         <div className="portfolio-container" style={{ height: '5600px' }}>
           
           {/* Fixed Header - 헤더 전체는 풀 width, 텍스트 컨테이너만 1680px */}
-          <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-            <div className="w-[1680px] mx-auto flex justify-between items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'top center' }}>
+          <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 flex justify-center">
+            <div className="w-[1680px] flex justify-between items-center px-[120px]">
               <button
                 onClick={scrollToTop}
                 className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -563,11 +563,9 @@ const Index = () => {
       {/* Footer - 푸터 전체는 풀 width, 텍스트 컨테이너만 1680px로 묶어서 가운데 정렬 */}
       <div className="footer-wrapper">
         <footer className="w-full p-0 border-t-2 border-gray-700 flex flex-col items-center bg-gradient-to-br from-gray-50 via-white to-slate-50">
-          <div className="w-[1680px] mx-auto">
-            <div className="flex justify-between items-center py-5 text-[28px]">
-              <p className="text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-            </div>
+          <div className="w-[1680px] flex justify-between items-center py-5 px-[120px] text-[28px]">
+            <p className="text-gray-900">Songhee Park © 2025</p>
+            <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
           </div>
         </footer>
       </div>

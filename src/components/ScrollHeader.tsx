@@ -54,8 +54,8 @@ const ScrollHeader = () => {
         `
       }}
     >
-      <div className="w-full h-full">
-        <div className="w-[1680px] mx-auto h-full flex justify-between items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
+      <div className="w-full h-full flex justify-center items-center">
+        <div className="w-[1680px] h-full flex justify-between items-center px-[120px]">
           <button
             onClick={scrollToTop}
             className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
