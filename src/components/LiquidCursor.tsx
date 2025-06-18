@@ -20,17 +20,17 @@ const LiquidCursor = () => {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      cursor.style.transform = `translate(${mouseX - 6}px, ${mouseY - 6}px)`;
+      cursor.style.transform = `translate(${mouseX - 8}px, ${mouseY - 8}px)`;
     };
 
     const animateFollower = () => {
       const dx = mouseX - followerX;
       const dy = mouseY - followerY;
       
-      followerX += dx * 0.1;
-      followerY += dy * 0.1;
+      followerX += dx * 0.08;
+      followerY += dy * 0.08;
 
-      follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+      follower.style.transform = `translate(${followerX - 24}px, ${followerY - 24}px)`;
       
       requestAnimationFrame(animateFollower);
     };
@@ -64,42 +64,61 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Main glassmorphism cursor */}
+      {/* High-quality glassmorphism main cursor */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-3 h-3 rounded-full z-[99999] pointer-events-none"
+        className="fixed top-0 left-0 w-4 h-4 rounded-full z-[99999] pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%)',
-          backdropFilter: 'blur(20px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          boxShadow: `
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            0 0 20px rgba(255, 255, 255, 0.2)
+          background: `
+            radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.1) 100%)
           `,
-          transition: 'opacity 0.3s ease',
-          opacity: 0
+          backdropFilter: 'blur(25px) saturate(200%) brightness(120%) contrast(120%)',
+          WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(120%) contrast(120%)',
+          border: '1.5px solid rgba(255, 255, 255, 0.6)',
+          borderTop: '2px solid rgba(255, 255, 255, 0.9)',
+          borderLeft: '1.5px solid rgba(255, 255, 255, 0.8)',
+          boxShadow: `
+            0 0 20px rgba(255, 255, 255, 0.4),
+            0 8px 32px rgba(0, 0, 0, 0.15),
+            inset 0 2px 0 rgba(255, 255, 255, 0.8),
+            inset -1px -1px 2px rgba(0, 0, 0, 0.1),
+            0 0 60px rgba(255, 255, 255, 0.2)
+          `,
+          transition: 'opacity 0.3s ease, transform 0.1s ease',
+          opacity: 0,
+          mixBlendMode: 'screen'
         }}
       />
       
-      {/* Glassmorphism follower cursor */}
+      {/* Enhanced glassmorphism follower cursor */}
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 w-10 h-10 rounded-full z-[99998] pointer-events-none"
+        className="fixed top-0 left-0 w-12 h-12 rounded-full z-[99998] pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)',
-          backdropFilter: 'blur(40px) saturate(180%) brightness(105%)',
-          WebkitBackdropFilter: 'blur(40px) saturate(180%) brightness(105%)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.4)',
+          background: `
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.03) 100%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)
+          `,
+          backdropFilter: 'blur(50px) saturate(220%) brightness(115%) contrast(110%) hue-rotate(5deg)',
+          WebkitBackdropFilter: 'blur(50px) saturate(220%) brightness(115%) contrast(110%) hue-rotate(5deg)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderTop: '2px solid rgba(255, 255, 255, 0.6)',
+          borderLeft: '1.5px solid rgba(255, 255, 255, 0.5)',
+          borderRight: '0.5px solid rgba(255, 255, 255, 0.2)',
+          borderBottom: '0.5px solid rgba(255, 255, 255, 0.1)',
           boxShadow: `
-            0 12px 40px rgba(0, 0, 0, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            0 0 60px rgba(255, 255, 255, 0.1)
+            0 0 40px rgba(255, 255, 255, 0.3),
+            0 16px 60px rgba(0, 0, 0, 0.12),
+            inset 0 2px 4px rgba(255, 255, 255, 0.6),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+            inset 2px 0 4px rgba(255, 255, 255, 0.4),
+            inset -2px 0 4px rgba(0, 0, 0, 0.03),
+            0 0 120px rgba(255, 255, 255, 0.15)
           `,
           transition: 'opacity 0.3s ease',
-          opacity: 0
+          opacity: 0,
+          mixBlendMode: 'soft-light',
+          filter: 'brightness(1.1) contrast(1.05)'
         }}
       />
     </>

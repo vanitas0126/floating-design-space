@@ -3,7 +3,8 @@ import AnimatedSection from '@/components/AnimatedSection';
 import Footer from '@/components/Footer';
 
 const ContactSection = () => {
-  const basePath = '';
+  // GitHub Pages 배포 시 올바른 이미지 경로 설정
+  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
 
   const openEmail = () => {
     window.location.href = 'mailto:allivanitas@gmail.com';
@@ -64,7 +65,12 @@ const ContactSection = () => {
         className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
         delay={150}
       >
-        <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
+        <img 
+          src={`${basePath}/images/emailme.png`} 
+          alt="Contact Background" 
+          className="w-full h-full object-cover rounded-[20px]" 
+          onError={() => console.log(`Failed to load emailme image from path: ${basePath}/images/emailme.png`)}
+        />
       </AnimatedSection>
 
       {/* Footer를 Contact 섹션 아래에 배치 */}

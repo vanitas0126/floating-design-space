@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 
 const SkillsScroll = () => {
@@ -14,8 +15,8 @@ const SkillsScroll = () => {
     'Graphic Design'
   ];
 
-  // 개발 환경에서는 빈 문자열 사용
-  const basePath = '';
+  // GitHub Pages 배포 시 올바른 이미지 경로 설정
+  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
 
   useEffect(() => {
     const track = trackRef.current;
@@ -56,7 +57,12 @@ const SkillsScroll = () => {
         animationDelay: `${delay}s`,
       }}
     >
-      <img src={`${basePath}${src}`} alt={alt} className="object-contain" />
+      <img 
+        src={`${basePath}${src}`} 
+        alt={alt} 
+        className="object-contain" 
+        onError={() => console.log(`Failed to load ${alt} image from path: ${basePath}${src}`)}
+      />
     </div>
   );
 
