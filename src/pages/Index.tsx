@@ -178,8 +178,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header */}
-        <div className="absolute top-[20px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 헤더 상단 간격을 더 줄임 */}
+        <div className="absolute top-[10px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
