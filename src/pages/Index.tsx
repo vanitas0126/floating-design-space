@@ -400,7 +400,7 @@ const Index = () => {
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
             </AnimatedSection>
 
-            <div className="flex-1 flex flex-col max-w-[821px]">
+            <div className="flex-1 flex flex-col max-w-[821px] h-[887px] justify-between">
               <AnimatedSection 
                 className="mb-[40px]"
                 delay={300}
@@ -420,7 +420,7 @@ const Index = () => {
               </AnimatedSection>
 
               {/* Experience Section */}
-              <div className="w-full">
+              <div className="w-full flex-1 flex flex-col justify-end">
                 <AnimatedSection delay={500}>
                   <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                     <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
@@ -457,7 +457,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
+        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -515,14 +515,16 @@ const Index = () => {
         </section>
 
         {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
-        <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 static mt-auto flex flex-col items-center bottom-0" style={{ marginTop: '400px' }}>
-          <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
-            <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
-              <p className="text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+        <div className="absolute top-[6000px] left-0 w-full">
+          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
+            <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
+              <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
+                <p className="text-gray-900">Songhee Park © 2025</p>
+                <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+              </div>
             </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
   );
