@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -449,8 +448,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 4400px로 올림 */}
-        <section id="contact" className="relative top-[4400px] left-0 w-full contact-section">
+        {/* Contact Section - 위치를 원래대로 되돌림 */}
+        <section id="contact" className="relative top-[5600px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
