@@ -104,7 +104,7 @@ const Index = () => {
         position: relative;
         margin: 0 auto;
         background: transparent;
-        padding-bottom: 100px;
+        min-height: 100vh;
       }
 
       @media (min-width: 1920px) {
@@ -193,7 +193,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerOffset = 100;
+      const headerOffset = 200; // 더 큰 오프셋으로 조정
       
       window.scrollTo({
         top: elementTop - headerOffset,
@@ -221,36 +221,20 @@ const Index = () => {
       
       <main className="flex-1">
         <div className="portfolio-container relative">
-          <div className="relative" style={{ paddingTop: '25px' }}>
-            <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-          </div>
+          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+          <HeroSection />
+          <PhilosophySection />
           
-          <div className="relative" style={{ marginTop: '255px' }}>
-            <HeroSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '642px' }}>
-            <PhilosophySection />
-          </div>
-          
-          {/* Skills Section - 100vw width */}
-          <div className="fixed left-0 right-0 h-[120px] overflow-hidden skills-section" style={{ top: '990px', width: '100vw', zIndex: 1 }}>
-            <div className="w-full h-full skills-scroll">
+          {/* Skills Section - 100vw로 변경 */}
+          <div className="absolute top-[990px] left-1/2 transform -translate-x-1/2 w-screen h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[calc(100vw+144px)] h-full skills-scroll">
               <SkillsScroll />
             </div>
           </div>
 
-          <div className="relative" style={{ marginTop: '400px' }}>
-            <WorkSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '200px' }}>
-            <AboutSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '200px' }}>
-            <ContactSection />
-          </div>
+          <WorkSection />
+          <AboutSection />
+          <ContactSection />
         </div>
       </main>
 
