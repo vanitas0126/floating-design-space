@@ -1,4 +1,3 @@
-
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('🎯🎯🎯 MainHeader scrolling to section:', sectionId);
@@ -88,11 +87,10 @@ const MainHeader = () => {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            padding: '5px 10px',
+            padding: '0',
             margin: '0',
             display: 'block',
-            minHeight: '50px',
-            minWidth: '150px'
+            lineHeight: '1'
           }}
         >
           UX.Song
@@ -111,11 +109,10 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '5px 10px',
+              padding: '0',
               margin: '0',
               display: 'block',
-              minHeight: '50px',
-              minWidth: '80px'
+              lineHeight: '1'
             }}
           >
             Work
@@ -132,11 +129,10 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '5px 10px',
+              padding: '0',
               margin: '0',
               display: 'block',
-              minHeight: '50px',
-              minWidth: '80px'
+              lineHeight: '1'
             }}
           >
             About
@@ -153,11 +149,10 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '5px 10px',
+              padding: '0',
               margin: '0',
               display: 'block',
-              minHeight: '50px',
-              minWidth: '80px'
+              lineHeight: '1'
             }}
           >
             Contact
