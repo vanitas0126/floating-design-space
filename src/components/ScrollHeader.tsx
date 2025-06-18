@@ -19,8 +19,8 @@ const ScrollHeader = () => {
       const elementRect = element.getBoundingClientRect();
       const scrollY = window.scrollY;
       
-      // 제목 높이만큼 오프셋 적용 (약 60px)
-      const titleOffset = 60;
+      // 제목 높이만큼 오프셋 적용 (80px)
+      const titleOffset = 80;
       const targetY = scrollY + elementRect.top - titleOffset;
       
       window.scrollTo({

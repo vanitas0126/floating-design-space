@@ -94,7 +94,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5500px;
+        height: 5700px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -210,8 +210,8 @@ const Index = () => {
       const elementRect = element.getBoundingClientRect();
       const scrollY = window.scrollY;
       
-      // 제목 높이만큼 오프셋 적용 (약 60px)
-      const titleOffset = 60;
+      // 제목 높이만큼 오프셋 적용 (80px)
+      const titleOffset = 80;
       const targetY = scrollY + elementRect.top - titleOffset;
       
       window.scrollTo({
@@ -248,6 +248,7 @@ const Index = () => {
       
       <div className="main-content">
         <div className="portfolio-container">
+          
           {/* Fixed Header - 헤더 상단 간격을 30px로 조정 */}
           <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 scroll-header">
             <button
@@ -542,8 +543,8 @@ const Index = () => {
       {/* Footer - 페이지 하단에 고정 */}
       <div className="footer-wrapper">
         <footer className="w-full p-0 border-t-2 border-gray-700 flex flex-col items-center bg-gradient-to-br from-gray-50 via-white to-slate-50">
-          <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
-            <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px] max-w-[1920px]">
+          <div className="w-full max-w-[1920px] mx-auto">
+            <div className="flex justify-between items-center px-10 py-5 text-[28px]">
               <p className="text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
