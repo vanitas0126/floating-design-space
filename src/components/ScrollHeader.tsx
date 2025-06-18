@@ -19,15 +19,9 @@ const ScrollHeader = () => {
       const elementTop = element.offsetTop;
       
       window.scrollTo({
-        top: elementTop - 100,
+        top: elementTop - 80,
         behavior: 'smooth'
       });
-      
-      setTimeout(() => {
-        element.style.transform = 'translateY(0)';
-        element.style.opacity = '1';
-        element.style.transition = 'all 0.8s ease-out';
-      }, 300);
     }
   };
 
@@ -37,7 +31,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-14 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-12 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -55,11 +49,11 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      <div className="w-full max-w-[1920px] mx-auto h-full">
+      <div className="w-full h-full">
         <div className="w-[1680px] mx-auto h-full flex items-center justify-between px-0">
           <button
             onClick={scrollToTop}
-            className="header-font text-[28px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+            className="header-font text-[20px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
             style={{ 
               fontFamily: 'Arial Narrow, Arial, sans-serif', 
               fontStretch: 'condensed',
@@ -70,7 +64,7 @@ const ScrollHeader = () => {
             UX.Song
           </button>
           
-          <nav className="header-font flex gap-[60px] text-2xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
+          <nav className="header-font flex gap-[40px] text-[16px] font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
             <button
               onClick={() => scrollToSection('work')}
               className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"

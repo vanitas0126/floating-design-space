@@ -92,13 +92,14 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5800px;
+        height: 5000px;
         position: relative;
         margin: 0 auto;
         background: transparent;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
       }
 
       @media (min-width: 1920px) {
@@ -222,7 +223,7 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 relative" style={{ overflowX: 'hidden' }}>
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
@@ -461,8 +462,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section */}
+        <section id="contact" className="absolute top-[4800px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -520,15 +521,16 @@ const Index = () => {
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
-
-        {/* Footer - 맨 아래 고정 */}
-        <footer className="fixed bottom-0 left-0 w-full bg-gray-50 border-t-2 border-gray-700 z-[9998]">
-          <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[15px]">
-            <p className="text-[20px] text-gray-900">Songhee Park © 2025</p>
-            <a href="#" className="text-[20px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-          </div>
-        </footer>
       </div>
+
+      {/* Footer - 맨 아래 고정 */}
+      <footer className="fixed bottom-0 left-0 w-full border-t border-gray-300 z-[9998]" style={{ backgroundColor: 'transparent' }}>
+        <div className="w-full border-t border-gray-700"></div>
+        <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[15px]">
+          <p className="text-[20px] text-gray-900">Songhee Park © 2025</p>
+          <a href="#" className="text-[20px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+        </div>
+      </footer>
     </div>
   );
 };
