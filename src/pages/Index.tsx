@@ -104,9 +104,7 @@ const Index = () => {
         position: relative;
         margin: 0 auto;
         background: transparent;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+        min-height: 100vh;
       }
 
       @media (min-width: 1920px) {
@@ -216,13 +214,13 @@ const Index = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }} className="bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
-        <div className="portfolio-container relative" style={{ flex: '1' }}>
+      <main className="flex-1">
+        <div className="portfolio-container relative">
           <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
           <HeroSection />
           <PhilosophySection />
@@ -238,7 +236,7 @@ const Index = () => {
           <AboutSection />
           <ContactSection />
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>
