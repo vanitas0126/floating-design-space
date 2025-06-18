@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -229,7 +228,7 @@ const Index = () => {
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="portfolio-container">
+      <div className="portfolio-container relative">
         {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
           <div className="w-[1680px] mx-auto flex justify-between items-center">
@@ -524,14 +523,14 @@ const Index = () => {
         </section>
 
         {/* Footer - body 하단에 위치하도록 변경 */}
-        <div className="absolute top-[6200px] left-0 w-full">
+        <footer className="w-full">
           <div className="w-full border-t-2 border-gray-700">
             <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
               <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   );
