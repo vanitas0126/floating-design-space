@@ -301,12 +301,12 @@ const Index = () => {
           </EnhancedAnimatedSection>
         </section>
 
-        {/* Philosophy Section - 자연스러운 개별 애니메이션 적용 */}
+        {/* Philosophy Section */}
         <EnhancedAnimatedSection 
           className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section"
           animationType="fadeUp"
-          delay={0.2}
-          duration={1.0}
+          delay={0.1}
+          duration={0.6}
         >
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
             <div className="flex-1 w-[520px] philosophy-text">
@@ -325,32 +325,32 @@ const Index = () => {
         <EnhancedAnimatedSection 
           className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section"
           animationType="scale"
-          delay={0.3}
-          duration={0.8}
+          delay={0.2}
+          duration={0.6}
         >
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
         </EnhancedAnimatedSection>
 
-        {/* Work Section - 개별적이고 자연스러운 애니메이션 */}
+        {/* Work Section */}
         <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
           <EnhancedAnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeLeft"
-            delay={0.2}
-            duration={0.8}
+            animationType="fadeUp"
+            delay={0.1}
+            duration={0.6}
           >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
           </EnhancedAnimatedSection>
 
-          {/* Project Row 1 - 각 프로젝트별 개별 애니메이션 */}
+          {/* Project Row 1 */}
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection 
               className="w-[821px] work-project"
               animationType="fadeUp"
-              delay={0.3}
-              duration={0.9}
+              delay={0.2}
+              duration={0.6}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -361,8 +361,8 @@ const Index = () => {
             <EnhancedAnimatedSection 
               className="w-[821px] work-project"
               animationType="fadeUp"
-              delay={0.5}
-              duration={0.9}
+              delay={0.3}
+              duration={0.6}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -371,13 +371,13 @@ const Index = () => {
             </EnhancedAnimatedSection>
           </div>
 
-          {/* Project Row 2 - 각 프로젝트별 개별 애니메이션 */}
+          {/* Project Row 2 */}
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection 
               className="w-[821px] work-project"
               animationType="fadeUp"
-              delay={0.2}
-              duration={0.9}
+              delay={0.1}
+              duration={0.6}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -388,8 +388,8 @@ const Index = () => {
             <EnhancedAnimatedSection 
               className="w-[821px] work-project"
               animationType="fadeUp"
-              delay={0.4}
-              duration={0.9}
+              delay={0.2}
+              duration={0.6}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -399,13 +399,13 @@ const Index = () => {
           </div>
         </section>
 
-        {/* About Section - 개별적이고 자연스러운 애니메이션 */}
+        {/* About Section */}
         <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
           <EnhancedAnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeRight"
-            delay={0.2}
-            duration={0.8}
+            animationType="fadeUp"
+            delay={0.1}
+            duration={0.6}
           >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
           </EnhancedAnimatedSection>
@@ -413,9 +413,9 @@ const Index = () => {
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
             <EnhancedAnimatedSection 
               className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
-              animationType="fadeLeft"
-              delay={0.3}
-              duration={1.0}
+              animationType="fadeUp"
+              delay={0.2}
+              duration={0.7}
             >
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
             </EnhancedAnimatedSection>
@@ -424,8 +424,8 @@ const Index = () => {
               <EnhancedAnimatedSection 
                 className="mb-[40px]"
                 animationType="fadeUp"
-                delay={0.4}
-                duration={0.9}
+                delay={0.3}
+                duration={0.7}
               >
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
@@ -435,21 +435,21 @@ const Index = () => {
               <EnhancedAnimatedSection 
                 className="mb-[80px]"
                 animationType="fadeUp"
-                delay={0.6}
-                duration={0.9}
+                delay={0.4}
+                duration={0.7}
               >
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
               </EnhancedAnimatedSection>
 
-              {/* Experience Section - 각 항목별 개별 애니메이션 */}
+              {/* Experience Section - 비슷한 타이밍으로 조정 */}
               <div className="w-full">
                 <EnhancedAnimatedSection 
                   className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeLeft"
-                  delay={0.7}
-                  duration={0.7}
+                  animationType="fadeUp"
+                  delay={0.5}
+                  duration={0.5}
                 >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
@@ -459,9 +459,9 @@ const Index = () => {
 
                 <EnhancedAnimatedSection 
                   className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeLeft"
-                  delay={0.8}
-                  duration={0.7}
+                  animationType="fadeUp"
+                  delay={0.6}
+                  duration={0.5}
                 >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
@@ -471,9 +471,9 @@ const Index = () => {
 
                 <EnhancedAnimatedSection 
                   className="py-[35px] flex justify-between items-center border-t border-gray-700"
-                  animationType="fadeLeft"
-                  delay={0.9}
-                  duration={0.7}
+                  animationType="fadeUp"
+                  delay={0.7}
+                  duration={0.5}
                 >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
@@ -487,23 +487,18 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 자연스러운 개별 애니메이션 */}
+        {/* Contact Section - 인터렉션 최소화 */}
         <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
           <EnhancedAnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeDown"
-            delay={0.2}
-            duration={0.8}
+            animationType="fadeUp"
+            delay={0.1}
+            duration={0.6}
           >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </EnhancedAnimatedSection>
 
-          <EnhancedAnimatedSection 
-            className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
-            animationType="scale"
-            delay={0.4}
-            duration={1.0}
-          >
+          <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
             <h3 
               className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
               onClick={openEmail}
@@ -535,17 +530,12 @@ const Index = () => {
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
             </div>
-          </EnhancedAnimatedSection>
+          </div>
 
           {/* Background Image */}
-          <EnhancedAnimatedSection 
-            className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
-            animationType="fadeUp"
-            delay={0.6}
-            duration={1.2}
-          >
+          <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
-          </EnhancedAnimatedSection>
+          </div>
         </section>
 
         {/* Footer */}
