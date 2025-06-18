@@ -37,11 +37,23 @@ const MainHeader = () => {
   };
 
   return (
-    <div className="absolute top-[10px] left-0 w-full z-[10001] opacity-100 pointer-events-auto">
+    <div 
+      className="absolute top-[10px] left-0 w-full opacity-100"
+      style={{
+        zIndex: 99999,
+        pointerEvents: 'auto',
+        position: 'absolute'
+      }}
+    >
       <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
         <button 
           onClick={handleScrollToTop} 
-          className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105 pointer-events-auto"
+          className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+          style={{
+            pointerEvents: 'auto',
+            zIndex: 99999,
+            position: 'relative'
+          }}
         >
           UX.Song
         </button>
@@ -49,19 +61,34 @@ const MainHeader = () => {
         <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
           <button 
             onClick={() => handleScrollToSection('work')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            style={{
+              pointerEvents: 'auto',
+              zIndex: 99999,
+              position: 'relative'
+            }}
           >
             Work
           </button>
           <button 
             onClick={() => handleScrollToSection('about')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            style={{
+              pointerEvents: 'auto',
+              zIndex: 99999,
+              position: 'relative'
+            }}
           >
             About
           </button>
           <button 
             onClick={() => handleScrollToSection('contact')} 
-            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600 pointer-events-auto"
+            className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+            style={{
+              pointerEvents: 'auto',
+              zIndex: 99999,
+              position: 'relative'
+            }}
           >
             Contact
           </button>
