@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -175,8 +176,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 높이를 약간 높임 */}
-        <div className="absolute top-[80px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 헤더를 더 위로 올림 */}
+        <div className="absolute top-[40px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -206,7 +207,7 @@ const Index = () => {
           </nav>
         </div>
 
-        {/* Hero Section - 위치도 약간 조정 */}
+        {/* Hero Section */}
         <section className="absolute top-[380px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
@@ -244,16 +245,16 @@ const Index = () => {
           </EnhancedAnimatedSection>
         </section>
 
-        {/* Philosophy Section */}
+        {/* Philosophy Section - 딜레이 제거하여 바로 보이게 함 */}
         <section className="absolute top-[889px] left-[120px] w-[1680px] philosophy-section">
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
-            <EnhancedAnimatedSection delay={0.1} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
             </EnhancedAnimatedSection>
-            <EnhancedAnimatedSection delay={0.2} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
               <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
             </EnhancedAnimatedSection>
-            <EnhancedAnimatedSection delay={0.3} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
               <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
             </EnhancedAnimatedSection>
           </div>
