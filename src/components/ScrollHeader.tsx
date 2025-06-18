@@ -37,7 +37,9 @@ const ScrollHeader = () => {
   };
 
   return (
+    {/* 1단계: 전체 화면을 덮는 고정 헤더 컨테이너 */}
     <div className="fixed top-0 left-0 w-full z-[10000]">
+      {/* 2단계: 헤더 배경과 스타일을 담당하는 div */}
       <header 
         className={`h-[60px] transition-all duration-700 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
@@ -54,19 +56,22 @@ const ScrollHeader = () => {
             inset 0 1px 0 rgba(255, 255, 255, 0.4),
             inset 0 -1px 0 rgba(255, 255, 255, 0.1),
             0 0 0 1px rgba(255, 255, 255, 0.05)
-          `
+          `,
+          width: '100%'
         }}
       >
+        {/* 3단계: 1680px 고정 너비 컨테이너 */}
         <div 
-          className="h-full flex items-center justify-between"
           style={{
-            width: '1680px !important',
-            minWidth: '1680px !important',
-            maxWidth: '1680px !important',
-            margin: '0 auto !important',
-            padding: '0 !important'
+            width: '1680px',
+            height: '100%',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
           }}
         >
+          {/* 메뉴 텍스트들 */}
           <button 
             onClick={scrollToTop} 
             className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
