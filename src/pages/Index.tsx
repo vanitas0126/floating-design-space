@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -15,7 +14,8 @@ import Footer from '@/components/Footer';
 const Index = () => {
   useEffect(() => {
     console.log('Index component mounted');
-    console.log('Base path:', import.meta.env.PROD ? '/floating-design-space' : '');
+    console.log('Environment:', import.meta.env.MODE);
+    console.log('Base path:', import.meta.env.MODE === 'production' ? '/floating-design-space' : '');
     
     const style = document.createElement('style');
     style.textContent = `
