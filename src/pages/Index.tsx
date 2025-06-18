@@ -28,6 +28,7 @@ const Index = () => {
         font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
         cursor: auto !important;
         overflow-x: hidden;
+        overflow-y: auto;
         margin: 0;
         padding: 0;
         font-stretch: condensed;
@@ -203,8 +204,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // 헤더 높이를 고려하여 섹션 제목이 잘 보이도록 조정
-      const offset = -50;
+      const offset = -100; // 섹션 제목이 잘 보이도록 조정
       
       window.scrollTo({
         top: elementTop + offset,
@@ -233,23 +233,23 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50" style={{ overflow: 'visible' }}>
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 텍스트 크기 줄임 */}
+        {/* Fixed Header - 헤더 텍스트 크기 더 줄임 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
           <div className="w-[1680px] mx-auto flex justify-between items-center">
             <button
               onClick={scrollToTop}
-              className="header-font text-[32px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+              className="header-font text-[24px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
             >
               UX.Song
             </button>
             
-            <nav className="header-font flex gap-[80px] text-2xl font-medium text-gray-900">
+            <nav className="header-font flex gap-[80px] text-lg font-medium text-gray-900">
               <button
                 onClick={() => scrollToSection('work')}
                 className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
@@ -533,11 +533,11 @@ const Index = () => {
         </section>
       </div>
 
-      {/* Footer - 푸터 텍스트 크기 줄임 */}
+      {/* Footer - 푸터 텍스트 크기 더 줄임 */}
       <footer className="w-full border-t-2 border-gray-700 mt-[200px]">
         <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
-          <p className="text-lg text-gray-900">Songhee Park © 2025</p>
-          <a href="#" className="text-lg text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+          <p className="text-sm text-gray-900">Songhee Park © 2025</p>
+          <a href="#" className="text-sm text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
         </div>
       </footer>
     </div>
