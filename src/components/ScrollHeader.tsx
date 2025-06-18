@@ -19,23 +19,28 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     console.log('Scrolling to section:', sectionId);
     
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const elementTop = element.offsetTop;
-      const headerHeight = 60;
-      
-      window.scrollTo({
-        top: elementTop - headerHeight,
-        behavior: 'smooth'
-      });
-      
-      setTimeout(() => {
-        element.classList.add('smooth-scroll-target');
-        setTimeout(() => {
-          element.classList.remove('smooth-scroll-target');
-        }, 800);
-      }, 500);
+    let targetPosition = 0;
+    switch(sectionId) {
+      case 'work':
+        targetPosition = 1170;
+        break;
+      case 'about':
+        targetPosition = 3380;
+        break;
+      case 'contact':
+        targetPosition = 4880;
+        break;
+      default:
+        targetPosition = 0;
     }
+    
+    const headerHeight = 60;
+    const scrollTarget = targetPosition - headerHeight;
+    
+    window.scrollTo({
+      top: scrollTarget,
+      behavior: 'smooth'
+    });
   };
 
   const scrollToTop = () => {
