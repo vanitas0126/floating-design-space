@@ -34,7 +34,7 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
-        height: 5600px;
+        height: 5000px;
       }
 
       .font-garamond {
@@ -92,7 +92,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5800px;
+        height: 5000px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -463,8 +463,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section */}
+        <section id="contact" className="absolute top-[4800px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
