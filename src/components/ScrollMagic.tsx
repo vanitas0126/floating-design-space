@@ -36,19 +36,6 @@ const ScrollMagic = () => {
         },
       });
 
-      // Hide hero text grid during scroll
-      gsap.to('.philosophy-text', {
-        opacity: 0,
-        y: -30,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.hero-section',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: 1,
-        },
-      });
-
       // Simple header backdrop filter
       gsap.to('.scroll-header', {
         backdropFilter: 'blur(10px)',
