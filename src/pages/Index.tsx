@@ -193,11 +193,10 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 0 : sectionId === 'about' ? 0 : sectionId === 'contact' ? 0 : 0;
+      // Scroll directly to the section title without any offset
       
       window.scrollTo({
-        top: elementTop + offset,
+        top: elementTop,
         behavior: 'smooth'
       });
       
@@ -518,8 +517,8 @@ const Index = () => {
           </AnimatedSection>
         </section>
 
-        {/* Footer - 푸터 컬러 제거 */}
-        <div className="absolute top-[5500px] left-0 w-full">
+        {/* Footer - 푸터 위치 원래대로 */}
+        <div className="absolute top-[5600px] left-0 w-full">
           <footer className="w-full p-0 border-t-2 border-gray-700 flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
               <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">

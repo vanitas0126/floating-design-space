@@ -17,11 +17,10 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 0 : sectionId === 'about' ? 0 : sectionId === 'contact' ? 0 : 0;
+      // Scroll directly to the section title without any offset
       
       window.scrollTo({
-        top: elementTop + offset,
+        top: elementTop,
         behavior: 'smooth'
       });
       
