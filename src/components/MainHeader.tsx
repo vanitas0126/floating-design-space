@@ -1,7 +1,7 @@
 
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
-    console.log('🎯 MainHeader scrolling to section:', sectionId);
+    console.log('🎯🎯🎯 MainHeader scrolling to section:', sectionId);
     
     let targetPosition = 0;
     switch(sectionId) {
@@ -21,7 +21,7 @@ const MainHeader = () => {
     const headerHeight = 60;
     const scrollTarget = targetPosition - headerHeight;
     
-    console.log('🔄 Scrolling to position:', scrollTarget);
+    console.log('🔄🔄🔄 Scrolling to position:', scrollTarget);
     
     window.scrollTo({
       top: scrollTarget,
@@ -30,7 +30,7 @@ const MainHeader = () => {
   };
 
   const handleScrollToTop = () => {
-    console.log('🔝 MainHeader scrolling to top');
+    console.log('🔝🔝🔝 MainHeader scrolling to top');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -38,8 +38,10 @@ const MainHeader = () => {
   };
 
   const handleButtonClick = (action: string, e: React.MouseEvent) => {
-    console.log('🖱️ MainHeader button clicked:', action);
-    console.log('🖱️ Event details:', e.type, e.currentTarget);
+    console.log('🖱️🖱️🖱️ BUTTON CLICKED!!! Action:', action);
+    console.log('🖱️🖱️🖱️ Event type:', e.type);
+    console.log('🖱️🖱️🖱️ Target:', e.target);
+    console.log('🖱️🖱️🖱️ CurrentTarget:', e.currentTarget);
     
     e.preventDefault();
     e.stopPropagation();
@@ -51,13 +53,15 @@ const MainHeader = () => {
     }
   };
 
-  // 마우스 이벤트 디버깅
-  const handleMouseEnter = (buttonName: string) => {
-    console.log('🖱️ Mouse entered:', buttonName);
+  // 더 강력한 클릭 감지
+  const handleMouseDown = (buttonName: string, e: React.MouseEvent) => {
+    console.log('🖱️🖱️🖱️ MOUSE DOWN DETECTED on:', buttonName);
+    e.preventDefault();
+    e.stopPropagation();
   };
 
-  const handleMouseDown = (buttonName: string, e: React.MouseEvent) => {
-    console.log('🖱️ Mouse down on:', buttonName);
+  const handleMouseUp = (buttonName: string, e: React.MouseEvent) => {
+    console.log('🖱️🖱️🖱️ MOUSE UP DETECTED on:', buttonName);
     e.preventDefault();
     e.stopPropagation();
   };
@@ -66,7 +70,7 @@ const MainHeader = () => {
     <div 
       className="fixed top-[10px] left-0 w-full"
       style={{
-        zIndex: 999999999,
+        zIndex: 9999999999,
         pointerEvents: 'none',
         position: 'fixed'
       }}
@@ -74,15 +78,18 @@ const MainHeader = () => {
       <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
         <button 
           onClick={(e) => handleButtonClick('top', e)}
-          onMouseEnter={() => handleMouseEnter('UX.Song')}
           onMouseDown={(e) => handleMouseDown('UX.Song', e)}
+          onMouseUp={(e) => handleMouseUp('UX.Song', e)}
           className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           style={{
             pointerEvents: 'auto',
-            zIndex: 999999999,
+            zIndex: 9999999999,
             position: 'relative',
             background: 'transparent',
-            border: 'none'
+            border: 'none',
+            outline: 'none',
+            padding: '10px',
+            margin: '5px'
           }}
         >
           UX.Song
@@ -91,45 +98,54 @@ const MainHeader = () => {
         <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
           <button 
             onClick={(e) => handleButtonClick('work', e)}
-            onMouseEnter={() => handleMouseEnter('Work')}
             onMouseDown={(e) => handleMouseDown('Work', e)}
+            onMouseUp={(e) => handleMouseUp('Work', e)}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 999999999,
+              zIndex: 9999999999,
               position: 'relative',
               background: 'transparent',
-              border: 'none'
+              border: 'none',
+              outline: 'none',
+              padding: '10px',
+              margin: '5px'
             }}
           >
             Work
           </button>
           <button 
             onClick={(e) => handleButtonClick('about', e)}
-            onMouseEnter={() => handleMouseEnter('About')}
             onMouseDown={(e) => handleMouseDown('About', e)}
+            onMouseUp={(e) => handleMouseUp('About', e)}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 999999999,
+              zIndex: 9999999999,
               position: 'relative',
               background: 'transparent',
-              border: 'none'
+              border: 'none',
+              outline: 'none',
+              padding: '10px',
+              margin: '5px'
             }}
           >
             About
           </button>
           <button 
             onClick={(e) => handleButtonClick('contact', e)}
-            onMouseEnter={() => handleMouseEnter('Contact')}
             onMouseDown={(e) => handleMouseDown('Contact', e)}
+            onMouseUp={(e) => handleMouseUp('Contact', e)}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 999999999,
+              zIndex: 9999999999,
               position: 'relative',
               background: 'transparent',
-              border: 'none'
+              border: 'none',
+              outline: 'none',
+              padding: '10px',
+              margin: '5px'
             }}
           >
             Contact
