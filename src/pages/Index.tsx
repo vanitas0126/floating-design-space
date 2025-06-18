@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -329,113 +330,95 @@ const Index = () => {
 
         {/* Work Section */}
         <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
-          <EnhancedAnimatedSection 
+          <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeUp"
-            delay={0.1}
-            duration={0.6}
+            delay={100}
           >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
-          </EnhancedAnimatedSection>
+          </AnimatedSection>
 
           {/* Project Row 1 */}
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection 
+            <AnimatedSection 
               className="w-[821px] work-project"
-              animationType="fadeUp"
-              delay={0.2}
-              duration={0.6}
+              delay={200}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
-            </EnhancedAnimatedSection>
+            </AnimatedSection>
 
-            <EnhancedAnimatedSection 
+            <AnimatedSection 
               className="w-[821px] work-project"
-              animationType="fadeUp"
-              delay={0.3}
-              duration={0.6}
+              delay={300}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
-            </EnhancedAnimatedSection>
+            </AnimatedSection>
           </div>
 
           {/* Project Row 2 */}
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection 
+            <AnimatedSection 
               className="w-[821px] work-project"
-              animationType="fadeUp"
-              delay={0.1}
-              duration={0.6}
+              delay={100}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
-            </EnhancedAnimatedSection>
+            </AnimatedSection>
 
-            <EnhancedAnimatedSection 
+            <AnimatedSection 
               className="w-[821px] work-project"
-              animationType="fadeUp"
-              delay={0.2}
-              duration={0.6}
+              delay={200}
             >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
-            </EnhancedAnimatedSection>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* About Section */}
         <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
-          <EnhancedAnimatedSection 
+          <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
-            animationType="fadeUp"
-            delay={0.1}
-            duration={0.6}
+            delay={100}
           >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
-          </EnhancedAnimatedSection>
+          </AnimatedSection>
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection 
+            <AnimatedSection 
               className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
-              animationType="fadeUp"
-              delay={0.2}
-              duration={0.7}
+              delay={200}
             >
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
-            </EnhancedAnimatedSection>
+            </AnimatedSection>
 
             <div className="flex-1 flex flex-col max-w-[821px]">
-              <EnhancedAnimatedSection 
+              <AnimatedSection 
                 className="mb-[40px]"
-                animationType="fadeUp"
-                delay={0.3}
-                duration={0.7}
+                delay={300}
               >
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
                 </h3>
-              </EnhancedAnimatedSection>
+              </AnimatedSection>
 
-              <EnhancedAnimatedSection 
+              <AnimatedSection 
                 className="mb-[80px]"
-                animationType="fadeUp"
-                delay={0.4}
-                duration={0.7}
+                delay={400}
               >
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
-              </EnhancedAnimatedSection>
+              </AnimatedSection>
 
               {/* Experience Section */}
               <div className="w-full">
