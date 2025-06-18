@@ -61,8 +61,8 @@ const ScrollHeader = () => {
             width: '100%'
           }}
         >
-          {/* 3단계: 다른 섹션들과 동일한 고정 너비 컨테이너 */}
-          <div className="w-[1680px] mx-auto px-0 h-full flex items-center justify-between">
+          {/* 3단계: MainHeader와 완전히 동일한 컨테이너 설정 */}
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0 h-full">
             {/* 메뉴 텍스트들 */}
             <button 
               onClick={scrollToTop} 
