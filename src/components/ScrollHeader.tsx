@@ -20,7 +20,7 @@ const ScrollHeader = ({ scrollToSection, scrollToTop }: ScrollHeaderProps) => {
 
   return (
     <div 
-      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-700 ease-out ${
+      className={`absolute top-[10px] left-0 w-full z-[9999] transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
