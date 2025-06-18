@@ -36,7 +36,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-10 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-16 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
