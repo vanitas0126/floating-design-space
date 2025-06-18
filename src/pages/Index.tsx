@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -91,7 +92,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 6300px;
+        height: 5800px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -193,8 +194,8 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add small offset to show content instead of title (just title height)
-      const offset = sectionId === 'work' ? 80 : sectionId === 'about' ? 80 : sectionId === 'contact' ? 80 : 0;
+      // Add small offset to show content instead of title
+      const offset = sectionId === 'work' ? 40 : sectionId === 'about' ? 40 : sectionId === 'contact' ? 40 : 0;
       
       window.scrollTo({
         top: elementTop + offset,
