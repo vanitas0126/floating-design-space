@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 const ScrollHeader = () => {
@@ -50,7 +51,7 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      <div className="w-[1680px] mx-auto h-full flex items-center justify-between px-[20px] min-w-[1680px]">
+      <div className="mx-auto h-full flex items-center justify-between px-[20px]" style={{ width: '1680px', minWidth: '1680px' }}>
         <button
           onClick={scrollToTop}
           className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
