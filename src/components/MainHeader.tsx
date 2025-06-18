@@ -68,14 +68,14 @@ const MainHeader = () => {
 
   return (
     <div 
-      className="fixed top-[10px] left-0 w-full"
+      className="fixed top-0 left-0 w-full"
       style={{
         zIndex: 9999999999,
         pointerEvents: 'none',
         position: 'fixed'
       }}
     >
-      <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+      <div className="w-[1680px] mx-auto flex justify-between items-center px-0 pt-[10px]">
         <button 
           onClick={(e) => handleButtonClick('top', e)}
           onMouseDown={(e) => handleMouseDown('UX.Song', e)}
@@ -88,8 +88,11 @@ const MainHeader = () => {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            padding: '10px',
-            margin: '5px'
+            padding: '20px',
+            margin: '0',
+            display: 'block',
+            minHeight: '60px',
+            minWidth: '200px'
           }}
         >
           UX.Song
@@ -108,8 +111,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '10px',
-              margin: '5px'
+              padding: '20px',
+              margin: '0',
+              display: 'block',
+              minHeight: '60px',
+              minWidth: '100px'
             }}
           >
             Work
@@ -126,8 +132,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '10px',
-              margin: '5px'
+              padding: '20px',
+              margin: '0',
+              display: 'block',
+              minHeight: '60px',
+              minWidth: '100px'
             }}
           >
             About
@@ -144,8 +153,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '10px',
-              margin: '5px'
+              padding: '20px',
+              margin: '0',
+              display: 'block',
+              minHeight: '60px',
+              minWidth: '100px'
             }}
           >
             Contact
