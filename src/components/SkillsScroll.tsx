@@ -61,7 +61,11 @@ const SkillsScroll = () => {
         src={`${basePath}${src}`} 
         alt={alt} 
         className="object-contain" 
-        onError={() => console.log(`Failed to load ${alt} image from path: ${basePath}${src}`)}
+        onError={(e) => {
+          console.log(`Failed to load ${alt} image from path: ${basePath}${src}`);
+          console.log('Current basePath:', basePath);
+          console.log('Full URL attempted:', `${basePath}${src}`);
+        }}
       />
     </div>
   );
@@ -77,28 +81,28 @@ const SkillsScroll = () => {
       >
         {/* First set */}
         {renderSkillItem('Brand Identity', 0)}
-        {renderSkillIcon('/images/eclipse2.png', 'Eclipse Icon', 0, 0)}
+        {renderSkillIcon('/images/eclipse2.png', 'Eclipse2 Icon', 0, 0)}
         {renderSkillItem('UI/UX Design', 1)}
         {renderSkillIcon('/images/stars.png', 'Stars Icon', 1, 0.8)}
         {renderSkillItem('Digital Strategy', 2)}
         {renderSkillItem('Web Design', 3)}
         {renderSkillIcon('/images/songhee.png', 'Songhee Icon', 2, 1.6)}
         {renderSkillItem('Product Management', 4)}
-        {renderSkillIcon('/images/glass2.png', 'Glass Icon', 3, 2.4)}
+        {renderSkillIcon('/images/glass2.png', 'Glass2 Icon', 3, 2.4)}
         {renderSkillItem('UX Research', 5)}
         {renderSkillItem('Web Publishing', 6)}
         {renderSkillItem('Graphic Design', 7)}
 
         {/* Duplicate for infinite scroll */}
         {renderSkillItem('Brand Identity', 8)}
-        {renderSkillIcon('/images/eclipse2.png', 'Eclipse Icon', 4, 0)}
+        {renderSkillIcon('/images/eclipse2.png', 'Eclipse2 Icon', 4, 0)}
         {renderSkillItem('UI/UX Design', 9)}
         {renderSkillIcon('/images/stars.png', 'Stars Icon', 5, 0.8)}
         {renderSkillItem('Digital Strategy', 10)}
         {renderSkillItem('Web Design', 11)}
         {renderSkillIcon('/images/songhee.png', 'Songhee Icon', 6, 1.6)}
         {renderSkillItem('Product Management', 12)}
-        {renderSkillIcon('/images/glass2.png', 'Glass Icon', 7, 2.4)}
+        {renderSkillIcon('/images/glass2.png', 'Glass2 Icon', 7, 2.4)}
         {renderSkillItem('UX Research', 13)}
         {renderSkillItem('Web Publishing', 14)}
         {renderSkillItem('Graphic Design', 15)}

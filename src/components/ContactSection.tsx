@@ -67,9 +67,13 @@ const ContactSection = () => {
       >
         <img 
           src={`${basePath}/images/emailme.png`} 
-          alt="Contact Background" 
+          alt="Email Me Background" 
           className="w-full h-full object-cover rounded-[20px]" 
-          onError={() => console.log(`Failed to load emailme image from path: ${basePath}/images/emailme.png`)}
+          onError={(e) => {
+            console.log(`Failed to load emailme image from path: ${basePath}/images/emailme.png`);
+            console.log('Current basePath:', basePath);
+            console.log('Full URL attempted:', `${basePath}/images/emailme.png`);
+          }}
         />
       </AnimatedSection>
 
