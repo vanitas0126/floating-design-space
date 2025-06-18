@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -506,7 +505,7 @@ const Index = () => {
               className="mt-[280px] w-full"
               delay={300}
             >
-              <div className="w-[1680px] mx-auto flex justify-center items-center gap-20">
+              <div className="flex justify-center items-center gap-20">
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -522,17 +521,15 @@ const Index = () => {
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
-
-        {/* Footer - body 하단에 위치하도록 변경 */}
-        <div className="absolute top-[6200px] left-0 w-full">
-          <div className="w-full border-t-2 border-gray-700">
-            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
-              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-            </div>
-          </div>
-        </div>
       </div>
+
+      {/* Footer - Contact 섹션 바로 아래로 이동, full width */}
+      <footer className="w-full border-t-2 border-gray-700 mt-[6200px]">
+        <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
+          <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
+          <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+        </div>
+      </footer>
     </div>
   );
 };

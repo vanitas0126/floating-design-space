@@ -56,54 +56,52 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      <div className="w-full max-w-[1920px] mx-auto h-full">
-        <div className="w-[1680px] mx-auto h-full flex items-center justify-between">
+      <div className="w-[1680px] mx-auto h-full flex items-center justify-between">
+        <button
+          onClick={scrollToTop}
+          className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+          style={{ 
+            fontFamily: 'Arial Narrow, Arial, sans-serif', 
+            fontStretch: 'condensed',
+            textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+            filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+          }}
+        >
+          UX.Song
+        </button>
+        
+        <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
-            onClick={scrollToTop}
-            className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
-            style={{ 
-              fontFamily: 'Arial Narrow, Arial, sans-serif', 
-              fontStretch: 'condensed',
+            onClick={() => scrollToSection('work')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
               textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
               filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
             }}
           >
-            UX.Song
+            Work
           </button>
-          
-          <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
-            <button
-              onClick={() => scrollToSection('work')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              Work
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
-              style={{
-                textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
-                filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
-              }}
-            >
-              Contact
-            </button>
-          </nav>
-        </div>
+          <button
+            onClick={() => scrollToSection('about')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
+              textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+              filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+            }}
+          >
+            About
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+            style={{
+              textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
+              filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
+            }}
+          >
+            Contact
+          </button>
+        </nav>
       </div>
     </header>
   );
