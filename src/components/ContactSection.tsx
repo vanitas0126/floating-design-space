@@ -1,5 +1,6 @@
 
 import AnimatedSection from '@/components/AnimatedSection';
+import Footer from '@/components/Footer';
 
 const ContactSection = () => {
   const basePath = '';
@@ -9,7 +10,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section pb-[200px]">
+    <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
       <AnimatedSection 
         className="absolute left-[calc(4.16667%+40px)]"
         delay={100}
@@ -65,6 +66,11 @@ const ContactSection = () => {
       >
         <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
       </AnimatedSection>
+
+      {/* Footer를 Contact 섹션 아래에 배치 */}
+      <div className="absolute top-[1200px] left-0 w-full">
+        <Footer />
+      </div>
     </section>
   );
 };

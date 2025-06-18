@@ -9,7 +9,6 @@ import WorkSection from '@/components/WorkSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import MainHeader from '@/components/MainHeader';
-import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
@@ -249,9 +248,6 @@ const Index = () => {
           <ContactSection />
         </div>
       </div>
-      
-      {/* Footer는 이제 포트폴리오 컨테이너 밖에 있어서 스케일링 영향을 받지 않음 */}
-      <Footer />
     </div>
   );
 };
