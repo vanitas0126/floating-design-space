@@ -20,7 +20,7 @@ const ScrollHeader = ({ scrollToSection, scrollToTop }: ScrollHeaderProps) => {
 
   return (
     <header 
-      className={`fixed top-[10px] left-0 w-full z-[9999] transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -38,10 +38,10 @@ const ScrollHeader = ({ scrollToSection, scrollToTop }: ScrollHeaderProps) => {
         `,
       }}
     >
-      <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+      <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-4">
         <button 
           onClick={scrollToTop} 
-          className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+          className="header-font text-[32px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           style={{ 
             fontFamily: 'Arial Narrow, Arial, sans-serif', 
             fontStretch: 'condensed',
@@ -52,7 +52,7 @@ const ScrollHeader = ({ scrollToSection, scrollToTop }: ScrollHeaderProps) => {
           UX.Song
         </button>
         
-        <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
+        <nav className="header-font flex gap-[80px] text-[28px] font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
             onClick={() => scrollToSection('work')}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
