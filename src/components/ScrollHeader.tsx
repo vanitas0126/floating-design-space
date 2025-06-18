@@ -17,11 +17,12 @@ const ScrollHeader = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    console.log('Scrolling to section:', sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerHeight = 80; // 헤더 높이 고려
-      const additionalOffset = 0; // 섹션 제목이 잘 보이도록 추가 오프셋
+      const headerHeight = 80;
+      const additionalOffset = 20;
       
       window.scrollTo({
         top: elementTop - headerHeight - additionalOffset,
@@ -37,6 +38,8 @@ const ScrollHeader = () => {
           }, index * 100);
         });
       }, 500);
+    } else {
+      console.log('Element not found:', sectionId);
     }
   };
 
@@ -50,10 +53,10 @@ const ScrollHeader = () => {
   return (
     <>
       {/* 1단계: 전체 화면을 덮는 고정 헤더 컨테이너 */}
-      <div className="fixed top-0 left-0 w-[1680px] mx-auto z-[10000]">
+      <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center">
         {/* 2단계: 헤더 배경과 스타일을 담당하는 div */}
         <header 
-          className={`h-[60px] transition-all duration-700 ease-out ${
+          className={`h-[60px] w-[1680px] transition-all duration-700 ease-out ${
             isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{
@@ -72,7 +75,7 @@ const ScrollHeader = () => {
           }}
         >
           {/* 3단계: 다른 섹션들과 동일한 너비 제한 적용 */}
-          <div className="w-[1680px] mx-auto flex justify-between items-center px-0 h-full">
+          <div className="w-full mx-auto flex justify-between items-center px-0 h-full">
             {/* 메뉴 텍스트들 */}
             <button 
               onClick={scrollToTop} 
