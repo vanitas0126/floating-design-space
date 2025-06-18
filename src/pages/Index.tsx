@@ -211,7 +211,7 @@ const Index = () => {
       
       <div className="main-content-wrapper">
         <div className="portfolio-container relative flex-1">
-          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+          <MainHeader />
           <HeroSection />
           <PhilosophySection />
           

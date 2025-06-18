@@ -1,13 +1,5 @@
 
-interface MainHeaderProps {
-  scrollToSection: (sectionId: string) => void;
-  scrollToTop: () => void;
-}
-
-const MainHeader = ({
-  scrollToSection,
-  scrollToTop
-}: MainHeaderProps) => {
+const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('MainHeader scrolling to section:', sectionId);
     
