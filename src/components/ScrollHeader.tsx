@@ -57,11 +57,10 @@ const ScrollHeader = () => {
               inset 0 1px 0 rgba(255, 255, 255, 0.4),
               inset 0 -1px 0 rgba(255, 255, 255, 0.1),
               0 0 0 1px rgba(255, 255, 255, 0.05)
-            `,
-            width: '100%'
+            `
           }}
         >
-          {/* 3단계: MainHeader와 완전히 동일한 컨테이너 설정 */}
+          {/* 3단계: 다른 섹션들과 동일한 너비 제한 적용 */}
           <div className="w-[1680px] mx-auto flex justify-between items-center px-0 h-full">
             {/* 메뉴 텍스트들 */}
             <button 
