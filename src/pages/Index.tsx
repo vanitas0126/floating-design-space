@@ -48,6 +48,19 @@ const Index = () => {
         flex-direction: column;
       }
 
+      .main-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer-container {
+        margin-top: auto;
+        width: 100%;
+        position: relative;
+        z-index: 10001;
+      }
+
       .font-garamond {
         font-family: 'EB Garamond', 'Garamond', 'Times New Roman', serif !important;
         font-feature-settings: "liga", "kern" !important;
@@ -222,24 +235,28 @@ const Index = () => {
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="portfolio-container relative flex-1">
-        <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-        <HeroSection />
-        <PhilosophySection />
-        
-        {/* Skills Section */}
-        <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
-          <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
-            <SkillsScroll />
+      <div className="main-content-wrapper">
+        <div className="portfolio-container relative flex-1">
+          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+          <HeroSection />
+          <PhilosophySection />
+          
+          {/* Skills Section */}
+          <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
+              <SkillsScroll />
+            </div>
           </div>
-        </div>
 
-        <WorkSection />
-        <AboutSection />
-        <ContactSection />
+          <WorkSection />
+          <AboutSection />
+          <ContactSection />
+        </div>
+        
+        <div className="footer-container">
+          <Footer />
+        </div>
       </div>
-      
-      <Footer />
     </div>
   );
 };
