@@ -61,17 +61,8 @@ const ScrollHeader = () => {
             width: '100%'
           }}
         >
-          {/* 3단계: 1680px 고정 너비 컨테이너 */}
-          <div 
-            style={{
-              width: '1680px',
-              height: '100%',
-              margin: '0 auto',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between'
-            }}
-          >
+          {/* 3단계: 3단 그리드와 동일한 너비의 컨테이너 */}
+          <div className="max-w-[1680px] w-full mx-auto px-8 h-full flex items-center justify-between">
             {/* 메뉴 텍스트들 */}
             <button 
               onClick={scrollToTop} 
