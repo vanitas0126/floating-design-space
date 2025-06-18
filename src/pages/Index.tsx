@@ -222,8 +222,8 @@ const Index = () => {
       <ScrollHeader />
       <ScrollMagic />
       
-      <main className="flex-1 min-h-0">
-        <div className="portfolio-container relative min-h-full">
+      <div className="flex-1 flex flex-col">
+        <div className="portfolio-container relative flex-1">
           <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
           <HeroSection />
           <PhilosophySection />
@@ -239,7 +239,7 @@ const Index = () => {
           <AboutSection />
           <ContactSection />
         </div>
-      </main>
+      </div>
 
       <Footer />
     </div>

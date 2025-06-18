@@ -6,7 +6,7 @@ interface MainHeaderProps {
 
 const MainHeader = ({ scrollToSection, scrollToTop }: MainHeaderProps) => {
   return (
-    <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
+    <div className="absolute top-[10px] left-0 w-full z-[9999] opacity-100">
       <div className="max-w-[1680px] mx-auto flex justify-between items-center px-[20px]">
         <button
           onClick={scrollToTop}
