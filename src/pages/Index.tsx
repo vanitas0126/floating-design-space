@@ -10,6 +10,9 @@ import EnhancedAnimatedSection from '@/components/EnhancedAnimatedSection';
 
 const Index = () => {
   useEffect(() => {
+    console.log('Index component mounted');
+    console.log('Base path:', import.meta.env.PROD ? '/floating-design-space' : '');
+    
     const style = document.createElement('style');
     style.textContent = `
       @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
@@ -140,15 +143,14 @@ const Index = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    console.log('Scrolling to section:', sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      // 부드러운 스크롤 효과 추가
       element.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start'
       });
       
-      // 스크롤 완료 후 애니메이션 효과
       setTimeout(() => {
         element.classList.add('smooth-scroll-target');
         setTimeout(() => {
@@ -168,6 +170,7 @@ const Index = () => {
 
   // Base path for images
   const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  console.log('Using base path for images:', basePath);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
@@ -211,7 +214,13 @@ const Index = () => {
         <section className="absolute top-[380px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
-            <img src={`${basePath}/images/heroimg.png`} alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
+            <img 
+              src={`${basePath}/images/heroimg.png`} 
+              alt="Hero Background" 
+              className="w-full h-full object-cover rounded-[20px]"
+              onLoad={() => console.log('Hero image loaded successfully')}
+              onError={() => console.error('Failed to load hero image')}
+            />
           </div>
 
           {/* Floating Elements with children */}
@@ -248,15 +257,15 @@ const Index = () => {
         {/* Philosophy Section - 딜레이 제거하여 바로 보이게 함 */}
         <section className="absolute top-[889px] left-[120px] w-[1680px] philosophy-section">
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
-            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            <div className="flex-1 w-[520px] philosophy-text">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
-            </EnhancedAnimatedSection>
-            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            </div>
+            <div className="flex-1 w-[520px] philosophy-text">
               <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
-            </EnhancedAnimatedSection>
-            <EnhancedAnimatedSection delay={0} className="flex-1 w-[520px] philosophy-text" animationType="fadeUp">
+            </div>
+            <div className="flex-1 w-[520px] philosophy-text">
               <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
-            </EnhancedAnimatedSection>
+            </div>
           </div>
         </section>
 
@@ -270,94 +279,90 @@ const Index = () => {
         {/* Work Section - 200px gap from skills */}
         <section id="work" className="absolute top-[1416px] left-0 w-full work-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection animationType="fadeUp" duration={1.5}>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
-            </EnhancedAnimatedSection>
+            <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
           </div>
 
           {/* Project Row 1 */}
           <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
+            <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
-            </EnhancedAnimatedSection>
+            </div>
 
-            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
+            <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
-            </EnhancedAnimatedSection>
+            </div>
           </div>
 
           {/* Project Row 2 */}
           <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection delay={0.1} className="w-[821px] work-project" animationType="fadeUp">
+            <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
-            </EnhancedAnimatedSection>
+            </div>
 
-            <EnhancedAnimatedSection delay={0.2} className="w-[821px] work-project" animationType="fadeUp">
+            <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
-            </EnhancedAnimatedSection>
+            </div>
           </div>
         </section>
 
         {/* About Section */}
         <section id="about" className="absolute top-[3800px] left-0 w-full about-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection animationType="fadeUp" duration={1.5}>
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
-            </EnhancedAnimatedSection>
+            <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
           </div>
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <EnhancedAnimatedSection delay={0.1} className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image">
+            <div className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image">
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
-            </EnhancedAnimatedSection>
+            </div>
 
             <div className="flex-1 flex flex-col max-w-[821px]">
-              <EnhancedAnimatedSection delay={0.2} className="mb-[40px]" animationType="fadeLeft">
+              <div className="mb-[40px]">
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
                 </h3>
-              </EnhancedAnimatedSection>
+              </div>
 
-              <EnhancedAnimatedSection delay={0.3} className="mb-[80px]" animationType="fadeUp">
+              <div className="mb-[80px]">
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
-              </EnhancedAnimatedSection>
+              </div>
 
               {/* Experience Section - 간격을 더 늘림 */}
               <div className="w-full">
-                <EnhancedAnimatedSection delay={0.4} className="py-[35px] flex justify-between items-center border-t border-gray-700" animationType="fadeRight">
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
-                <EnhancedAnimatedSection delay={0.5} className="py-[35px] flex justify-between items-center border-t border-gray-700" animationType="fadeRight">
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
-                <EnhancedAnimatedSection delay={0.6} className="py-[35px] flex justify-between items-center border-t border-gray-700" animationType="fadeRight">
+                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
                   </div>
-                </EnhancedAnimatedSection>
+                </div>
 
                 <div className="border-t border-gray-700" />
               </div>
@@ -368,41 +373,35 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact" className="relative top-[5100px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
-            <EnhancedAnimatedSection delay={0.1} animationType="fadeUp">
-              <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-            </EnhancedAnimatedSection>
+            <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
 
           <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
-            <EnhancedAnimatedSection delay={0.2} animationType="fadeUp" duration={1.5}>
-              <h3 
-                className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
+            <h3 
+              className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
+              onClick={openEmail}
+              style={{
+                textShadow: '0 2px 4px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(255, 255, 255, 0.6)'
+              }}
+            >
+              EMAIL... ME!
+            </h3>
+            
+            <p className="text-4xl leading-[1.75] text-gray-900" style={{
+              textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
+            }}>
+              For project inquiries or portfolio access,<br />
+              contact me directly at{' '}
+              <span 
+                className="font-garamond font-medium italic text-indigo-600 cursor-pointer transition-colors duration-500 hover:text-purple-600 underline decoration-2 underline-offset-4"
                 onClick={openEmail}
                 style={{
-                  textShadow: '0 2px 4px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(255, 255, 255, 0.6)'
+                  textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
                 }}
               >
-                EMAIL... ME!
-              </h3>
-            </EnhancedAnimatedSection>
-            
-            <EnhancedAnimatedSection delay={0.3} animationType="fadeUp">
-              <p className="text-4xl leading-[1.75] text-gray-900" style={{
-                textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-              }}>
-                For project inquiries or portfolio access,<br />
-                contact me directly at{' '}
-                <span 
-                  className="font-garamond font-medium italic text-indigo-600 cursor-pointer transition-colors duration-500 hover:text-purple-600 underline decoration-2 underline-offset-4"
-                  onClick={openEmail}
-                  style={{
-                    textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-                  }}
-                >
-                  allivanitas@gmail.com
-                </span>
-              </p>
-            </EnhancedAnimatedSection>
+                allivanitas@gmail.com
+              </span>
+            </p>
 
             <div className="flex justify-between items-center gap-20 mt-[280px] w-full">
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
@@ -413,9 +412,7 @@ const Index = () => {
 
           {/* Background Image - 기울어짐 제거 */}
           <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
-            <EnhancedAnimatedSection delay={0.1} animationType="fadeUp">
-              <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
-            </EnhancedAnimatedSection>
+            <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </div>
         </section>
 
