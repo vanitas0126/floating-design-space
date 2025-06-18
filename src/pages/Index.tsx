@@ -75,6 +75,13 @@ const Index = () => {
         flex-direction: column;
       }
 
+      @media (min-width: 1920px) {
+        .portfolio-container {
+          transform: scale(0.9);
+          transform-origin: top center;
+        }
+      }
+
       @media (max-width: 1919px) and (min-width: 1600px) {
         .portfolio-container {
           transform: scale(0.85);
