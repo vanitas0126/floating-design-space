@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -217,28 +216,26 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="flex-1 flex flex-col">
-        <div className="portfolio-container relative flex-1">
-          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-          <HeroSection />
-          <PhilosophySection />
-          
-          {/* Skills Section */}
-          <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
-            <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
-              <SkillsScroll />
-            </div>
+      <div className="portfolio-container relative">
+        <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+        <HeroSection />
+        <PhilosophySection />
+        
+        {/* Skills Section */}
+        <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
+          <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
+            <SkillsScroll />
           </div>
-
-          <WorkSection />
-          <AboutSection />
-          <ContactSection />
         </div>
+
+        <WorkSection />
+        <AboutSection />
+        <ContactSection />
       </div>
 
       <Footer />
