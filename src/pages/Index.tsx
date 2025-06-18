@@ -91,7 +91,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 6500px;
+        height: 6300px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -193,8 +193,8 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add offset to show content instead of title
-      const offset = sectionId === 'work' ? 180 : sectionId === 'about' ? 180 : sectionId === 'contact' ? 180 : 0;
+      // Add small offset to show content instead of title (just title height)
+      const offset = sectionId === 'work' ? 80 : sectionId === 'about' ? 80 : sectionId === 'contact' ? 80 : 0;
       
       window.scrollTo({
         top: elementTop + offset,
