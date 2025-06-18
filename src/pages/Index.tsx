@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -230,35 +229,37 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 상단 간격을 30px로 조정 */}
-        <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 scroll-header">
-          <button
-            onClick={scrollToTop}
-            className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
-          >
-            UX.Song
-          </button>
-          
-          <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
+        {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
+        <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
             <button
-              onClick={() => scrollToSection('work')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              onClick={scrollToTop}
+              className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
             >
-              Work
+              UX.Song
             </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              Contact
-            </button>
-          </nav>
+            
+            <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
+              <button
+                onClick={() => scrollToSection('work')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                Work
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                Contact
+              </button>
+            </nav>
+          </div>
         </div>
 
         {/* Hero Section */}
@@ -504,9 +505,11 @@ const Index = () => {
               className="flex justify-between items-center gap-20 mt-[280px] w-full"
               delay={300}
             >
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
+              <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
+              </div>
             </AnimatedSection>
           </AnimatedSection>
 
@@ -519,14 +522,12 @@ const Index = () => {
           </AnimatedSection>
         </section>
 
-        {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
+        {/* Footer */}
         <div className="absolute top-[6200px] left-0 w-full">
           <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
-            <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
-              <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
-                <p className="text-gray-900">Songhee Park © 2025</p>
-                <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-              </div>
+            <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[20px]">
+              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
+              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
           </footer>
         </div>
