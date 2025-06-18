@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -502,10 +503,10 @@ const Index = () => {
             </p>
 
             <AnimatedSection 
-              className="flex justify-between items-center gap-20 mt-[280px] w-full"
+              className="mt-[280px] w-full"
               delay={300}
             >
-              <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+              <div className="w-[1680px] mx-auto flex justify-center items-center gap-20">
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
                 <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -522,14 +523,14 @@ const Index = () => {
           </AnimatedSection>
         </section>
 
-        {/* Footer */}
+        {/* Footer - body 하단에 위치하도록 변경 */}
         <div className="absolute top-[6200px] left-0 w-full">
-          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
+          <div className="w-full border-t-2 border-gray-700">
             <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
               <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
-          </footer>
+          </div>
         </div>
       </div>
     </div>
