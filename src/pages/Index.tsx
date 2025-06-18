@@ -458,11 +458,17 @@ const Index = () => {
 
         {/* Contact Section - 위치를 5000px로 조정 */}
         <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
-          <div className="absolute left-[calc(4.16667%+40px)]">
+          <AnimatedSection 
+            className="absolute left-[calc(4.16667%+40px)]"
+            delay={100}
+          >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-          </div>
+          </AnimatedSection>
 
-          <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
+          <AnimatedSection 
+            className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
+            delay={200}
+          >
             <h3 
               className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
               onClick={openEmail}
@@ -489,21 +495,27 @@ const Index = () => {
               </span>
             </p>
 
-            <div className="flex justify-between items-center gap-20 mt-[280px] w-full">
+            <AnimatedSection 
+              className="flex justify-between items-center gap-20 mt-[280px] w-full"
+              delay={300}
+            >
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
-            </div>
-          </div>
+            </AnimatedSection>
+          </AnimatedSection>
 
           {/* Background Image */}
-          <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
+          <AnimatedSection 
+            className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
+            delay={150}
+          >
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
-          </div>
+          </AnimatedSection>
         </section>
 
-        {/* Footer */}
-        <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 static mt-auto flex flex-col items-center bottom-0">
+        {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
+        <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 static mt-auto flex flex-col items-center bottom-0" style={{ marginTop: '400px' }}>
           <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
             <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
               <p className="text-gray-900">Songhee Park © 2025</p>
