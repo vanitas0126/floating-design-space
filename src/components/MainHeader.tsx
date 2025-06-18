@@ -88,11 +88,11 @@ const MainHeader = () => {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            padding: '20px',
+            padding: '5px 10px',
             margin: '0',
             display: 'block',
-            minHeight: '60px',
-            minWidth: '200px'
+            minHeight: '50px',
+            minWidth: '150px'
           }}
         >
           UX.Song
@@ -111,11 +111,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '20px',
+              padding: '5px 10px',
               margin: '0',
               display: 'block',
-              minHeight: '60px',
-              minWidth: '100px'
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             Work
@@ -132,11 +132,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '20px',
+              padding: '5px 10px',
               margin: '0',
               display: 'block',
-              minHeight: '60px',
-              minWidth: '100px'
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             About
@@ -153,11 +153,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '20px',
+              padding: '5px 10px',
               margin: '0',
               display: 'block',
-              minHeight: '60px',
-              minWidth: '100px'
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             Contact
