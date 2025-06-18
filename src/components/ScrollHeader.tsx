@@ -26,7 +26,7 @@ const ScrollHeader = () => {
         targetPosition = 1100; // WorkSection 타이틀 위치에 맞춰 조정 (100px 위로)
         break;
       case 'about':
-        targetPosition = 3000; // AboutSection 타이틀 위치에 맞춰 조정
+        targetPosition = 3500; // AboutSection 타이틀 위치에 맞춰 조정
         break;
       case 'contact':
         targetPosition = 4880; // ContactSection 타이틀 위치에 맞춰 조정
