@@ -22,10 +22,10 @@ const ScrollHeader = () => {
     if (element) {
       console.log('Element found, offsetTop:', element.offsetTop);
       const elementTop = element.offsetTop;
-      const headerHeight = 60; // 실제 헤더 높이에 맞춤
+      const headerHeight = 60; // 헤더 높이
       
-      // About 섹션의 경우 더 큰 오프셋 적용
-      const additionalOffset = sectionId === 'about' ? 200 : 100;
+      // 모든 섹션에 동일한 오프셋 적용하여 제목이 잘 보이도록
+      const additionalOffset = 100;
       
       const scrollTarget = elementTop - headerHeight - additionalOffset;
       console.log('Scroll target:', scrollTarget, 'for section:', sectionId);
