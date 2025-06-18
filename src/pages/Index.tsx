@@ -268,8 +268,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section - 위치 조정 */}
-        <section className="absolute top-[1046px] left-0 w-full h-[120px] overflow-hidden skills-section">
+        {/* Skills Section - 위치를 더 위로 조정 */}
+        <section className="absolute top-[1000px] left-0 w-full h-[120px] overflow-hidden skills-section">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
