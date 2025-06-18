@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -193,7 +194,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerOffset = 200; // 더 큰 오프셋으로 조정
+      const headerOffset = 200;
       
       window.scrollTo({
         top: elementTop - headerOffset,
@@ -225,7 +226,7 @@ const Index = () => {
           <HeroSection />
           <PhilosophySection />
           
-          {/* Skills Section - 100vw로 변경 */}
+          {/* Skills Section */}
           <div className="absolute top-[990px] left-1/2 transform -translate-x-1/2 w-screen h-[120px] overflow-hidden skills-section">
             <div className="absolute -left-[72px] w-[calc(100vw+144px)] h-full skills-scroll">
               <SkillsScroll />

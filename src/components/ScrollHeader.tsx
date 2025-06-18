@@ -17,9 +17,8 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // 더 큰 오프셋으로 조정하여 정확한 위치에 표시
       const headerHeight = 60;
-      const additionalOffset = 140; // 추가 오프셋 증가
+      const additionalOffset = 140;
       
       window.scrollTo({
         top: elementTop - headerHeight - additionalOffset,
@@ -52,8 +51,7 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      {/* 1680px 컨테이너 적용 */}
-      <div className="max-w-[1680px] mx-auto h-full flex items-center justify-between px-[20px]">
+      <div className="w-full max-w-[1920px] mx-auto h-full flex items-center justify-between px-[20px]">
         <button
           onClick={scrollToTop}
           className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
