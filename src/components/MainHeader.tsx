@@ -1,3 +1,4 @@
+
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('🎯🎯🎯 MainHeader scrolling to section:', sectionId);
@@ -87,9 +88,11 @@ const MainHeader = () => {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            padding: '0',
+            padding: '8px 12px',
             margin: '0',
-            display: 'block',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             lineHeight: '1'
           }}
         >
@@ -109,9 +112,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '0',
+              padding: '8px 12px',
               margin: '0',
-              display: 'block',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               lineHeight: '1'
             }}
           >
@@ -129,9 +134,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '0',
+              padding: '8px 12px',
               margin: '0',
-              display: 'block',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               lineHeight: '1'
             }}
           >
@@ -149,9 +156,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '0',
+              padding: '8px 12px',
               margin: '0',
-              display: 'block',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               lineHeight: '1'
             }}
           >
