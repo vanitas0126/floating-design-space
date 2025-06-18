@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 
 const SkillsScroll = () => {
@@ -15,8 +14,8 @@ const SkillsScroll = () => {
     'Graphic Design'
   ];
 
-  // Base path for images
-  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  // 개발 환경에서는 빈 문자열 사용
+  const basePath = '';
 
   useEffect(() => {
     const track = trackRef.current;

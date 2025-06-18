@@ -3,7 +3,8 @@ import FloatingElement from '@/components/FloatingElement';
 import EnhancedAnimatedSection from '@/components/EnhancedAnimatedSection';
 
 const HeroSection = () => {
-  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  // 개발 환경에서는 항상 빈 문자열을 사용
+  const basePath = '';
 
   return (
     <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">

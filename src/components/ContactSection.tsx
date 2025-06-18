@@ -2,7 +2,7 @@
 import AnimatedSection from '@/components/AnimatedSection';
 
 const ContactSection = () => {
-  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  const basePath = '';
 
   const openEmail = () => {
     window.location.href = 'mailto:allivanitas@gmail.com';

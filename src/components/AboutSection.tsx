@@ -2,7 +2,7 @@
 import AnimatedSection from '@/components/AnimatedSection';
 
 const AboutSection = () => {
-  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  const basePath = '';
 
   return (
     <section id="about" className="absolute top-[3700px] left-0 w-full about-section">

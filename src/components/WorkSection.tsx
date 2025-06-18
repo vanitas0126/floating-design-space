@@ -2,7 +2,7 @@
 import AnimatedSection from '@/components/AnimatedSection';
 
 const WorkSection = () => {
-  const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
+  const basePath = '';
 
   return (
     <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
