@@ -34,7 +34,7 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
-        height: 5800px;
+        height: 5600px;
       }
 
       .font-garamond {
