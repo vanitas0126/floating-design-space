@@ -36,7 +36,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-12 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-10 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -54,7 +54,7 @@ const ScrollHeader = () => {
         `
       }}
     >
-      <div className="w-full max-w-[1920px] mx-auto h-full relative">
+      <div className="w-full h-full">
         <div className="w-[1680px] mx-auto h-full flex items-center relative" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
           <button
             onClick={scrollToTop}
