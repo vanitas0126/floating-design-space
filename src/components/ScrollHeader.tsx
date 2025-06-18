@@ -60,11 +60,11 @@ const ScrollHeader = () => {
         <div 
           className="h-full flex items-center justify-between"
           style={{
-            width: '1680px',
-            minWidth: '1680px',
-            maxWidth: '1680px',
-            margin: '0 auto',
-            padding: '0'
+            width: '1680px !important',
+            minWidth: '1680px !important',
+            maxWidth: '1680px !important',
+            margin: '0 auto !important',
+            padding: '0 !important'
           }}
         >
           <button 
