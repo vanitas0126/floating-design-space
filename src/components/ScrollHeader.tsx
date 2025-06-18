@@ -19,7 +19,7 @@ const ScrollHeader = () => {
       const elementRect = element.getBoundingClientRect();
       const scrollY = window.scrollY;
       
-      // 제목 높이만큼 오프셋 적용 (80px)
+      // 제목 위치에서 80px 오프셋 적용
       const titleOffset = 80;
       const targetY = scrollY + elementRect.top - titleOffset;
       
@@ -36,7 +36,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-20 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-16 transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -52,9 +52,11 @@ const ScrollHeader = () => {
           inset 0 -1px 0 rgba(255, 255, 255, 0.1),
           0 0 0 1px rgba(255, 255, 255, 0.05)
         `,
+        transform: 'scale(0.9)',
+        transformOrigin: 'top center'
       }}
     >
-      <div className="w-full max-w-[1920px] mx-auto h-full relative flex items-center px-4">
+      <div className="w-full max-w-[1920px] mx-auto h-full relative flex items-center px-4" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
         <button
           onClick={scrollToTop}
           className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
