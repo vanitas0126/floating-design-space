@@ -22,7 +22,7 @@ const ScrollHeader = () => {
     let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetPosition = 1170;
+        targetPosition = 1200;
         break;
       case 'about':
         targetPosition = 3380;
@@ -41,6 +41,19 @@ const ScrollHeader = () => {
       top: scrollTarget,
       behavior: 'smooth'
     });
+
+    // Add smooth transition effect for Work section
+    if (sectionId === 'work') {
+      setTimeout(() => {
+        const workSection = document.getElementById('work');
+        if (workSection) {
+          workSection.classList.add('smooth-scroll-target');
+          setTimeout(() => {
+            workSection.classList.remove('smooth-scroll-target');
+          }, 800);
+        }
+      }, 500);
+    }
   };
 
   const scrollToTop = () => {
@@ -52,10 +65,10 @@ const ScrollHeader = () => {
 
   return (
     <>
-      {/* 1단계: 전체 화면을 덮는 고정 헤더 컨테이너 */}
-      <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center">
+      {/* Full-width header container */}
+      <div className="fixed top-0 left-0 w-full z-[10000]">
         <header 
-          className={`h-[60px] w-[1680px] transition-all duration-700 ease-out ${
+          className={`h-[60px] w-full transition-all duration-700 ease-out ${
             isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{
@@ -73,7 +86,7 @@ const ScrollHeader = () => {
             `
           }}
         >
-          <div className="w-full mx-auto flex justify-between items-center px-0 h-full">
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0 h-full">
             <button 
               onClick={scrollToTop} 
               className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110 cursor-pointer"

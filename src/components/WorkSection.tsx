@@ -16,7 +16,7 @@ const WorkSection = () => {
       {/* Project Row 1 */}
       <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
         <AnimatedSection 
-          className="w-[821px] work-project"
+          className="w-[821px] work-project opacity-0 transform translate-y-8 transition-all duration-1000 ease-out"
           delay={200}
         >
           <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
@@ -26,7 +26,7 @@ const WorkSection = () => {
         </AnimatedSection>
 
         <AnimatedSection 
-          className="w-[821px] work-project"
+          className="w-[821px] work-project opacity-0 transform translate-y-8 transition-all duration-1000 ease-out"
           delay={300}
         >
           <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
@@ -39,7 +39,7 @@ const WorkSection = () => {
       {/* Project Row 2 */}
       <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
         <AnimatedSection 
-          className="w-[821px] work-project"
+          className="w-[821px] work-project opacity-0 transform translate-y-8 transition-all duration-1000 ease-out"
           delay={100}
         >
           <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
@@ -49,7 +49,7 @@ const WorkSection = () => {
         </AnimatedSection>
 
         <AnimatedSection 
-          className="w-[821px] work-project"
+          className="w-[821px] work-project opacity-0 transform translate-y-8 transition-all duration-1000 ease-out"
           delay={200}
         >
           <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
