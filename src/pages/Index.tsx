@@ -57,13 +57,6 @@ const Index = () => {
         flex-direction: column;
       }
 
-      .footer-container {
-        margin-top: auto;
-        width: 100%;
-        position: relative;
-        z-index: 10001;
-      }
-
       .font-garamond {
         font-family: 'EB Garamond', 'Garamond', 'Times New Roman', serif !important;
         font-feature-settings: "liga", "kern" !important;
@@ -255,11 +248,10 @@ const Index = () => {
           <AboutSection />
           <ContactSection />
         </div>
-        
-        <div className="footer-container">
-          <Footer />
-        </div>
       </div>
+      
+      {/* Footer는 이제 포트폴리오 컨테이너 밖에 있어서 스케일링 영향을 받지 않음 */}
+      <Footer />
     </div>
   );
 };
