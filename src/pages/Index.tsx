@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -64,8 +63,30 @@ const Index = () => {
         to { opacity: 1; transform: translateY(0); }
       }
 
+      @keyframes fadeInUp {
+        from { 
+          opacity: 0; 
+          transform: translateY(30px); 
+        }
+        to { 
+          opacity: 1; 
+          transform: translateY(0); 
+        }
+      }
+
       .smooth-scroll-target {
         animation: smoothScroll 0.8s ease-out;
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .portfolio-container {
@@ -143,8 +164,27 @@ const Index = () => {
     `;
     document.head.appendChild(style);
 
+    // Scroll reveal functionality
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections with scroll-reveal class
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    revealElements.forEach((el) => observer.observe(el));
+
     return () => {
       document.head.removeChild(style);
+      observer.disconnect();
     };
   }, []);
 
@@ -185,8 +225,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 상단 간격을 30px로 조정 */}
-        <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 헤더 상단 간격을 20px로 조정 */}
+        <div className="absolute top-[20px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -216,8 +256,8 @@ const Index = () => {
           </nav>
         </div>
 
-        {/* Hero Section - 위치를 280px로 더 위로 올림 */}
-        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
+        {/* Hero Section - scroll-reveal 클래스 추가 */}
+        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section scroll-reveal">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
             <img 
@@ -260,8 +300,8 @@ const Index = () => {
           </EnhancedAnimatedSection>
         </section>
 
-        {/* Philosophy Section - 3단 텍스트 그리드, 위치 조정하고 바로 보이게 함 */}
-        <section className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section opacity-100">
+        {/* Philosophy Section - scroll-reveal 클래스 추가 */}
+        <section className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section scroll-reveal">
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
             <div className="flex-1 w-[520px] philosophy-text">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
@@ -275,21 +315,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section - 스킬 섹션 위치를 990px로 조정 */}
-        <section className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
+        {/* Skills Section - scroll-reveal 클래스 추가 */}
+        <section className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section scroll-reveal">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
         </section>
 
-        {/* Work Section - 위치 조정 */}
-        <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
+        {/* Work Section - scroll-reveal 클래스 추가 */}
+        <section id="work" className="absolute top-[1316px] left-0 w-full work-section scroll-reveal">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
           </div>
 
-          {/* Project Row 1 */}
-          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+          {/* Project Row 1 - scroll-reveal 클래스 추가 */}
+          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)] scroll-reveal">
             <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -305,8 +345,8 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Project Row 2 */}
-          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+          {/* Project Row 2 - scroll-reveal 클래스 추가 */}
+          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)] scroll-reveal">
             <div className="w-[821px] work-project">
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -323,18 +363,18 @@ const Index = () => {
           </div>
         </section>
 
-        {/* About Section */}
-        <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
+        {/* About Section - scroll-reveal 클래스 추가 */}
+        <section id="about" className="absolute top-[3700px] left-0 w-full about-section scroll-reveal">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
           </div>
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <div className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image">
+            <div className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image scroll-reveal">
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
             </div>
 
-            <div className="flex-1 flex flex-col max-w-[821px]">
+            <div className="flex-1 flex flex-col max-w-[821px] scroll-reveal">
               <div className="mb-[40px]">
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
@@ -376,8 +416,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section - scroll-reveal 클래스 추가 */}
+        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section scroll-reveal">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
