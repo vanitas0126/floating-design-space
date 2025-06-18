@@ -251,10 +251,10 @@ const Index = () => {
           
           {/* Fixed Header - 헤더 전체는 풀 width, 텍스트 컨테이너만 1680px */}
           <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-            <div className="w-[1680px] mx-auto relative" style={{ transform: 'scale(0.9)', transformOrigin: 'top center' }}>
+            <div className="w-[1680px] mx-auto flex justify-between items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'top center' }}>
               <button
                 onClick={scrollToTop}
-                className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
+                className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
                 style={{ 
                   fontFamily: 'Arial Narrow, Arial, sans-serif', 
                   fontStretch: 'condensed',
@@ -265,7 +265,7 @@ const Index = () => {
                 UX.Song
               </button>
               
-              <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
+              <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
                 <button
                   onClick={() => scrollToSection('work')}
                   className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
@@ -564,7 +564,7 @@ const Index = () => {
       <div className="footer-wrapper">
         <footer className="w-full p-0 border-t-2 border-gray-700 flex flex-col items-center bg-gradient-to-br from-gray-50 via-white to-slate-50">
           <div className="w-[1680px] mx-auto">
-            <div className="flex justify-between items-center px-10 py-5 text-[28px]">
+            <div className="flex justify-between items-center py-5 text-[28px]">
               <p className="text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>

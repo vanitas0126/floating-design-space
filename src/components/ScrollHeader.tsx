@@ -55,10 +55,10 @@ const ScrollHeader = () => {
       }}
     >
       <div className="w-full h-full">
-        <div className="w-[1680px] mx-auto h-full flex items-center relative" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
+        <div className="w-[1680px] mx-auto h-full flex justify-between items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
           <button
             onClick={scrollToTop}
-            className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+            className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
             style={{ 
               fontFamily: 'Arial Narrow, Arial, sans-serif', 
               fontStretch: 'condensed',
@@ -69,7 +69,7 @@ const ScrollHeader = () => {
             UX.Song
           </button>
           
-          <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
+          <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
             <button
               onClick={() => scrollToSection('work')}
               className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
