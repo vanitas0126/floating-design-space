@@ -192,9 +192,13 @@ const Index = () => {
     console.log('Scrolling to section:', sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start'
+      const elementTop = element.offsetTop;
+      // Add offset to show content instead of title
+      const offset = sectionId === 'work' ? 180 : sectionId === 'about' ? 180 : sectionId === 'contact' ? 180 : 0;
+      
+      window.scrollTo({
+        top: elementTop + offset,
+        behavior: 'smooth'
       });
       
       setTimeout(() => {
@@ -515,7 +519,7 @@ const Index = () => {
         </section>
 
         {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
-        <div className="absolute top-[6000px] left-0 w-full">
+        <div className="absolute top-[6200px] left-0 w-full">
           <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
               <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">

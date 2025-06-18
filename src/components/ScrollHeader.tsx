@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 const ScrollHeader = () => {
@@ -15,9 +16,13 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start'
+      const elementTop = element.offsetTop;
+      // Add offset to show content instead of title
+      const offset = sectionId === 'work' ? 180 : sectionId === 'about' ? 180 : sectionId === 'contact' ? 180 : 0;
+      
+      window.scrollTo({
+        top: elementTop + offset,
+        behavior: 'smooth'
       });
       
       setTimeout(() => {
