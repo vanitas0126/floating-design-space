@@ -77,7 +77,7 @@ const Index = () => {
 
       @media (min-width: 1920px) {
         .portfolio-container {
-          transform: scale(0.9);
+          transform: scale(0.95);
           transform-origin: top center;
         }
       }
