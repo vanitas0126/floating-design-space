@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -98,70 +99,6 @@ const Index = () => {
         opacity: 1;
         transform: translateY(0);
       }
-
-      .portfolio-container {
-        width: 1920px;
-        position: relative;
-        margin: 0 auto;
-        background: transparent;
-        padding-bottom: 100px;
-      }
-
-      @media (min-width: 1920px) {
-        .portfolio-container {
-          transform: scale(0.9);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1919px) and (min-width: 1600px) {
-        .portfolio-container {
-          transform: scale(0.85);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1599px) and (min-width: 1400px) {
-        .portfolio-container {
-          transform: scale(0.75);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1399px) and (min-width: 1200px) {
-        .portfolio-container {
-          transform: scale(0.65);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1199px) and (min-width: 1024px) {
-        .portfolio-container {
-          transform: scale(0.55);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .portfolio-container {
-          transform: scale(0.45);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 767px) and (min-width: 480px) {
-        .portfolio-container {
-          transform: scale(0.35);
-          transform-origin: top center;
-        }
-      }
-
-      @media (max-width: 479px) {
-        .portfolio-container {
-          transform: scale(0.25);
-          transform-origin: top center;
-        }
-      }
     `;
     document.head.appendChild(style);
 
@@ -214,46 +151,51 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <main className="flex-1">
-        <div className="portfolio-container relative">
-          <div className="relative" style={{ paddingTop: '25px' }}>
-            <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '255px' }}>
-            <HeroSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '642px' }}>
-            <PhilosophySection />
-          </div>
-          
-          {/* Skills Section - 100vw width */}
-          <div className="fixed left-0 right-0 h-[120px] overflow-hidden skills-section" style={{ top: '990px', width: '100vw', zIndex: 1 }}>
-            <div className="w-full h-full skills-scroll">
-              <SkillsScroll />
-            </div>
-          </div>
-
-          <div className="relative" style={{ marginTop: '400px' }}>
-            <WorkSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '200px' }}>
-            <AboutSection />
-          </div>
-          
-          <div className="relative" style={{ marginTop: '200px' }}>
-            <ContactSection />
+      <div className="relative">
+        {/* Main Header */}
+        <div className="relative z-10 pt-6">
+          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+        </div>
+        
+        {/* Hero Section */}
+        <div className="relative mt-64">
+          <HeroSection />
+        </div>
+        
+        {/* Philosophy Section */}
+        <div className="relative mt-32">
+          <PhilosophySection />
+        </div>
+        
+        {/* Skills Section - Full width scrolling */}
+        <div className="relative mt-32">
+          <div className="w-full h-32 overflow-hidden bg-transparent">
+            <SkillsScroll />
           </div>
         </div>
-      </main>
 
+        {/* Work Section */}
+        <div id="work" className="relative mt-32">
+          <WorkSection />
+        </div>
+        
+        {/* About Section */}
+        <div id="about" className="relative mt-32">
+          <AboutSection />
+        </div>
+        
+        {/* Contact Section */}
+        <div id="contact" className="relative mt-32">
+          <ContactSection />
+        </div>
+      </div>
+
+      {/* Footer - 항상 콘텐츠 하단에 위치 */}
       <Footer />
     </div>
   );
