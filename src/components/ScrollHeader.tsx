@@ -56,7 +56,7 @@ const ScrollHeader = () => {
               0 0 0 1px rgba(255, 255, 255, 0.05)
             `
       }}>
-          <div className="w-[1680px] mx-auto flex justify-between items-center h-full px-[81px]">
+          <div className="w-[1680px] mx-auto flex justify-between items-center h-full px-[90px]">
             <button onClick={scrollToTop} className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110 cursor-pointer" style={{
             fontFamily: 'Arial Narrow, Arial, sans-serif',
             fontStretch: 'condensed',
