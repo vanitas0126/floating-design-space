@@ -22,10 +22,10 @@ const ScrollHeader = () => {
     let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetPosition = 1200; // WorkSection 타이틀 위치에 맞춰 조정
+        targetPosition = 1150; // WorkSection 타이틀 위치에 맞춰 조정
         break;
       case 'about':
-        targetPosition = 3200; // AboutSection 타이틀 위치에 맞춰 조정
+        targetPosition = 3350; // AboutSection 타이틀 위치에 맞춰 조정
         break;
       case 'contact':
         targetPosition = 4880; // ContactSection 타이틀 위치에 맞춰 조정
