@@ -231,7 +231,7 @@ const Index = () => {
       <div className="portfolio-container relative">
         {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-          <div className="w-[1680px] mx-auto flex justify-between items-center">
+          <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
             <button
               onClick={scrollToTop}
               className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -462,7 +462,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
+        {/* Contact Section */}
         <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
@@ -522,10 +522,10 @@ const Index = () => {
           </AnimatedSection>
         </section>
 
-        {/* Footer - body 하단에 위치하도록 변경 */}
-        <footer className="w-full">
+        {/* Footer - Contact 섹션 바로 아래에 위치 */}
+        <footer className="absolute top-[5800px] left-0 w-full">
           <div className="w-full border-t-2 border-gray-700">
-            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
+            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px] px-0">
               <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
