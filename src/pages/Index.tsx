@@ -195,7 +195,7 @@ const Index = () => {
     if (element) {
       const elementTop = element.offsetTop;
       // Add small offset to show content instead of title
-      const offset = sectionId === 'work' ? 40 : sectionId === 'about' ? 40 : sectionId === 'contact' ? 40 : 0;
+      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
         top: elementTop + offset,
