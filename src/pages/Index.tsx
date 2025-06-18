@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -99,6 +98,70 @@ const Index = () => {
         opacity: 1;
         transform: translateY(0);
       }
+
+      .portfolio-container {
+        width: 1920px;
+        position: relative;
+        margin: 0 auto;
+        background: transparent;
+        min-height: 100vh;
+      }
+
+      @media (min-width: 1920px) {
+        .portfolio-container {
+          transform: scale(0.9);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1919px) and (min-width: 1600px) {
+        .portfolio-container {
+          transform: scale(0.85);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1599px) and (min-width: 1400px) {
+        .portfolio-container {
+          transform: scale(0.75);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1399px) and (min-width: 1200px) {
+        .portfolio-container {
+          transform: scale(0.65);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        .portfolio-container {
+          transform: scale(0.55);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .portfolio-container {
+          transform: scale(0.45);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 767px) and (min-width: 480px) {
+        .portfolio-container {
+          transform: scale(0.35);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 479px) {
+        .portfolio-container {
+          transform: scale(0.25);
+          transform-origin: top center;
+        }
+      }
     `;
     document.head.appendChild(style);
 
@@ -130,7 +193,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerOffset = 100;
+      const headerOffset = 200; // 더 큰 오프셋으로 조정
       
       window.scrollTo({
         top: elementTop - headerOffset,
@@ -151,51 +214,30 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="relative">
-        {/* Main Header */}
-        <div className="relative z-10 pt-6">
+      <main className="flex-1">
+        <div className="portfolio-container relative">
           <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-        </div>
-        
-        {/* Hero Section */}
-        <div className="relative mt-64">
           <HeroSection />
-        </div>
-        
-        {/* Philosophy Section */}
-        <div className="relative mt-32">
           <PhilosophySection />
-        </div>
-        
-        {/* Skills Section - Full width scrolling */}
-        <div className="relative mt-32">
-          <div className="w-full h-32 overflow-hidden bg-transparent">
-            <SkillsScroll />
+          
+          {/* Skills Section - 100vw로 변경 */}
+          <div className="absolute top-[990px] left-1/2 transform -translate-x-1/2 w-screen h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[calc(100vw+144px)] h-full skills-scroll">
+              <SkillsScroll />
+            </div>
           </div>
-        </div>
 
-        {/* Work Section */}
-        <div id="work" className="relative mt-32">
           <WorkSection />
-        </div>
-        
-        {/* About Section */}
-        <div id="about" className="relative mt-32">
           <AboutSection />
-        </div>
-        
-        {/* Contact Section */}
-        <div id="contact" className="relative mt-32">
           <ContactSection />
         </div>
-      </div>
+      </main>
 
-      {/* Footer - 항상 콘텐츠 하단에 위치 */}
       <Footer />
     </div>
   );
