@@ -19,65 +19,46 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     console.log('Scrolling to section:', sectionId);
     
-    // 각 섹션의 제목 요소를 직접 찾기
-    let targetSelector = '';
+    // 각 섹션의 실제 위치값 (CSS에서 설정된 top 값)
+    let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetSelector = '[id="work"] h2, [id="work"] h1, [id="work"] .section-title';
+        targetPosition = 1316; // WorkSection의 top-[1316px]
         break;
       case 'about':
-        targetSelector = '[id="about"] h2, [id="about"] h1, [id="about"] .section-title';
+        targetPosition = 3700; // AboutSection의 top-[3700px]
         break;
       case 'contact':
-        targetSelector = '[id="contact"] h2, [id="contact"] h1, [id="contact"] .section-title';
+        targetPosition = 5000; // ContactSection의 top-[5000px]
         break;
       default:
-        targetSelector = `#${sectionId}`;
+        targetPosition = 0;
     }
     
-    const element = document.querySelector(targetSelector) as HTMLElement;
-    if (element) {
-      console.log('Title element found, offsetTop:', element.offsetTop);
-      const elementTop = element.offsetTop;
-      const headerHeight = 60; // 헤더 높이
-      
-      // 제목 요소로 직접 스크롤하므로 추가 오프셋 불필요
-      const additionalOffset = 0;
-      
-      const scrollTarget = elementTop - headerHeight - additionalOffset;
-      console.log('Scroll target:', scrollTarget, 'for section:', sectionId);
-      
-      window.scrollTo({
-        top: scrollTarget,
-        behavior: 'smooth'
-      });
+    console.log('Target position:', targetPosition, 'for section:', sectionId);
+    const headerHeight = 60; // 헤더 높이
+    const scrollTarget = targetPosition - headerHeight;
+    
+    console.log('Final scroll target:', scrollTarget);
+    
+    window.scrollTo({
+      top: scrollTarget,
+      behavior: 'smooth'
+    });
 
-      // 스크롤 후 해당 섹션의 애니메이션 트리거
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const animatedElements = section.querySelectorAll('[class*="opacity-0"], [class*="translate-y"]');
-          console.log('Found animated elements:', animatedElements.length);
-          animatedElements.forEach((el, index) => {
-            setTimeout(() => {
-              el.classList.add('animate-fade-in');
-            }, index * 100);
-          });
-        }
-      }, 500);
-    } else {
-      console.log('Title element not found for section:', sectionId);
-      // 폴백: 섹션 자체로 스크롤
-      const sectionElement = document.getElementById(sectionId);
-      if (sectionElement) {
-        const elementTop = sectionElement.offsetTop;
-        const headerHeight = 60;
-        window.scrollTo({
-          top: elementTop - headerHeight,
-          behavior: 'smooth'
+    // 스크롤 후 해당 섹션의 애니메이션 트리거
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const animatedElements = section.querySelectorAll('[class*="opacity-0"], [class*="translate-y"]');
+        console.log('Found animated elements:', animatedElements.length);
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate-fade-in');
+          }, index * 100);
         });
       }
-    }
+    }, 500);
   };
 
   const scrollToTop = () => {
