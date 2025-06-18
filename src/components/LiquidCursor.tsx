@@ -65,10 +65,10 @@ const LiquidCursor = () => {
 
   return (
     <>
-      {/* Trail effect with strong glassmorphism but soft shadow */}
+      {/* Trail effect - 완전히 클릭 차단 */}
       <div
         ref={trailRef}
-        className="fixed w-12 h-12 pointer-events-none z-[10000] opacity-0 transition-opacity duration-500"
+        className="fixed w-12 h-12 z-[10000] opacity-0 transition-opacity duration-500"
         style={{
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
           backdropFilter: 'blur(40px) saturate(200%) brightness(120%)',
@@ -82,13 +82,14 @@ const LiquidCursor = () => {
             inset 0 1px 4px rgba(255, 255, 255, 0.6)
           `,
           transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none'
         }}
       />
       
-      {/* Main cursor with strong glassmorphism but soft shadow */}
+      {/* Main cursor - 완전히 클릭 차단 */}
       <div
         ref={cursorRef}
-        className="fixed w-6 h-6 pointer-events-none z-[10001] opacity-0 transition-opacity duration-500"
+        className="fixed w-6 h-6 z-[10001] opacity-0 transition-opacity duration-500"
         style={{
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%)',
           backdropFilter: 'blur(50px) saturate(250%) brightness(130%)',
@@ -102,6 +103,7 @@ const LiquidCursor = () => {
             inset 0 1px 4px rgba(255, 255, 255, 0.7)
           `,
           transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none'
         }}
       />
     </>
