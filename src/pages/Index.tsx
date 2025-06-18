@@ -449,14 +449,16 @@ const Index = () => {
                   </div>
                 </AnimatedSection>
 
-                <div className="border-t border-gray-700" />
+                <AnimatedSection delay={800}>
+                  <div className="border-t border-gray-700" />
+                </AnimatedSection>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section - 위치를 4800px로 조정 */}
+        <section id="contact" className="relative top-[4800px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
@@ -488,7 +490,7 @@ const Index = () => {
               </span>
             </p>
 
-            <div className="flex justify-between items-center gap-20 mt-[280px] w-full">
+            <div className="flex justify-between items-center gap-20 mt-[180px] w-full">
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
@@ -503,7 +505,7 @@ const Index = () => {
 
         {/* Footer */}
         <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 static mt-auto flex flex-col items-center bottom-0">
-          <div className="w-full flex flex-col items-center justify-center pt-[60px] pb-0">
+          <div className="w-full flex flex-col items-center justify-center pt-[40px] pb-0">
             <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
               <p className="text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
