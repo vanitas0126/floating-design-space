@@ -1,4 +1,5 @@
 
+
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('MainHeader scrolling to section:', sectionId);
@@ -51,7 +52,7 @@ const MainHeader = () => {
     <div 
       className="fixed top-[10px] left-0 w-full"
       style={{
-        zIndex: 99999999,
+        zIndex: 999999999,
         pointerEvents: 'none',
         position: 'fixed'
       }}
@@ -62,7 +63,7 @@ const MainHeader = () => {
           className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           style={{
             pointerEvents: 'auto',
-            zIndex: 99999999,
+            zIndex: 999999999,
             position: 'relative',
             background: 'transparent',
             border: 'none'
@@ -77,7 +78,7 @@ const MainHeader = () => {
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999999,
+              zIndex: 999999999,
               position: 'relative',
               background: 'transparent',
               border: 'none'
@@ -90,7 +91,7 @@ const MainHeader = () => {
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999999,
+              zIndex: 999999999,
               position: 'relative',
               background: 'transparent',
               border: 'none'
@@ -103,7 +104,7 @@ const MainHeader = () => {
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999999,
+              zIndex: 999999999,
               position: 'relative',
               background: 'transparent',
               border: 'none'
@@ -118,3 +119,4 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
