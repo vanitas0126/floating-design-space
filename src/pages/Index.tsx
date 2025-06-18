@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -179,8 +178,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더를 더 위로 올림 */}
-        <div className="absolute top-[40px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header */}
+        <div className="absolute top-[20px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -210,8 +209,8 @@ const Index = () => {
           </nav>
         </div>
 
-        {/* Hero Section */}
-        <section className="absolute top-[380px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
+        {/* Hero Section - 위치를 280px로 더 위로 올림 */}
+        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
             <img 
@@ -254,8 +253,8 @@ const Index = () => {
           </EnhancedAnimatedSection>
         </section>
 
-        {/* Philosophy Section - 딜레이 제거하여 바로 보이게 함 */}
-        <section className="absolute top-[889px] left-[120px] w-[1680px] philosophy-section">
+        {/* Philosophy Section - 3단 텍스트 그리드, 위치 조정하고 바로 보이게 함 */}
+        <section className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section opacity-100">
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
             <div className="flex-1 w-[520px] philosophy-text">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
@@ -269,15 +268,15 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section - 높이와 오버플로우 수정 */}
-        <section className="absolute top-[1146px] left-0 w-full h-[120px] overflow-hidden skills-section">
+        {/* Skills Section - 위치 조정 */}
+        <section className="absolute top-[1046px] left-0 w-full h-[120px] overflow-hidden skills-section">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
         </section>
 
-        {/* Work Section - 200px gap from skills */}
-        <section id="work" className="absolute top-[1416px] left-0 w-full work-section">
+        {/* Work Section - 위치 조정 */}
+        <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
           </div>
@@ -318,7 +317,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="absolute top-[3800px] left-0 w-full about-section">
+        <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
           </div>
@@ -371,7 +370,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="relative top-[5100px] left-0 w-full contact-section">
+        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
