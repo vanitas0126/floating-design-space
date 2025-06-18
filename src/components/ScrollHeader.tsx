@@ -22,10 +22,10 @@ const ScrollHeader = () => {
     let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetPosition = 1200;
+        targetPosition = 1160;
         break;
       case 'about':
-        targetPosition = 3380;
+        targetPosition = 3300;
         break;
       case 'contact':
         targetPosition = 4880;
@@ -41,19 +41,6 @@ const ScrollHeader = () => {
       top: scrollTarget,
       behavior: 'smooth'
     });
-
-    // Add smooth transition effect for Work section
-    if (sectionId === 'work') {
-      setTimeout(() => {
-        const workSection = document.getElementById('work');
-        if (workSection) {
-          workSection.classList.add('smooth-scroll-target');
-          setTimeout(() => {
-            workSection.classList.remove('smooth-scroll-target');
-          }, 800);
-        }
-      }, 500);
-    }
   };
 
   const scrollToTop = () => {
