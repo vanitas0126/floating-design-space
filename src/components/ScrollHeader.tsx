@@ -19,17 +19,17 @@ const ScrollHeader = () => {
   const scrollToSection = (sectionId: string) => {
     console.log('Scrolling to section:', sectionId);
     
-    // 각 섹션의 실제 위치값 (CSS에서 설정된 top 값)
+    // 섹션의 실제 위치값을 더 정확하게 조정
     let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetPosition = 1316; // WorkSection의 top-[1316px]
+        targetPosition = 1200; // WorkSection 타이틀 위치에 맞춰 조정
         break;
       case 'about':
-        targetPosition = 3700; // AboutSection의 top-[3700px]
+        targetPosition = 3580; // AboutSection 타이틀 위치에 맞춰 조정  
         break;
       case 'contact':
-        targetPosition = 5000; // ContactSection의 top-[5000px]
+        targetPosition = 4880; // ContactSection 타이틀 위치에 맞춰 조정
         break;
       default:
         targetPosition = 0;
