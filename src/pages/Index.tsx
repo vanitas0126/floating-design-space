@@ -231,7 +231,7 @@ const Index = () => {
       <div className="portfolio-container">
         {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
-          <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
+          <div className="w-[1680px] mx-auto flex justify-between items-center">
             <button
               onClick={scrollToTop}
               className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -525,7 +525,7 @@ const Index = () => {
         {/* Footer */}
         <div className="absolute top-[6200px] left-0 w-full">
           <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
-            <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[20px]">
+            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
               <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
               <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
             </div>
