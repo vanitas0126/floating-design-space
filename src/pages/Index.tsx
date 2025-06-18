@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -421,26 +422,32 @@ const Index = () => {
 
               {/* Experience Section */}
               <div className="w-full">
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
+                <AnimatedSection delay={500}>
+                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
+                    <div className="flex items-center">
+                      <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
+                    </div>
                   </div>
-                </div>
+                </AnimatedSection>
 
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
+                <AnimatedSection delay={600}>
+                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
+                    <div className="flex items-center">
+                      <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
+                    </div>
                   </div>
-                </div>
+                </AnimatedSection>
 
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                  <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
-                  <div className="flex items-center">
-                    <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
+                <AnimatedSection delay={700}>
+                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
+                    <div className="flex items-center">
+                      <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
+                    </div>
                   </div>
-                </div>
+                </AnimatedSection>
 
                 <div className="border-t border-gray-700" />
               </div>
@@ -448,8 +455,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 원래대로 되돌림 */}
-        <section id="contact" className="relative top-[5600px] left-0 w-full contact-section">
+        {/* Contact Section - 위치를 5000px로 조정 */}
+        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
           <div className="absolute left-[calc(4.16667%+40px)]">
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
           </div>
