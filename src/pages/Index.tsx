@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -38,7 +39,7 @@ const Index = () => {
         font-weight: 400;
         letter-spacing: -0.02em;
         line-height: 1.6;
-        background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
+        background: white;
         color: #1a1a1a;
         min-height: 100vh;
         overflow-x: hidden;
