@@ -77,7 +77,7 @@ const Index = () => {
 
       @media (min-width: 1920px) {
         .portfolio-container {
-          transform: scale(0.95);
+          transform: scale(0.9);
           transform-origin: top center;
         }
       }
@@ -175,8 +175,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 높은 z-index로 최우선 */}
-        <div className="absolute top-[60px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 높이를 약간 높임 */}
+        <div className="absolute top-[80px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -206,8 +206,8 @@ const Index = () => {
           </nav>
         </div>
 
-        {/* Hero Section */}
-        <section className="absolute top-[360px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
+        {/* Hero Section - 위치도 약간 조정 */}
+        <section className="absolute top-[380px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
           {/* Hero Background */}
           <div className="absolute inset-0 w-full h-full z-50 hero-background">
             <img src={`${basePath}/images/heroimg.png`} alt="Hero Background" className="w-full h-full object-cover rounded-[20px]" />
