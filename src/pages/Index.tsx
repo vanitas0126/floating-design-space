@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -237,9 +236,8 @@ const Index = () => {
         <WorkSection />
         <AboutSection />
         <ContactSection />
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 };
