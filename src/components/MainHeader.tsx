@@ -1,5 +1,4 @@
 
-
 const MainHeader = () => {
   const handleScrollToSection = (sectionId: string) => {
     console.log('MainHeader scrolling to section:', sectionId);
@@ -36,23 +35,40 @@ const MainHeader = () => {
     });
   };
 
+  const handleButtonClick = (action: string) => {
+    console.log('Button clicked:', action);
+    if (action === 'top') {
+      handleScrollToTop();
+    } else {
+      handleScrollToSection(action);
+    }
+  };
+
   return (
     <div 
-      className="absolute top-[10px] left-0 w-full opacity-100"
+      className="fixed top-[10px] left-0 w-full opacity-100"
       style={{
-        zIndex: 99999,
-        pointerEvents: 'auto',
-        position: 'absolute'
+        zIndex: 999999,
+        pointerEvents: 'none',
+        position: 'fixed'
       }}
+      onClick={() => console.log('MainHeader container clicked')}
     >
       <div className="w-[1680px] mx-auto flex justify-between items-center px-0">
         <button 
-          onClick={handleScrollToTop} 
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log('Logo button clicked');
+            handleButtonClick('top');
+          }}
+          onMouseEnter={() => console.log('Logo button hovered')}
           className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
           style={{
             pointerEvents: 'auto',
-            zIndex: 99999,
-            position: 'relative'
+            zIndex: 999999,
+            position: 'relative',
+            background: 'rgba(255, 0, 0, 0.1)',
+            border: '1px solid red'
           }}
         >
           UX.Song
@@ -60,34 +76,55 @@ const MainHeader = () => {
         
         <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
           <button 
-            onClick={() => handleScrollToSection('work')} 
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('Work button clicked');
+              handleButtonClick('work');
+            }}
+            onMouseEnter={() => console.log('Work button hovered')}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999,
-              position: 'relative'
+              zIndex: 999999,
+              position: 'relative',
+              background: 'rgba(0, 255, 0, 0.1)',
+              border: '1px solid green'
             }}
           >
             Work
           </button>
           <button 
-            onClick={() => handleScrollToSection('about')} 
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('About button clicked');
+              handleButtonClick('about');
+            }}
+            onMouseEnter={() => console.log('About button hovered')}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999,
-              position: 'relative'
+              zIndex: 999999,
+              position: 'relative',
+              background: 'rgba(0, 0, 255, 0.1)',
+              border: '1px solid blue'
             }}
           >
             About
           </button>
           <button 
-            onClick={() => handleScrollToSection('contact')} 
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('Contact button clicked');
+              handleButtonClick('contact');
+            }}
+            onMouseEnter={() => console.log('Contact button hovered')}
             className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
             style={{
               pointerEvents: 'auto',
-              zIndex: 99999,
-              position: 'relative'
+              zIndex: 999999,
+              position: 'relative',
+              background: 'rgba(255, 255, 0, 0.1)',
+              border: '1px solid yellow'
             }}
           >
             Contact
@@ -99,4 +136,3 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
-
