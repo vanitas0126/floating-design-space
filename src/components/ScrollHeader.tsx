@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 const ScrollHeader = () => {
@@ -32,7 +31,7 @@ const ScrollHeader = () => {
   };
 
   return (
-    <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-[10000] w-[1680px]">
+    <div className="fixed top-0 left-0 w-full z-[10000]">
       <header 
         className={`h-[60px] transition-all duration-700 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
@@ -52,7 +51,7 @@ const ScrollHeader = () => {
           `,
         }}
       >
-        <div className="h-full flex items-center justify-between px-[20px]">
+        <div className="h-full flex items-center justify-between px-[20px] w-[1680px] mx-auto">
           <button
             onClick={scrollToTop}
             className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
