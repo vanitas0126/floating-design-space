@@ -39,7 +39,7 @@ const ScrollHeader = () => {
   return (
     <>
       {/* 1단계: 전체 화면을 덮는 고정 헤더 컨테이너 */}
-      <div className="fixed top-0 left-0 w-full z-[10000]">
+      <div className="fixed top-0 left-0 w-[1680px] mx-auto z-[10000]">
         {/* 2단계: 헤더 배경과 스타일을 담당하는 div */}
         <header 
           className={`h-[60px] transition-all duration-700 ease-out ${
@@ -85,7 +85,7 @@ const ScrollHeader = () => {
             >
               <button 
                 onClick={() => scrollToSection('work')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
@@ -95,7 +95,7 @@ const ScrollHeader = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('about')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
@@ -105,7 +105,7 @@ const ScrollHeader = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')} 
-                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
+                className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform cursor-pointer"
                 style={{
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6)',
                   filter: 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))'
