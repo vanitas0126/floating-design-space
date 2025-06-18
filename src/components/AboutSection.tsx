@@ -18,7 +18,12 @@ const AboutSection = () => {
           className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
           delay={200}
         >
-          <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
+          <img 
+            src={`${basePath}/images/face.png`} 
+            alt="Songhee's Profile" 
+            className="w-full h-full object-cover"
+            onError={() => console.log('Failed to load face image')}
+          />
         </AnimatedSection>
 
         <div className="flex-1 flex flex-col max-w-[821px] h-[887px] justify-between">
