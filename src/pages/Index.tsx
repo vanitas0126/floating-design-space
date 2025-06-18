@@ -19,13 +19,11 @@ const Index = () => {
       html {
         scroll-behavior: smooth;
         scroll-padding-top: 100px;
-        overflow-x: hidden;
       }
 
       body {
         font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
         cursor: auto !important;
-        overflow-x: hidden;
         margin: 0;
         padding: 0;
         font-stretch: condensed;
@@ -34,6 +32,9 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
       .font-garamond {
@@ -41,7 +42,6 @@ const Index = () => {
         font-feature-settings: "liga", "kern" !important;
       }
 
-      /* Header font styling */
       .header-font {
         font-family: 'Arial Narrow', Arial, sans-serif !important;
         font-stretch: condensed;
@@ -91,11 +91,10 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5800px;
         position: relative;
         margin: 0 auto;
         background: transparent;
-        min-height: 100vh;
+        flex: 1;
         display: flex;
         flex-direction: column;
       }
@@ -155,12 +154,6 @@ const Index = () => {
           transform-origin: top center;
         }
       }
-
-      /* Header scroll scaling - 90% 일관적으로 적용 */
-      .scroll-header {
-        transform: scale(0.9);
-        transform-origin: top center;
-      }
     `;
     document.head.appendChild(style);
 
@@ -178,7 +171,6 @@ const Index = () => {
       });
     }, observerOptions);
 
-    // Observe all sections with scroll-reveal class
     const revealElements = document.querySelectorAll('.scroll-reveal');
     revealElements.forEach((el) => observer.observe(el));
 
@@ -193,7 +185,6 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // Add small offset to show content instead of title
       const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
       
       window.scrollTo({
@@ -218,18 +209,17 @@ const Index = () => {
     window.location.href = 'mailto:allivanitas@gmail.com';
   };
 
-  // Base path for images
   const basePath = import.meta.env.PROD ? '/floating-design-space' : '';
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
       <div className="portfolio-container relative">
-        {/* Fixed Header - 1680px 컨테이너로 정확히 맞춤 */}
+        {/* Fixed Header */}
         <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100">
           <div className="w-[1680px] mx-auto flex justify-between items-center">
             <button
@@ -264,7 +254,6 @@ const Index = () => {
 
         {/* Hero Section */}
         <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
-          {/* Hero Background - z-index를 높여 텍스트보다 우선순위 높임 */}
           <div className="absolute inset-0 w-full h-full z-[100] hero-background">
             <img 
               src={`${basePath}/images/heroimg.png`} 
@@ -275,7 +264,6 @@ const Index = () => {
             />
           </div>
 
-          {/* Floating Elements with children */}
           <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] floating-element" delay={0.8}>
             <img src={`${basePath}/images/cheese.png`} alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
           </FloatingElement>
@@ -292,7 +280,6 @@ const Index = () => {
             <img src={`${basePath}/images/glass.png`} alt="Floating glass" className="w-full h-full object-contain" />
           </FloatingElement>
 
-          {/* Hero Text */}
           <EnhancedAnimatedSection 
             delay={0.3} 
             className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed z-[80]"
@@ -326,7 +313,7 @@ const Index = () => {
           </div>
         </EnhancedAnimatedSection>
 
-        {/* Skills Section - 애니메이션 제거하고 바로 보이게 */}
+        {/* Skills Section */}
         <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
@@ -462,8 +449,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
+        {/* Contact Section */}
+        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section pb-[200px]">
           <AnimatedSection 
             className="absolute left-[calc(4.16667%+40px)]"
             delay={100}
@@ -513,7 +500,6 @@ const Index = () => {
             </AnimatedSection>
           </AnimatedSection>
 
-          {/* Background Image */}
           <AnimatedSection 
             className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
             delay={150}
@@ -521,17 +507,17 @@ const Index = () => {
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
           </AnimatedSection>
         </section>
-
-        {/* Footer - body 하단에 위치하도록 변경 */}
-        <footer className="w-full">
-          <div className="w-full border-t-2 border-gray-700">
-            <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
-              <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
-              <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
-            </div>
-          </div>
-        </footer>
       </div>
+
+      {/* Footer - 컨테이너 밖에서 화면 하단에 고정 */}
+      <footer className="w-full mt-auto">
+        <div className="w-full border-t-2 border-gray-700">
+          <div className="w-[1680px] mx-auto flex justify-between items-center py-[20px]">
+            <p className="text-[28px] text-gray-900">Songhee Park © 2025</p>
+            <a href="#" className="text-[28px] text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

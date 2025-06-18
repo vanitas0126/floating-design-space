@@ -17,18 +17,14 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const offset = sectionId === 'work' ? 20 : sectionId === 'about' ? 20 : sectionId === 'contact' ? 20 : 0;
+      // 헤더 높이(60px) + 추가 여백을 고려하여 정확히 제목이 보이도록 조정
+      const headerHeight = 60;
+      const additionalOffset = 20;
       
       window.scrollTo({
-        top: elementTop + offset,
+        top: elementTop - headerHeight - additionalOffset,
         behavior: 'smooth'
       });
-      
-      setTimeout(() => {
-        element.style.transform = 'translateY(0)';
-        element.style.opacity = '1';
-        element.style.transition = 'all 0.8s ease-out';
-      }, 300);
     }
   };
 
@@ -38,7 +34,7 @@ const ScrollHeader = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[10000] h-24 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[10000] h-[60px] transition-all duration-700 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
@@ -56,10 +52,10 @@ const ScrollHeader = () => {
         `,
       }}
     >
-      <div className="w-[1680px] mx-auto h-full flex items-center justify-between">
+      <div className="w-[1680px] mx-auto h-full flex items-center justify-between px-[20px]">
         <button
           onClick={scrollToTop}
-          className="header-font text-[44px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
+          className="header-font text-[32px] font-medium text-gray-900 hover:text-indigo-600 transition-all duration-500 hover:scale-110"
           style={{ 
             fontFamily: 'Arial Narrow, Arial, sans-serif', 
             fontStretch: 'condensed',
@@ -70,7 +66,7 @@ const ScrollHeader = () => {
           UX.Song
         </button>
         
-        <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
+        <nav className="header-font flex gap-[80px] text-[28px] font-medium text-gray-900" style={{ fontFamily: 'Arial Narrow, Arial, sans-serif', fontStretch: 'condensed' }}>
           <button
             onClick={() => scrollToSection('work')}
             className="hover:text-indigo-600 transition-all duration-500 hover:scale-110 transform"
