@@ -17,9 +17,9 @@ const ScrollHeader = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      // 헤더 높이(60px) + 추가 여백을 고려하여 정확히 제목이 보이도록 조정
+      // 더 큰 오프셋으로 조정하여 정확한 위치에 표시
       const headerHeight = 60;
-      const additionalOffset = 20;
+      const additionalOffset = 140; // 추가 오프셋 증가
       
       window.scrollTo({
         top: elementTop - headerHeight - additionalOffset,

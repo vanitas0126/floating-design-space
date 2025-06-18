@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -196,7 +195,7 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const elementTop = element.offsetTop;
-      const headerOffset = 100;
+      const headerOffset = 200; // 더 큰 오프셋으로 조정
       
       window.scrollTo({
         top: elementTop - headerOffset,
@@ -217,20 +216,20 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-slate-50">
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }} className="bg-gradient-to-br from-gray-50 via-white to-slate-50">
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="flex-1 flex flex-col min-h-0">
-        <div className="portfolio-container relative flex-1">
+      <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
+        <div className="portfolio-container relative" style={{ flex: '1' }}>
           <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
           <HeroSection />
           <PhilosophySection />
           
-          {/* Skills Section */}
-          <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
-            <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
+          {/* Skills Section - 100vw로 변경 */}
+          <div className="absolute top-[990px] left-1/2 transform -translate-x-1/2 w-screen h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[calc(100vw+144px)] h-full skills-scroll">
               <SkillsScroll />
             </div>
           </div>
