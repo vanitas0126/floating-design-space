@@ -34,7 +34,7 @@ const Index = () => {
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
-        height: 5000px;
+        height: auto;
       }
 
       .font-garamond {
@@ -92,16 +92,16 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5000px;
+        height: 5200px;
         position: relative;
         margin: 0 auto;
         background: transparent;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        overflow-x: hidden;
       }
 
+      /* Responsive scaling */
       @media (min-width: 1920px) {
         .portfolio-container {
           transform: scale(0.9);
@@ -156,12 +156,6 @@ const Index = () => {
           transform: scale(0.25);
           transform-origin: top center;
         }
-      }
-
-      /* Header scroll scaling - 90% 일관적으로 적용 */
-      .scroll-header {
-        transform: scale(0.9);
-        transform-origin: top center;
       }
     `;
     document.head.appendChild(style);
@@ -223,7 +217,7 @@ const Index = () => {
   console.log('Using base path for images:', basePath);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 relative" style={{ overflowX: 'hidden' }}>
+    <div className="bg-gradient-to-br from-gray-50 via-white to-slate-50 relative" style={{ overflowX: 'hidden', minHeight: '100vh', paddingBottom: '100px' }}>
       <LiquidCursor />
       <ScrollHeader />
       <ScrollMagic />
@@ -524,7 +518,7 @@ const Index = () => {
       </div>
 
       {/* Footer - 맨 아래 고정 */}
-      <footer className="fixed bottom-0 left-0 w-full border-t border-gray-300 z-[9998]" style={{ backgroundColor: 'transparent' }}>
+      <footer className="fixed bottom-0 left-0 right-0 z-[9998] bg-transparent">
         <div className="w-full border-t border-gray-700"></div>
         <div className="w-[1680px] mx-auto flex justify-between items-center px-0 py-[15px]">
           <p className="text-[20px] text-gray-900">Songhee Park © 2025</p>
