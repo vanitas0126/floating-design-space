@@ -17,24 +17,68 @@ const Index = () => {
     style.textContent = `
       @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
 
+      /* ----------------------------------
+        기본 레이아웃 설정 (가장 중요!)
+      ---------------------------------- */
       html {
+        height: 100%;
         scroll-behavior: smooth;
         scroll-padding-top: 100px;
         overflow-x: hidden;
       }
 
       body {
-        font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-        cursor: auto !important;
-        overflow-x: hidden;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
+        font-family: 'Arial Narrow', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+        cursor: auto !important;
         font-stretch: condensed;
         font-weight: 400;
         letter-spacing: -0.02em;
         line-height: 1.6;
         background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8fafc 100%);
         color: #1a1a1a;
+      }
+
+      #wrapper {
+        flex-grow: 1;
+      }
+
+      /* ----------------------------------
+        콘텐츠 정렬
+      ---------------------------------- */
+      .content-area {
+        max-width: 1680px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      /* 헤더 내부 정렬 */
+      .header-inner {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* 푸터 텍스트 중앙 정렬 */
+      .main-footer .copyright {
+        text-align: center;
+      }
+
+      /* ----------------------------------
+        기능 (스크롤 위치 보정)
+      ---------------------------------- */
+      #primary,
+      #secondary,
+      #tertiary {
+        scroll-margin-top: 100px;
       }
 
       .font-garamond {
@@ -92,7 +136,7 @@ const Index = () => {
 
       .portfolio-container {
         width: 1920px;
-        height: 5800px;
+        height: 5000px;
         position: relative;
         margin: 0 auto;
         background: transparent;
@@ -229,308 +273,317 @@ const Index = () => {
       <ScrollHeader />
       <ScrollMagic />
       
-      <div className="portfolio-container">
-        {/* Fixed Header - 헤더 상단 간격을 30px로 조정 */}
-        <div className="absolute top-[30px] left-0 w-full z-[9999] opacity-100 scroll-header">
-          <button
-            onClick={scrollToTop}
-            className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
-          >
-            UX.Song
-          </button>
-          
-          <nav className="header-font absolute left-[calc(66.6667%+65px)] flex gap-[100px] text-4xl font-medium text-gray-900">
+      {/* Header는 독립적으로! */}
+      <header className="main-header">
+        <div className="content-area">
+          <div className="header-inner">
             <button
-              onClick={() => scrollToSection('work')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              onClick={scrollToTop}
+              className="header-font text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
             >
-              Work
+              UX.Song
             </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
-            >
-              Contact
-            </button>
-          </nav>
-        </div>
-
-        {/* Hero Section */}
-        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
-          {/* Hero Background - z-index를 높여 텍스트보다 우선순위 높임 */}
-          <div className="absolute inset-0 w-full h-full z-[100] hero-background">
-            <img 
-              src={`${basePath}/images/heroimg.png`} 
-              alt="Hero Background" 
-              className="w-full h-full object-cover rounded-[20px]"
-              onLoad={() => console.log('Hero image loaded successfully')}
-              onError={() => console.error('Failed to load hero image')}
-            />
+            
+            <nav className="header-font flex gap-[100px] text-4xl font-medium text-gray-900">
+              <button
+                onClick={() => scrollToSection('work')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                Work
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 hover:text-indigo-600"
+              >
+                Contact
+              </button>
+            </nav>
           </div>
+        </div>
+      </header>
 
-          {/* Floating Elements with children */}
-          <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] floating-element" delay={0.8}>
-            <img src={`${basePath}/images/cheese.png`} alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px] floating-element" delay={1.6}>
-            <img src={`${basePath}/images/elipse.png`} alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px] floating-element" delay={2.4}>
-            <img src={`${basePath}/images/ball.png`} alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
-          </FloatingElement>
-          
-          <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px] floating-element" delay={0.4}>
-            <img src={`${basePath}/images/glass.png`} alt="Floating glass" className="w-full h-full object-contain" />
-          </FloatingElement>
+      {/* 메인 콘텐츠만 wrapper로 감쌉니다 */}
+      <div id="wrapper">
+        <div className="portfolio-container">
+          {/* Hero Section */}
+          <section id="primary" className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
+            {/* Hero Background - z-index를 높여 텍스트보다 우선순위 높임 */}
+            <div className="absolute inset-0 w-full h-full z-[100] hero-background">
+              <img 
+                src={`${basePath}/images/heroimg.png`} 
+                alt="Hero Background" 
+                className="w-full h-full object-cover rounded-[20px]"
+                onLoad={() => console.log('Hero image loaded successfully')}
+                onError={() => console.error('Failed to load hero image')}
+              />
+            </div>
 
-          {/* Hero Text */}
+            {/* Floating Elements with children */}
+            <FloatingElement className="absolute top-[2px] left-[calc(75%+42px)] w-[158px] h-[154px] floating-element" delay={0.8}>
+              <img src={`${basePath}/images/cheese.png`} alt="Floating cheese" className="w-full h-full object-contain" style={{ transform: 'rotate(30deg)' }} />
+            </FloatingElement>
+            
+            <FloatingElement className="absolute -top-[62px] left-[calc(83.3333%-61px)] w-[102px] h-[91px] floating-element" delay={1.6}>
+              <img src={`${basePath}/images/elipse.png`} alt="Floating ellipse" className="w-full h-full object-contain" style={{ transform: 'rotate(259deg) scaleY(-1)' }} />
+            </FloatingElement>
+            
+            <FloatingElement className="absolute -top-[82px] left-[calc(75%-60px)] w-[159px] h-[152px] floating-element" delay={2.4}>
+              <img src={`${basePath}/images/ball.png`} alt="Floating ball" className="w-full h-full object-contain" style={{ transform: 'rotate(339deg)' }} />
+            </FloatingElement>
+            
+            <FloatingElement className="absolute -top-[62px] left-[calc(66.6667%-41px)] w-[358px] h-[300px] floating-element" delay={0.4}>
+              <img src={`${basePath}/images/glass.png`} alt="Floating glass" className="w-full h-full object-contain" />
+            </FloatingElement>
+
+            {/* Hero Text */}
+            <EnhancedAnimatedSection 
+              delay={0.3} 
+              className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed z-[80]"
+              animationType="fadeRight"
+              duration={1.2}
+            >
+              <p className="text-lg text-gray-900 mb-0">Design is more than just a few tricks to the eye.</p>
+              <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
+                It's a few tricks to the brain
+              </h1>
+            </EnhancedAnimatedSection>
+          </section>
+
+          {/* Philosophy Section */}
           <EnhancedAnimatedSection 
-            delay={0.3} 
-            className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed z-[80]"
-            animationType="fadeRight"
-            duration={1.2}
+            className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section"
+            animationType="fadeUp"
+            delay={0.1}
+            duration={0.6}
           >
-            <p className="text-lg text-gray-900 mb-0">Design is more than just a few tricks to the eye.</p>
-            <h1 className="font-garamond font-medium italic text-[28px] text-gray-900">
-              It's a few tricks to the brain
-            </h1>
+            <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
+              <div className="flex-1 w-[520px] philosophy-text">
+                <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
+              </div>
+              <div className="flex-1 w-[520px] philosophy-text">
+                <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
+              </div>
+              <div className="flex-1 w-[520px] philosophy-text">
+                <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
+              </div>
+            </div>
           </EnhancedAnimatedSection>
-        </section>
 
-        {/* Philosophy Section */}
-        <EnhancedAnimatedSection 
-          className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section"
-          animationType="fadeUp"
-          delay={0.1}
-          duration={0.6}
-        >
-          <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
-            <div className="flex-1 w-[520px] philosophy-text">
-              <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
-            </div>
-            <div className="flex-1 w-[520px] philosophy-text">
-              <p>clarity not just decoration. That's why I value purposeful layout, readable hierarchy, and design systems that scale. Design isn't about finishing fast. It's about reducing friction through decisions that make sense and visuals that speak clearly.</p>
-            </div>
-            <div className="flex-1 w-[520px] philosophy-text">
-              <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
+          {/* Skills Section - 애니메이션 제거하고 바로 보이게 */}
+          <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
+              <SkillsScroll />
             </div>
           </div>
-        </EnhancedAnimatedSection>
 
-        {/* Skills Section - 애니메이션 제거하고 바로 보이게 */}
-        <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
-          <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
-            <SkillsScroll />
-          </div>
-        </div>
-
-        {/* Work Section */}
-        <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
-          <AnimatedSection 
-            className="absolute left-[calc(4.16667%+40px)]"
-            delay={100}
-          >
-            <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
-          </AnimatedSection>
-
-          {/* Project Row 1 */}
-          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+          {/* Work Section */}
+          <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
             <AnimatedSection 
-              className="w-[821px] work-project"
-              delay={200}
-            >
-              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              </div>
-              <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
-            </AnimatedSection>
-
-            <AnimatedSection 
-              className="w-[821px] work-project"
-              delay={300}
-            >
-              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              </div>
-              <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
-            </AnimatedSection>
-          </div>
-
-          {/* Project Row 2 */}
-          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
-            <AnimatedSection 
-              className="w-[821px] work-project"
+              className="absolute left-[calc(4.16667%+40px)]"
               delay={100}
             >
-              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              </div>
-              <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
+              <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
             </AnimatedSection>
 
-            <AnimatedSection 
-              className="w-[821px] work-project"
-              delay={200}
-            >
-              <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
-                <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              </div>
-              <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
-          <AnimatedSection 
-            className="absolute left-[calc(4.16667%+40px)]"
-            delay={100}
-          >
-            <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
-          </AnimatedSection>
-
-          <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <AnimatedSection 
-              className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
-              delay={200}
-            >
-              <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
-            </AnimatedSection>
-
-            <div className="flex-1 flex flex-col max-w-[821px] h-[887px] justify-between">
+            {/* Project Row 1 */}
+            <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
               <AnimatedSection 
-                className="mb-[40px]"
+                className="w-[821px] work-project"
+                delay={200}
+              >
+                <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                  <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                </div>
+                <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
+              </AnimatedSection>
+
+              <AnimatedSection 
+                className="w-[821px] work-project"
                 delay={300}
               >
-                <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
-                  Hi, I'm Songhee
-                </h3>
+                <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                  <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                </div>
+                <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
+              </AnimatedSection>
+            </div>
+
+            {/* Project Row 2 */}
+            <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+              <AnimatedSection 
+                className="w-[821px] work-project"
+                delay={100}
+              >
+                <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                  <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                </div>
+                <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
               </AnimatedSection>
 
               <AnimatedSection 
-                className="mb-[80px]"
-                delay={400}
+                className="w-[821px] work-project"
+                delay={200}
               >
-                <p className="text-2xl leading-[200%] text-gray-900 text-justify">
-                  I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
-                </p>
+                <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
+                  <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                </div>
+                <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
+              </AnimatedSection>
+            </div>
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
+            <AnimatedSection 
+              className="absolute left-[calc(4.16667%+40px)]"
+              delay={100}
+            >
+              <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
+            </AnimatedSection>
+
+            <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
+              <AnimatedSection 
+                className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
+                delay={200}
+              >
+                <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
               </AnimatedSection>
 
-              {/* Experience Section */}
-              <div className="w-full flex-1 flex flex-col justify-end">
-                <AnimatedSection delay={500}>
-                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
-                    <div className="flex items-center">
-                      <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
-                    </div>
-                  </div>
+              <div className="flex-1 flex flex-col max-w-[821px] h-[887px] justify-between">
+                <AnimatedSection 
+                  className="mb-[40px]"
+                  delay={300}
+                >
+                  <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
+                    Hi, I'm Songhee
+                  </h3>
                 </AnimatedSection>
 
-                <AnimatedSection delay={600}>
-                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
-                    <div className="flex items-center">
-                      <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
-                    </div>
-                  </div>
+                <AnimatedSection 
+                  className="mb-[80px]"
+                  delay={400}
+                >
+                  <p className="text-2xl leading-[200%] text-gray-900 text-justify">
+                    I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
+                  </p>
                 </AnimatedSection>
 
-                <AnimatedSection delay={700}>
-                  <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
-                    <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
-                    <div className="flex items-center">
-                      <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
+                {/* Experience Section */}
+                <div className="w-full flex-1 flex flex-col justify-end">
+                  <AnimatedSection delay={500}>
+                    <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                      <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
+                      <div className="flex items-center">
+                        <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
+                      </div>
                     </div>
-                  </div>
-                </AnimatedSection>
+                  </AnimatedSection>
 
-                <AnimatedSection delay={800}>
-                  <div className="border-t border-gray-700" />
-                </AnimatedSection>
+                  <AnimatedSection delay={600}>
+                    <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                      <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
+                      <div className="flex items-center">
+                        <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+
+                  <AnimatedSection delay={700}>
+                    <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                      <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
+                      <div className="flex items-center">
+                        <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+
+                  <AnimatedSection delay={800}>
+                    <div className="border-t border-gray-700" />
+                  </AnimatedSection>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Contact Section - 위치를 5000px로 조정 */}
-        <section id="contact" className="absolute top-[5000px] left-0 w-full contact-section">
-          <AnimatedSection 
-            className="absolute left-[calc(4.16667%+40px)]"
-            delay={100}
-          >
-            <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-          </AnimatedSection>
-
-          <AnimatedSection 
-            className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
-            delay={200}
-          >
-            <h3 
-              className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
-              onClick={openEmail}
-              style={{
-                textShadow: '0 2px 4px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(255, 255, 255, 0.6)'
-              }}
+          {/* Contact Section */}
+          <section id="contact" className="absolute top-[4850px] left-0 w-full contact-section">
+            <AnimatedSection 
+              className="absolute left-[calc(4.16667%+40px)]"
+              delay={100}
             >
-              EMAIL... ME!
-            </h3>
-            
-            <p className="text-4xl leading-[1.75] text-gray-900" style={{
-              textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-            }}>
-              For project inquiries or portfolio access,<br />
-              contact me directly at{' '}
-              <span 
-                className="font-garamond font-medium italic text-indigo-600 cursor-pointer transition-colors duration-500 hover:text-purple-600 underline decoration-2 underline-offset-4"
-                onClick={openEmail}
-                style={{
-                  textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
-                }}
-              >
-                allivanitas@gmail.com
-              </span>
-            </p>
+              <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
+            </AnimatedSection>
 
             <AnimatedSection 
-              className="flex justify-between items-center gap-20 mt-[280px] w-full"
-              delay={300}
+              className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
+              delay={200}
             >
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
-              <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
+              <h3 
+                className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
+                onClick={openEmail}
+                style={{
+                  textShadow: '0 2px 4px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(255, 255, 255, 0.6)'
+                }}
+              >
+                EMAIL... ME!
+              </h3>
+              
+              <p className="text-4xl leading-[1.75] text-gray-900" style={{
+                textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
+              }}>
+                For project inquiries or portfolio access,<br />
+                contact me directly at{' '}
+                <span 
+                  className="font-garamond font-medium italic text-indigo-600 cursor-pointer transition-colors duration-500 hover:text-purple-600 underline decoration-2 underline-offset-4"
+                  onClick={openEmail}
+                  style={{
+                    textShadow: '0 1px 3px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(255, 255, 255, 0.7)'
+                  }}
+                >
+                  allivanitas@gmail.com
+                </span>
+              </p>
+
+              <AnimatedSection 
+                className="flex justify-between items-center gap-20 mt-[280px] w-full"
+                delay={300}
+              >
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Dribbble</a>
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
+                <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
+              </AnimatedSection>
             </AnimatedSection>
-          </AnimatedSection>
 
-          {/* Background Image */}
-          <AnimatedSection 
-            className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
-            delay={150}
-          >
-            <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
-          </AnimatedSection>
-        </section>
+            {/* Background Image */}
+            <AnimatedSection 
+              className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
+              delay={150}
+            >
+              <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
+            </AnimatedSection>
+          </section>
+        </div>
+      </div>
 
-        {/* Footer - Contact와 간격을 줄이기 위해 위치 조정 */}
-        <div className="absolute top-[6200px] left-0 w-full">
-          <footer className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
+      {/* 푸터도 독립적으로! */}
+      <footer className="main-footer">
+        <div className="content-area">
+          <div className="w-full bg-gray-50 p-0 border-t-2 border-gray-700 flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center pt-[20px] pb-0">
               <div className="w-full flex justify-between items-center px-10 pb-5 text-[28px]">
-                <p className="text-gray-900">Songhee Park © 2025</p>
+                <p className="copyright text-gray-900">Songhee Park © 2025</p>
                 <a href="#" className="text-gray-900 no-underline transition-colors duration-500 hover:text-indigo-600">Instagram</a>
               </div>
             </div>
-          </footer>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };
