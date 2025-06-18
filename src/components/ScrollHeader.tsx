@@ -22,10 +22,10 @@ const ScrollHeader = () => {
     let targetPosition = 0;
     switch(sectionId) {
       case 'work':
-        targetPosition = 1160;
+        targetPosition = 1150;
         break;
       case 'about':
-        targetPosition = 3300;
+        targetPosition = 3290;
         break;
       case 'contact':
         targetPosition = 4880;
