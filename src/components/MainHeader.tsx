@@ -88,12 +88,11 @@ const MainHeader = () => {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            padding: '8px 12px',
+            padding: '5px 10px',
             margin: '0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            lineHeight: '1'
+            display: 'block',
+            minHeight: '50px',
+            minWidth: '150px'
           }}
         >
           UX.Song
@@ -112,12 +111,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '8px 12px',
+              padding: '5px 10px',
               margin: '0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              lineHeight: '1'
+              display: 'block',
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             Work
@@ -134,12 +132,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '8px 12px',
+              padding: '5px 10px',
               margin: '0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              lineHeight: '1'
+              display: 'block',
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             About
@@ -156,12 +153,11 @@ const MainHeader = () => {
               background: 'transparent',
               border: 'none',
               outline: 'none',
-              padding: '8px 12px',
+              padding: '5px 10px',
               margin: '0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              lineHeight: '1'
+              display: 'block',
+              minHeight: '50px',
+              minWidth: '80px'
             }}
           >
             Contact
