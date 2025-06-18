@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -200,30 +199,9 @@ const Index = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    console.log('Scrolling to section:', sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const elementTop = element.offsetTop;
-      const headerOffset = 100;
-      
-      window.scrollTo({
-        top: elementTop - headerOffset,
-        behavior: 'smooth'
-      });
-      
-      setTimeout(() => {
-        element.classList.add('smooth-scroll-target');
-        setTimeout(() => {
-          element.classList.remove('smooth-scroll-target');
-        }, 800);
-      }, 500);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // Dummy functions for compatibility (not used anymore)
+  const scrollToSection = () => {};
+  const scrollToTop = () => {};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-slate-50 flex flex-col">
