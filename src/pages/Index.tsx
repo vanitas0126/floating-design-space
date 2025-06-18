@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -56,9 +55,6 @@ const Index = () => {
         flex: 1;
         display: flex;
         flex-direction: column;
-        width: 100%;
-        max-width: 100vw;
-        margin: 0 auto;
       }
 
       .footer-container {
@@ -121,44 +117,68 @@ const Index = () => {
       }
 
       .portfolio-container {
-        width: 100%;
-        max-width: 1920px;
+        width: 1920px;
         position: relative;
         margin: 0 auto;
         background: transparent;
         flex: 1;
         display: flex;
         flex-direction: column;
-        padding: 0 20px;
       }
 
-      @media (max-width: 1920px) {
+      @media (min-width: 1920px) {
         .portfolio-container {
-          padding: 0 40px;
+          transform: scale(0.9);
+          transform-origin: top center;
         }
       }
 
-      @media (max-width: 1440px) {
+      @media (max-width: 1919px) and (min-width: 1600px) {
         .portfolio-container {
-          padding: 0 30px;
+          transform: scale(0.85);
+          transform-origin: top center;
         }
       }
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1599px) and (min-width: 1400px) {
         .portfolio-container {
-          padding: 0 20px;
+          transform: scale(0.75);
+          transform-origin: top center;
         }
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1399px) and (min-width: 1200px) {
         .portfolio-container {
-          padding: 0 15px;
+          transform: scale(0.65);
+          transform-origin: top center;
         }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 1199px) and (min-width: 1024px) {
         .portfolio-container {
-          padding: 0 10px;
+          transform: scale(0.55);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .portfolio-container {
+          transform: scale(0.45);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 767px) and (min-width: 480px) {
+        .portfolio-container {
+          transform: scale(0.35);
+          transform-origin: top center;
+        }
+      }
+
+      @media (max-width: 479px) {
+        .portfolio-container {
+          transform: scale(0.25);
+          transform-origin: top center;
         }
       }
     `;
@@ -220,42 +240,20 @@ const Index = () => {
       
       <div className="main-content-wrapper">
         <div className="portfolio-container relative flex-1">
-          {/* Header - fixed positioning */}
-          <div className="relative w-full pt-4 pb-8">
-            <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-          </div>
-          
-          {/* Hero Section */}
-          <div className="relative w-full mb-16">
-            <HeroSection />
-          </div>
-          
-          {/* Philosophy Section */}
-          <div className="relative w-full mb-32">
-            <PhilosophySection />
-          </div>
+          <MainHeader scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+          <HeroSection />
+          <PhilosophySection />
           
           {/* Skills Section */}
-          <div className="w-full overflow-hidden skills-section mb-32 h-[120px]">
-            <div className="w-full h-full skills-scroll">
+          <div className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section">
+            <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
               <SkillsScroll />
             </div>
           </div>
 
-          {/* Work Section */}
-          <div id="work" className="relative w-full mb-32">
-            <WorkSection />
-          </div>
-
-          {/* About Section */}
-          <div id="about" className="relative w-full mb-32">
-            <AboutSection />
-          </div>
-
-          {/* Contact Section */}
-          <div id="contact" className="relative w-full mb-32">
-            <ContactSection />
-          </div>
+          <WorkSection />
+          <AboutSection />
+          <ContactSection />
         </div>
         
         <div className="footer-container">
