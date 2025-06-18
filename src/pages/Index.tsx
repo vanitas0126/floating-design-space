@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import LiquidCursor from '@/components/LiquidCursor';
 import ScrollHeader from '@/components/ScrollHeader';
@@ -225,8 +226,8 @@ const Index = () => {
       <ScrollMagic />
       
       <div className="portfolio-container">
-        {/* Fixed Header - 헤더 상단 간격을 20px로 조정 */}
-        <div className="absolute top-[20px] left-0 w-full z-[9999] opacity-100 scroll-header">
+        {/* Fixed Header - 헤더 상단 간격을 40px로 조정 */}
+        <div className="absolute top-[40px] left-0 w-full z-[9999] opacity-100 scroll-header">
           <button
             onClick={scrollToTop}
             className="header-font absolute left-[186px] transform -translate-x-1/2 text-[44px] font-medium text-gray-900 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -256,10 +257,10 @@ const Index = () => {
           </nav>
         </div>
 
-        {/* Hero Section - scroll-reveal 클래스 추가 */}
-        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section scroll-reveal">
-          {/* Hero Background */}
-          <div className="absolute inset-0 w-full h-full z-50 hero-background">
+        {/* Hero Section */}
+        <section className="absolute top-[280px] left-[120px] w-[1678px] h-[642px] rounded-[20px] hero-section">
+          {/* Hero Background - z-index를 높여 텍스트보다 우선순위 높임 */}
+          <div className="absolute inset-0 w-full h-full z-[100] hero-background">
             <img 
               src={`${basePath}/images/heroimg.png`} 
               alt="Hero Background" 
@@ -289,7 +290,7 @@ const Index = () => {
           {/* Hero Text */}
           <EnhancedAnimatedSection 
             delay={0.3} 
-            className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed"
+            className="absolute -top-[53px] left-[calc(16.6667%+138px)] w-[397px] leading-relaxed z-[80]"
             animationType="fadeRight"
             duration={1.2}
           >
@@ -300,8 +301,13 @@ const Index = () => {
           </EnhancedAnimatedSection>
         </section>
 
-        {/* Philosophy Section - scroll-reveal 클래스 추가 */}
-        <section className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section scroll-reveal">
+        {/* Philosophy Section - 자연스러운 개별 애니메이션 적용 */}
+        <EnhancedAnimatedSection 
+          className="absolute top-[789px] left-[120px] w-[1680px] philosophy-section"
+          animationType="fadeUp"
+          delay={0.2}
+          duration={1.0}
+        >
           <div className="flex gap-[50px] text-2xl leading-[160%] text-gray-900 text-justify font-medium">
             <div className="flex-1 w-[520px] philosophy-text">
               <p>I believe good design aligns structure with perception. It should not only work, but feel right. A clear flow, supported by intentional visuals and language, helps users act without hesitation. To me, aesthetics are part of how we communicate</p>
@@ -313,102 +319,167 @@ const Index = () => {
               <p>I don't separate function and form — I design them together, so users don't have to think twice. Every detail, from spacing to wording, exists to support a single goal: clarity. Good design earns trust by being clear, calm, and out of the way.</p>
             </div>
           </div>
-        </section>
+        </EnhancedAnimatedSection>
 
-        {/* Skills Section - scroll-reveal 클래스 추가 */}
-        <section className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section scroll-reveal">
+        {/* Skills Section */}
+        <EnhancedAnimatedSection 
+          className="absolute top-[990px] left-0 w-full h-[120px] overflow-hidden skills-section"
+          animationType="scale"
+          delay={0.3}
+          duration={0.8}
+        >
           <div className="absolute -left-[72px] w-[2064px] h-full skills-scroll">
             <SkillsScroll />
           </div>
-        </section>
+        </EnhancedAnimatedSection>
 
-        {/* Work Section - scroll-reveal 클래스 추가 */}
-        <section id="work" className="absolute top-[1316px] left-0 w-full work-section scroll-reveal">
-          <div className="absolute left-[calc(4.16667%+40px)]">
+        {/* Work Section - 개별적이고 자연스러운 애니메이션 */}
+        <section id="work" className="absolute top-[1316px] left-0 w-full work-section">
+          <EnhancedAnimatedSection 
+            className="absolute left-[calc(4.16667%+40px)]"
+            animationType="fadeLeft"
+            delay={0.2}
+            duration={0.8}
+          >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight mb-[60px]">Work</h2>
-          </div>
+          </EnhancedAnimatedSection>
 
-          {/* Project Row 1 - scroll-reveal 클래스 추가 */}
-          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)] scroll-reveal">
-            <div className="w-[821px] work-project">
+          {/* Project Row 1 - 각 프로젝트별 개별 애니메이션 */}
+          <div className="absolute top-[120px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+            <EnhancedAnimatedSection 
+              className="w-[821px] work-project"
+              animationType="fadeUp"
+              delay={0.3}
+              duration={0.9}
+            >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/hopeposter.png`} alt="HOPE Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">HOPE</h3>
-            </div>
+            </EnhancedAnimatedSection>
 
-            <div className="w-[821px] work-project">
+            <EnhancedAnimatedSection 
+              className="w-[821px] work-project"
+              animationType="fadeUp"
+              delay={0.5}
+              duration={0.9}
+            >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/madmax.png`} alt="MAD MAX Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">MAD MAX</h3>
-            </div>
+            </EnhancedAnimatedSection>
           </div>
 
-          {/* Project Row 2 - scroll-reveal 클래스 추가 */}
-          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)] scroll-reveal">
-            <div className="w-[821px] work-project">
+          {/* Project Row 2 - 각 프로젝트별 개별 애니메이션 */}
+          <div className="absolute top-[1201px] left-[120px] flex gap-[30px] w-[calc(100%-240px)]">
+            <EnhancedAnimatedSection 
+              className="w-[821px] work-project"
+              animationType="fadeUp"
+              delay={0.2}
+              duration={0.9}
+            >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/musicplayer.png`} alt="PIXEL MUSIC PLAYER Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">PIXEL MUSIC PLAYER</h3>
-            </div>
+            </EnhancedAnimatedSection>
 
-            <div className="w-[821px] work-project">
+            <EnhancedAnimatedSection 
+              className="w-[821px] work-project"
+              animationType="fadeUp"
+              delay={0.4}
+              duration={0.9}
+            >
               <div className="w-[821px] h-[887px] rounded-none overflow-hidden mb-[30px] relative">
                 <img src={`${basePath}/images/nigeria.png`} alt="NIGERIA RAILWAY Project" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <h3 className="text-[28px] font-medium text-gray-900 leading-tight">NIGERIA RAILWAY DEPARTMENT WEBSITE REDESIGN</h3>
-            </div>
+            </EnhancedAnimatedSection>
           </div>
         </section>
 
-        {/* About Section - scroll-reveal 클래스 추가 */}
-        <section id="about" className="absolute top-[3700px] left-0 w-full about-section scroll-reveal">
-          <div className="absolute left-[calc(4.16667%+40px)]">
+        {/* About Section - 개별적이고 자연스러운 애니메이션 */}
+        <section id="about" className="absolute top-[3700px] left-0 w-full about-section">
+          <EnhancedAnimatedSection 
+            className="absolute left-[calc(4.16667%+40px)]"
+            animationType="fadeRight"
+            delay={0.2}
+            duration={0.8}
+          >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">About</h2>
-          </div>
+          </EnhancedAnimatedSection>
 
           <div className="absolute top-[121px] left-[120px] flex gap-[120px] w-[calc(100%-240px)]">
-            <div className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image scroll-reveal">
+            <EnhancedAnimatedSection 
+              className="w-[821px] h-[887px] overflow-hidden flex-shrink-0 about-image"
+              animationType="fadeLeft"
+              delay={0.3}
+              duration={1.0}
+            >
               <img src={`${basePath}/images/face.png`} alt="Songhee's Profile" className="w-full h-full object-cover" />
-            </div>
+            </EnhancedAnimatedSection>
 
-            <div className="flex-1 flex flex-col max-w-[821px] scroll-reveal">
-              <div className="mb-[40px]">
+            <div className="flex-1 flex flex-col max-w-[821px]">
+              <EnhancedAnimatedSection 
+                className="mb-[40px]"
+                animationType="fadeUp"
+                delay={0.4}
+                duration={0.9}
+              >
                 <h3 className="font-garamond font-light italic text-[110px] leading-tight text-gray-900 whitespace-nowrap">
                   Hi, I'm Songhee
                 </h3>
-              </div>
+              </EnhancedAnimatedSection>
 
-              <div className="mb-[80px]">
+              <EnhancedAnimatedSection 
+                className="mb-[80px]"
+                animationType="fadeUp"
+                delay={0.6}
+                duration={0.9}
+              >
                 <p className="text-2xl leading-[200%] text-gray-900 text-justify">
                   I'm a UX designer who starts with structure — not surface. I focus on identifying hesitation points in a user's journey and turning them into seamless, intuitive flows. My process values logic, clarity, and repeatable decisions that scale. To me, design is about removing friction, not adding noise. Whether through research, flow mapping, or UI refinement, I aim to create interactions that feel natural — not because they explain themselves, but because they don't need to.
                 </p>
-              </div>
+              </EnhancedAnimatedSection>
 
-              {/* Experience Section - 간격을 더 늘림 */}
+              {/* Experience Section - 각 항목별 개별 애니메이션 */}
               <div className="w-full">
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                <EnhancedAnimatedSection 
+                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
+                  animationType="fadeLeft"
+                  delay={0.7}
+                  duration={0.7}
+                >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Visual Communication Design</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Korean Polytechnic @ 24-26</span>
                   </div>
-                </div>
+                </EnhancedAnimatedSection>
 
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                <EnhancedAnimatedSection 
+                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
+                  animationType="fadeLeft"
+                  delay={0.8}
+                  duration={0.7}
+                >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">UX/UI Designer</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">RoopreKorea @ 21.4-22.1</span>
                   </div>
-                </div>
+                </EnhancedAnimatedSection>
 
-                <div className="py-[35px] flex justify-between items-center border-t border-gray-700">
+                <EnhancedAnimatedSection 
+                  className="py-[35px] flex justify-between items-center border-t border-gray-700"
+                  animationType="fadeLeft"
+                  delay={0.9}
+                  duration={0.7}
+                >
                   <h4 className="text-[28px] font-medium text-gray-900 leading-tight">Product Design Certification</h4>
                   <div className="flex items-center">
                     <span className="font-mono text-lg text-gray-500">Blossom UX School @ 22.7-23.2</span>
                   </div>
-                </div>
+                </EnhancedAnimatedSection>
 
                 <div className="border-t border-gray-700" />
               </div>
@@ -416,13 +487,23 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section - scroll-reveal 클래스 추가 */}
-        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section scroll-reveal">
-          <div className="absolute left-[calc(4.16667%+40px)]">
+        {/* Contact Section - 자연스러운 개별 애니메이션 */}
+        <section id="contact" className="relative top-[5000px] left-0 w-full contact-section">
+          <EnhancedAnimatedSection 
+            className="absolute left-[calc(4.16667%+40px)]"
+            animationType="fadeDown"
+            delay={0.2}
+            duration={0.8}
+          >
             <h2 className="text-5xl font-medium text-gray-900 leading-tight">Contact</h2>
-          </div>
+          </EnhancedAnimatedSection>
 
-          <div className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10">
+          <EnhancedAnimatedSection 
+            className="absolute top-[415px] left-1/2 transform -translate-x-1/2 text-center z-10"
+            animationType="scale"
+            delay={0.4}
+            duration={1.0}
+          >
             <h3 
               className="text-[130px] font-medium text-gray-900 leading-tight mb-[40px] cursor-pointer transition-transform duration-500 hover:scale-105 contact-title"
               onClick={openEmail}
@@ -454,12 +535,17 @@ const Index = () => {
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Behance</a>
               <a href="#" className="text-4xl text-gray-900 no-underline font-medium transition-colors duration-500 hover:text-indigo-600">Portfolio</a>
             </div>
-          </div>
+          </EnhancedAnimatedSection>
 
-          {/* Background Image - 기울어짐 제거 */}
-          <div className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0">
+          {/* Background Image */}
+          <EnhancedAnimatedSection 
+            className="absolute top-[132px] left-[182px] w-[1557px] h-[796px] z-0"
+            animationType="fadeUp"
+            delay={0.6}
+            duration={1.2}
+          >
             <img src={`${basePath}/images/emailme.png`} alt="Contact Background" className="w-full h-full object-cover rounded-[20px]" />
-          </div>
+          </EnhancedAnimatedSection>
         </section>
 
         {/* Footer */}
