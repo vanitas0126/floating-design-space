@@ -20,18 +20,23 @@ const ScrollHeader = () => {
     console.log('Scrolling to section:', sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
+      console.log('Element found, offsetTop:', element.offsetTop);
       const elementTop = element.offsetTop;
-      const headerHeight = 80;
-      const additionalOffset = 20;
+      const headerHeight = 60; // 실제 헤더 높이에 맞춤
+      const additionalOffset = 100; // About 섹션 제목이 잘 보이도록 더 큰 오프셋
+      
+      const scrollTarget = elementTop - headerHeight - additionalOffset;
+      console.log('Scroll target:', scrollTarget);
       
       window.scrollTo({
-        top: elementTop - headerHeight - additionalOffset,
+        top: scrollTarget,
         behavior: 'smooth'
       });
 
       // 스크롤 후 해당 섹션의 애니메이션 트리거
       setTimeout(() => {
         const animatedElements = element.querySelectorAll('[class*="opacity-0"], [class*="translate-y"]');
+        console.log('Found animated elements:', animatedElements.length);
         animatedElements.forEach((el, index) => {
           setTimeout(() => {
             el.classList.add('animate-fade-in');
